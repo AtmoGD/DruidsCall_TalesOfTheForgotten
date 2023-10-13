@@ -5,14 +5,25 @@ using UnityEngine;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
+/*
+KNOWN LIMITATIONS:
+- Can't save to subfolders
+*/
+
 public static class SaveSystem
 {
     private static readonly string persistantPath = Application.persistentDataPath + "\\";
-    public static void SaveData<T>(T _data, string _path)
+    private static readonly string savesListName = "GameSaves.list";
+    private static List<string> savesList = new();
+
+    public static void SaveData<T>(T _data, string _path, bool _addToSavesList = true)
     {
         try
         {
             Serialize(_data, _path);
+
+            if (_addToSavesList)
+                AddToSavesList(_path);
         }
         catch (Exception e)
         {
@@ -31,25 +42,23 @@ public static class SaveSystem
         {
             Debug.LogError("CAN'T LOAD DATA! - REASON: " + e.Message);
         }
-        T result = default;
-        return result;
+
+        return default;
     }
 
     public static bool DeleteData(string _path)
     {
-        if (File.Exists(persistantPath + _path))
-        {
-            File.Delete(persistantPath + _path);
-            return true;
-        }
+        if (!File.Exists(persistantPath + _path)) return false;
 
-        return false;
+        File.Delete(persistantPath + _path);
+
+        RemoveFromSavesList(_path);
+
+        return true;
     }
 
     private static void Serialize<T>(T _data, string _path)
     {
-        CheckPath(_path);
-
         BinaryFormatter formatter = new();
         FileStream stream = new(persistantPath + _path, FileMode.Create);
 
@@ -64,7 +73,11 @@ public static class SaveSystem
             BinaryFormatter formatter = new();
             FileStream stream = new(persistantPath + _path, FileMode.Open);
 
-            T data = (T)formatter.Deserialize(stream);
+            T data = default;
+
+            if (stream.Length != 0)
+                data = (T)formatter.Deserialize(stream);
+
             stream.Close();
 
             return data;
@@ -75,17 +88,36 @@ public static class SaveSystem
         return default;
     }
 
-    private static void CheckPath(string _path)
+    public static List<string> LoadSavesList()
     {
-        string[] folders = _path.Split('\\');
-        Array.Resize(ref folders, folders.Length - 1);
+        savesList = Deserialize<List<string>>(savesListName);
+        savesList ??= new List<string>();
+        return savesList;
+    }
 
-        string path = persistantPath;
-        foreach (string folder in folders)
-        {
-            path += folder + "\\";
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-        }
+    private static void SaveSavesList()
+    {
+        Serialize(savesList, savesListName);
+        LoadSavesList();
+    }
+
+    public static void AddToSavesList(string _path)
+    {
+        LoadSavesList();
+
+        if (!savesList.Contains(_path))
+            savesList.Add(_path);
+
+        SaveSavesList();
+    }
+
+    public static void RemoveFromSavesList(string _path)
+    {
+        LoadSavesList();
+
+        if (savesList.Contains(_path))
+            savesList.Remove(_path);
+
+        SaveSavesList();
     }
 }

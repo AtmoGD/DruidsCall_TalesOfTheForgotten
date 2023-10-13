@@ -17,11 +17,14 @@ public class PlayerEditor : Editor
     {
         EditorGUILayout.BeginHorizontal();
 
-        if (GUILayout.Button("Load Data"))
+        if (GUILayout.Button("Load"))
             player.LoadData();
 
-        if (GUILayout.Button("Save Data"))
+        if (GUILayout.Button("Save"))
             player.SaveData();
+
+        if (GUILayout.Button("Delete"))
+            SaveSystem.DeleteData(player.Data.FileName);
 
         EditorGUILayout.EndHorizontal();
 
