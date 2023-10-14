@@ -15,12 +15,13 @@ public class CharacterFalling : CharacterState
 
     public override void FrameUpdate()
     {
-        Debug.Log("Updating Falling State");
+        if (character.IsGrounded)
+            character.ChangeState(new CharacterLanding(character));
     }
 
     public override void PhysicsUpdate()
     {
-        Debug.Log("Updating Falling Physics");
+        character.Rigidbody.gravityScale = -character.FallCurve.Evaluate(timeInState);
     }
 
     public override void Exit()

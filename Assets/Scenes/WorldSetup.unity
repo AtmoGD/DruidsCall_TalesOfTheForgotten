@@ -536,7 +536,7 @@ MonoBehaviour:
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
   maxNearestNodeDistance: 100
-  scanOnStartup: 1
+  scanOnStartup: 0
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
@@ -1000,7 +1000,7 @@ PrefabInstance:
     - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <Rigidbody>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6658064991134867531}
     - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <GroundedBoxSize>k__BackingField.x
       value: 0.6
@@ -1017,13 +1017,33 @@ PrefabInstance:
       propertyPath: <GroundedBoxOffset>k__BackingField.y
       value: -0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].time
+      value: 0.51229364
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].value
+      value: -2.4915092
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].inSlope
+      value: -12.049999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].inWeight
+      value: 0.04897857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].outSlope
+      value: -12.049999
+      objectReference: {fileID: 0}
     - target: {fileID: 6062189345492367134, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.75
       objectReference: {fileID: 0}
     - target: {fileID: 6062189345492367134, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.17
+      value: -8.03
       objectReference: {fileID: 0}
     - target: {fileID: 6062189345492367134, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1064,8 +1084,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7156239627978556543, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 6658064991134867531}
   m_SourcePrefab: {fileID: 100100000, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+--- !u!1 &6658064991134867526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7156239627978556543, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+  m_PrefabInstance: {fileID: 6658064991134867525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &6658064991134867531
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658064991134867526}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1001 &9076198916339049329
 PrefabInstance:
   m_ObjectHideFlags: 0

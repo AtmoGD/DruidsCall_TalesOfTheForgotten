@@ -12,6 +12,8 @@ public class CharacterLanding : CharacterState
     {
         base.Enter();
         Debug.Log("Entering Landing State");
+
+        character.ChangeState(new CharacterIdle(character));
     }
 
     public override void FrameUpdate()
