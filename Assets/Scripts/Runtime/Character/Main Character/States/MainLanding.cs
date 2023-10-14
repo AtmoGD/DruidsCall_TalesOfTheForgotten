@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterLanding : CharacterState
+public class MainLanding : MainState
 {
-    public CharacterLanding(Character character) : base(character)
+    public MainLanding(MainCharacter character) : base(character)
     {
     }
 
@@ -13,7 +13,7 @@ public class CharacterLanding : CharacterState
         base.Enter();
         Debug.Log("Entering Landing State");
 
-        character.ChangeState(new CharacterIdle(character));
+        character.ChangeState(new MainIdle(character));
     }
 
     public override void FrameUpdate()

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterFalling : CharacterState
+public class MainFalling : MainState
 {
-    public CharacterFalling(Character character) : base(character)
+    public MainFalling(MainCharacter character) : base(character)
     {
     }
 
@@ -16,7 +16,7 @@ public class CharacterFalling : CharacterState
     public override void FrameUpdate()
     {
         if (character.IsGrounded)
-            character.ChangeState(new CharacterLanding(character));
+            character.ChangeState(new MainLanding(character));
     }
 
     public override void PhysicsUpdate()

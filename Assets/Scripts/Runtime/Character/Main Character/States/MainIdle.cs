@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterIdle : CharacterState
+public class MainIdle : MainState
 {
-    public CharacterIdle(Character character) : base(character)
+    public MainIdle(MainCharacter character) : base(character)
     {
     }
 
@@ -18,7 +18,7 @@ public class CharacterIdle : CharacterState
         Debug.Log("Updating Idle State");
 
         if (!character.IsGrounded)
-            character.ChangeState(new CharacterFalling(character));
+            character.ChangeState(new MainFalling(character));
 
 
 

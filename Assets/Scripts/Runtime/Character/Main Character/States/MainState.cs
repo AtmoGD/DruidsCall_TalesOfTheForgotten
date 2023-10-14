@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterState : State
+public class MainState : State
 {
-    protected Character character;
+    protected MainCharacter character;
     protected float startTime;
     protected float timeInState => Time.time - startTime;
 
-    public CharacterState(Character character)
+    public MainState(MainCharacter character)
     {
         this.character = character;
 
