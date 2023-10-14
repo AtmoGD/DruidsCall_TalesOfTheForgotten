@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class MainIdle : MainState
 {
-    public MainIdle(MainCharacter character) : base(character)
-    {
-    }
+    public MainIdle(MainCharacter character) : base(character) { }
 
     public override void Enter()
     {
@@ -15,13 +13,14 @@ public class MainIdle : MainState
 
     public override void FrameUpdate()
     {
-        Debug.Log("Updating Idle State");
-
         if (!character.IsGrounded)
-            character.ChangeState(new MainFalling(character));
+            character.ChangeState(character.Falling);
 
+        if (character.CurrentInput.Jump)
+            character.ChangeState(character.Jumping);
 
-
+        if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f)
+            character.ChangeState(character.Running);
     }
 
     public override void PhysicsUpdate()

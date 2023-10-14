@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class MainFalling : MainState
 {
-    public MainFalling(MainCharacter character) : base(character)
-    {
-    }
+    public MainFalling(MainCharacter character) : base(character) { }
 
     public override void Enter()
     {
@@ -16,7 +14,7 @@ public class MainFalling : MainState
     public override void FrameUpdate()
     {
         if (character.IsGrounded)
-            character.ChangeState(new MainLanding(character));
+            character.ChangeState(character.Landing);
     }
 
     public override void PhysicsUpdate()

@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class MainLanding : MainState
 {
-    public MainLanding(MainCharacter character) : base(character)
-    {
-    }
+    public MainLanding(MainCharacter character) : base(character) { }
 
     public override void Enter()
     {
         base.Enter();
         Debug.Log("Entering Landing State");
 
-        character.ChangeState(new MainIdle(character));
+        character.ChangeState(character.Idle);
     }
 
     public override void FrameUpdate()
