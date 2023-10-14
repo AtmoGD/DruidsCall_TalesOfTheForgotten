@@ -781,6 +781,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <Rigidbody>k__BackingField
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <GroundedBoxSize>k__BackingField.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <GroundedBoxSize>k__BackingField.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <GroundLayer>k__BackingField.m_Bits
+      value: 5120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348940967997717133, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <GroundedBoxOffset>k__BackingField.y
+      value: -0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6062189345492367134, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
