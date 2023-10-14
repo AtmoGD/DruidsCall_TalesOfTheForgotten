@@ -10,10 +10,12 @@ public class Character : StateMachine
 
     [field: SerializeField] public AnimationCurve FallCurve { get; private set; } = null;
 
+
     [field: SerializeField] public Vector2 GroundedBoxSize { get; private set; } = Vector2.one;
     [field: SerializeField] public Vector2 GroundedBoxOffset { get; private set; } = Vector2.zero;
     [field: SerializeField] public LayerMask GroundLayer { get; private set; } = 0;
     public bool IsGrounded => Physics2D.OverlapBox(transform.position + (Vector3)GroundedBoxOffset, GroundedBoxSize, 0, GroundLayer);
+
     private void Awake()
     {
         Idle = new CharacterIdle(this);
