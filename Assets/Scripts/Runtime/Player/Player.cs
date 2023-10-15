@@ -8,11 +8,11 @@ public class Player : MonoBehaviour
     [field: SerializeField] public PlayerData Data { get; private set; } = new PlayerData();
     [field: SerializeField] public Character Character { get; private set; } = null;
 
-    [field: SerializeField] public bool IsAactive { get; private set; } = false;
+    [field: SerializeField] public bool IsActive { get; private set; } = false;
 
     private void Update()
     {
-        if (InputController && Character && IsAactive) Character.CurrentInput = InputController.Data;
+        if (InputController && Character && IsActive) Character.CurrentInput = InputController.Data;
     }
 
     public void SaveData()

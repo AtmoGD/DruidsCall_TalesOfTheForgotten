@@ -8,11 +8,15 @@ public class MainIdle : MainState
 
     public override void Enter()
     {
+        base.Enter();
+
         Debug.Log("Entering Idle State");
     }
 
     public override void FrameUpdate()
     {
+        base.FrameUpdate();
+
         if (!character.IsGrounded)
             character.ChangeState(character.Falling);
 
@@ -20,16 +24,18 @@ public class MainIdle : MainState
             character.ChangeState(character.Jumping);
 
         if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f)
-            character.ChangeState(character.Running);
+            character.ChangeState(character.Accelerating);
     }
 
     public override void PhysicsUpdate()
     {
-        Debug.Log("Updating Idle Physics");
+        base.PhysicsUpdate();
     }
 
     public override void Exit()
     {
+        base.Exit();
+
         Debug.Log("Exiting Idle State");
     }
 }

@@ -37,7 +37,7 @@ public class InputController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _data.Move = context.ReadValue<Vector2>();
-        Debug.Log(_data.Move);
+        // print(_data.Move);
     }
 
     public void OnJump(InputAction.CallbackContext context)

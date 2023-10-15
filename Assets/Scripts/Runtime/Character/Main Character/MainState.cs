@@ -11,7 +11,10 @@ public class MainState : State
     public MainState(MainCharacter character)
     {
         this.character = character;
+    }
 
+    public override void Enter()
+    {
         startTime = Time.time;
     }
 }

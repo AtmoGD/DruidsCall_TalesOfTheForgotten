@@ -8,21 +8,25 @@ public class MainJumping : MainState
 
     public override void Enter()
     {
+        base.Enter();
+
         Debug.Log("Entering Jumping State");
     }
 
     public override void FrameUpdate()
     {
-        Debug.Log("Updating Jumping State");
+        base.FrameUpdate();
     }
 
     public override void PhysicsUpdate()
     {
-        Debug.Log("Updating Jumping Physics");
+        base.PhysicsUpdate();
     }
 
     public override void Exit()
     {
+        base.Exit();
+
         Debug.Log("Exiting Jumping State");
     }
 }

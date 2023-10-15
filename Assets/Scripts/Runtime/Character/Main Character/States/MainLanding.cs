@@ -9,6 +9,7 @@ public class MainLanding : MainState
     public override void Enter()
     {
         base.Enter();
+
         Debug.Log("Entering Landing State");
 
         character.ChangeState(character.Idle);
@@ -17,18 +18,17 @@ public class MainLanding : MainState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-        Debug.Log("Updating Landing State");
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        Debug.Log("Updating Landing Physics");
     }
 
     public override void Exit()
     {
         base.Exit();
+
         Debug.Log("Exiting Landing State");
     }
 }
