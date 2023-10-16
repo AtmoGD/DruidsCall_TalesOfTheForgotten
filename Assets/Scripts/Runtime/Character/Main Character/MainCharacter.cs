@@ -6,6 +6,7 @@ public class MainCharacter : GroundCharacter
 {
     public MainState Idle { get; private set; }
     public MainState Accelerating { get; private set; }
+    public MainState Moving { get; private set; }
     public MainState Running { get; private set; }
     public MainState Deccelerating { get; private set; }
     public MainState Jumping { get; private set; }
@@ -23,6 +24,7 @@ public class MainCharacter : GroundCharacter
     private void Awake()
     {
         Idle = new MainIdle(this);
+        Moving = new MainMoving(this);
         Accelerating = new MainAccelerating(this);
         Running = new MainRunning(this);
         Deccelerating = new MainDeccelerating(this);

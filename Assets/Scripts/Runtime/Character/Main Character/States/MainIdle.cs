@@ -24,7 +24,7 @@ public class MainIdle : MainState
             character.ChangeState(character.Jumping);
 
         if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f)
-            character.ChangeState(character.Accelerating);
+            character.ChangeState(character.Moving);
     }
 
     public override void PhysicsUpdate()
