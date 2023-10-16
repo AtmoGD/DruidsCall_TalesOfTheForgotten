@@ -132,11 +132,92 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Rigidbody>k__BackingField: {fileID: 922206058694222237}
+  <Animator>k__BackingField: {fileID: 0}
+  <CurrentInput>k__BackingField:
+    Move: {x: 0, y: 0}
+    LastMoveDirection: 1
+    Jump: 0
+    Attack: 0
   <GroundedBoxSize>k__BackingField: {x: 0.8, y: 0.2}
   <GroundedBoxOffset>k__BackingField: {x: 0, y: -0.95}
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 5120
+  <AccelerationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.198558
+      outSlope: 6.198558
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.041857634
+    - serializedVersion: 3
+      time: 0.30904576
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <ResetAccelerationOnDirectionChange>k__BackingField: 1
+  <DeccelerationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.24583334
+    - serializedVersion: 3
+      time: 0.20568338
+      value: 0
+      inSlope: -11.763979
+      outSlope: -11.763979
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05502052
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <MaxSpeed>k__BackingField: 15
+  <JumpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <JumpHeight>k__BackingField: 1
   <FallCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
@@ -161,6 +242,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  <StateText>k__BackingField: {fileID: 0}
 --- !u!50 &922206058694222237
 Rigidbody2D:
   serializedVersion: 4

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GroundCharacter : Character
 {
+    [field: Header("Ground Check Parameters")]
     [field: SerializeField] public Vector2 GroundedBoxSize { get; private set; } = Vector2.one;
     [field: SerializeField] public Vector2 GroundedBoxOffset { get; private set; } = Vector2.zero;
     [field: SerializeField] public LayerMask GroundLayer { get; private set; } = 0;
