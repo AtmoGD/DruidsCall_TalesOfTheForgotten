@@ -8,47 +8,34 @@ using System;
 public class InputData
 {
     public Vector2 Move = Vector2.zero;
+    public int LastMoveDirection = 1;
     public bool Jump = false;
     public bool Attack = false;
 }
 
 public class InputController : MonoBehaviour
 {
-    [field: SerializeField] public List<InputData> DataHistory { get; private set; } = new List<InputData>();
-    // public InputData Data => DataHistory[^1];
-    public InputData Data => _data;
-    private InputData _data = new();
-
-    private void Start()
-    {
-        // DataHistory.Add(new InputData());
-    }
-
-    private void Update()
-    {
-    }
-
-    private void LateUpdate()
-    {
-        // DataHistory.Add(_data);
-        // _data = new InputData();
-    }
+    public InputData Data { get; private set; } = new InputData();
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _data.Move = context.ReadValue<Vector2>();
-        // print(_data.Move);
+        Data.Move = context.ReadValue<Vector2>();
+
+        if (Data.Move.x > 0.1f)
+            Data.LastMoveDirection = 1;
+        else if (Data.Move.x < -0.1f)
+            Data.LastMoveDirection = -1;
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.started)
-            _data.Jump = context.started || context.performed;
+            Data.Jump = context.started || context.performed;
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.started)
-            _data.Attack = context.started || context.performed;
+            Data.Attack = context.started || context.performed;
     }
 }

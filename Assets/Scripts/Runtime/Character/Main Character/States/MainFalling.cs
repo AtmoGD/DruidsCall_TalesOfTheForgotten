@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainFalling : MainState
+public class MainFalling : MainMoving
 {
     public MainFalling(MainCharacter character) : base(character) { }
 
@@ -16,9 +16,6 @@ public class MainFalling : MainState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-
-        if (character.IsGrounded)
-            character.ChangeState(character.Landing);
     }
 
     public override void PhysicsUpdate()
@@ -26,6 +23,14 @@ public class MainFalling : MainState
         base.PhysicsUpdate();
 
         character.Rigidbody.gravityScale = -character.FallCurve.Evaluate(timeInState);
+    }
+
+    public override void DoStateChecks()
+    {
+        // base.DoStateChecks(); <---- This is commented out because we don't want to run the base class's DoStateChecks() method
+
+        if (character.IsGrounded)
+            character.ChangeState(character.Idle);
     }
 
     public override void Exit()

@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMoving : MainState
 {
-    private int dir = 1;
     private bool accelerating = false;
     private bool updateAccelerationTime = false;
     private float alreadyAccelerated = 0f;
+    private int lastDir = 1;
+    private bool directionChanged = false;
 
+    protected bool CanMoveHorizontal { get; set; } = true;
 
     public MainMoving(MainCharacter character) : base(character) { }
 
@@ -16,7 +19,10 @@ public class MainMoving : MainState
     {
         base.Enter();
 
-        updateAccelerationTime = true;
+        if (Mathf.Abs(character.CurrentInput.Move.x) < 0.1f && Mathf.Abs(character.Rigidbody.velocity.x) < 0.1f)
+            alreadyAccelerated = character.DeccelerationCurve.keys[^1].time;
+
+        lastDir = character.CurrentInput.LastMoveDirection;
 
         Debug.Log("Entering Moving State");
     }
@@ -25,25 +31,36 @@ public class MainMoving : MainState
     {
         base.FrameUpdate();
 
-        if (!character.IsGrounded)
-            character.ChangeState(character.Falling);
+        if (!CanMoveHorizontal) return;
 
-        if (Mathf.Abs(character.Rigidbody.velocity.x) < 0.1f)
-            character.ChangeState(character.Idle);
+        alreadyAccelerated += Time.deltaTime;
+
+        CheckDirection();
+
+        UpdateIsAccelerating();
+
+        if (updateAccelerationTime)
+            UpdateAccelerationTime();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
 
-        UpdateIsAccelerating();
-
-        UpdateDirection();
-
-        if (updateAccelerationTime)
-            UpdateAccelerationTime();
+        if (!CanMoveHorizontal) return;
 
         MoveHorizontal();
+    }
+
+    public override void DoStateChecks()
+    {
+        base.DoStateChecks();
+
+        if (!character.IsGrounded)
+            character.ChangeState(character.Falling);
+
+        if (Mathf.Abs(character.Rigidbody.velocity.x) < 0.1f && !accelerating)
+            character.ChangeState(character.Idle);
     }
 
     public override void Exit()
@@ -53,70 +70,57 @@ public class MainMoving : MainState
         Debug.Log("Exiting Moving State");
     }
 
+    private void CheckDirection()
+    {
+        if (!character.ResetAccelerationOnDirectionChange) return;
+
+        if (lastDir != character.CurrentInput.LastMoveDirection)
+        {
+            lastDir = character.CurrentInput.LastMoveDirection;
+            directionChanged = true;
+        }
+    }
+
     private void MoveHorizontal()
     {
-        float acceleration = 0f;
+        float acceleration;
+
         if (accelerating)
-        {
-            acceleration = character.AccelerationCurve.Evaluate(timeInState + alreadyAccelerated);
-        }
+            acceleration = character.AccelerationCurve.Evaluate(alreadyAccelerated) * Mathf.Abs(character.CurrentInput.Move.x);
         else
-        {
-            acceleration = character.DeccelerationCurve.Evaluate(timeInState + alreadyAccelerated);
-        }
-        float speed = dir * character.MaxSpeed * acceleration;
+            acceleration = character.DeccelerationCurve.Evaluate(alreadyAccelerated);
+
+        float speed = character.CurrentInput.LastMoveDirection * character.MaxSpeed * acceleration;
+
         character.Rigidbody.velocity = new Vector2(speed, character.Rigidbody.velocity.y);
     }
 
-    protected void UpdateDirection()
-    {
-        if (accelerating)
-        {
-            dir = character.CurrentInput.Move.x > 0f ? 1 : -1;
-        }
-        else
-        {
-            dir = character.Rigidbody.velocity.x > 0f ? 1 : -1;
-        }
-    }
 
     protected void UpdateIsAccelerating()
     {
-        if (accelerating)
+        bool newValue = Mathf.Abs(character.CurrentInput.Move.x) > 0.1f;
+        if (newValue != accelerating)
         {
-            if (Mathf.Abs(character.CurrentInput.Move.x) < 0.1f)
-            {
-                if (accelerating)
-                    updateAccelerationTime = true;
-
-                accelerating = false;
-            }
-        }
-        else
-        {
-            if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f)
-            {
-                if (!accelerating)
-                    updateAccelerationTime = true;
-                accelerating = true;
-            }
+            updateAccelerationTime = true;
+            accelerating = newValue;
         }
     }
 
     private void UpdateAccelerationTime()
     {
-        float newAccelerationTime = 0f;
-        float findValue = 0f;
+        float findValue = Mathf.Abs(character.Rigidbody.velocity.x) / character.MaxSpeed;
+
         if (accelerating)
-        {
-            findValue = character.AccelerationCurve.keys[^1].time - (character.MaxSpeed / Mathf.Abs(character.Rigidbody.velocity.x));
-            newAccelerationTime = Utils.FindTimeInCurve(character.AccelerationCurve, findValue);
-        }
+            alreadyAccelerated = Utils.Remap(findValue, 0, 1, 0, character.AccelerationCurve.keys[^1].time);
         else
+            alreadyAccelerated = Utils.Remap(1 - findValue, 0, 1, 0, character.DeccelerationCurve.keys[^1].time);
+
+        if (directionChanged)
         {
-            findValue = character.DeccelerationCurve.keys[^1].time - (character.MaxSpeed / Mathf.Abs(character.Rigidbody.velocity.x));
-            newAccelerationTime = Utils.FindTimeInCurve(character.DeccelerationCurve, findValue);
+            directionChanged = false;
+            alreadyAccelerated = 0f;
         }
-        alreadyAccelerated = newAccelerationTime;
+
+        updateAccelerationTime = false;
     }
 }

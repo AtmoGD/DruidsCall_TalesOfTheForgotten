@@ -17,9 +17,15 @@ public class MainCharacter : GroundCharacter
     [Header("Movement")] private string movementHeader; // Just a variable so i can use the header
 #endif
     [field: SerializeField] public AnimationCurve AccelerationCurve { get; private set; } = null;
+    [field: SerializeField] public bool ResetAccelerationOnDirectionChange { get; private set; } = true;
     [field: SerializeField] public AnimationCurve DeccelerationCurve { get; private set; } = null;
     [field: SerializeField] public float MaxSpeed { get; private set; } = 1f;
     [field: SerializeField] public AnimationCurve FallCurve { get; private set; } = null;
+
+#if UNITY_EDITOR
+    [Header("Debugging")] private string debuggingHeader; // Just a variable so i can use the header
+#endif
+    [field: SerializeField] public TMPro.TMP_Text StateText { get; private set; } = null;
 
     private void Awake()
     {

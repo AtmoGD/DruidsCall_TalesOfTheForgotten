@@ -16,6 +16,16 @@ public class MainIdle : MainState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+
+    public override void DoStateChecks()
+    {
+        base.DoStateChecks();
 
         if (!character.IsGrounded)
             character.ChangeState(character.Falling);
@@ -25,11 +35,6 @@ public class MainIdle : MainState
 
         if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f)
             character.ChangeState(character.Moving);
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
     }
 
     public override void Exit()

@@ -23,6 +23,11 @@ public class MainJumping : MainState
         base.PhysicsUpdate();
     }
 
+    public override void DoStateChecks()
+    {
+        base.DoStateChecks();
+    }
+
     public override void Exit()
     {
         base.Exit();
