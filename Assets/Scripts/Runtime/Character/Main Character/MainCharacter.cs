@@ -59,9 +59,9 @@ public class MainCharacter : GroundCharacter
         StateText.text = CurrentState.GetType().Name;
     }
 
-    public override bool IsGrounded()
+    public override bool Grounded()
     {
-        if (base.IsGrounded())
+        if (base.Grounded())
         {
             JumpsLeft = MaxJumps;
             return true;

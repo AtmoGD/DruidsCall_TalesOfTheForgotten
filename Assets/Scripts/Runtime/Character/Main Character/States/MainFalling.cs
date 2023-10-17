@@ -29,7 +29,7 @@ public class MainFalling : MainMoving
     {
         // base.DoStateChecks(); <---- This is commented out because we don't want to run the base class's DoStateChecks() method
 
-        if (character.IsGrounded())
+        if (character.Grounded())
         {
             if (Mathf.Abs(character.Rigidbody.velocity.x) > 0.1f)
                 character.ChangeState(character.Running);

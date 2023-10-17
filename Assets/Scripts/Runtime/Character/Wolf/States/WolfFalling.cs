@@ -29,7 +29,7 @@ public class WolfFalling : WolfMoving
     {
         // base.DoStateChecks(); <---- This is commented out because we don't want to run the base class's DoStateChecks() method
 
-        if (wolf.IsGrounded())
+        if (wolf.Grounded())
         {
             if (Mathf.Abs(wolf.Rigidbody.velocity.x) > 0.1f)
                 wolf.ChangeState(wolf.Running);

@@ -52,7 +52,7 @@ public class MainMoving : MainState
     {
         base.DoStateChecks();
 
-        if (!character.IsGrounded())
+        if (!character.Grounded())
             character.ChangeState(character.Falling);
 
         if (character.CurrentInput.Jump && character.CanJump)

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4007782480223326153
+--- !u!1 &4784290169458719583
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1680885708919153266}
-  m_Layer: 7
-  m_Name: Skin
+  - component: {fileID: 185817426466289730}
+  m_Layer: 0
+  m_Name: TopPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1680885708919153266
+--- !u!4 &185817426466289730
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4007782480223326153}
+  m_GameObject: {fileID: 4784290169458719583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3964376506749875170}
+  m_Children: []
   m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5484858021436608816
@@ -42,8 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3964376506749875170}
   - component: {fileID: 9012730775144882080}
+  - component: {fileID: 4827585396097924128}
   m_Layer: 7
-  m_Name: Character
+  m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,11 +58,11 @@ Transform:
   m_GameObject: {fileID: 5484858021436608816}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0.060000002, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1680885708919153266}
+  m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9012730775144882080
 SpriteRenderer:
@@ -116,6 +116,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4827585396097924128
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484858021436608816}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65f5257babcc7c245bd6c1c55e325934, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6656036740478908099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5262333932021492213}
+  m_Layer: 0
+  m_Name: GroundedPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5262333932021492213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656036740478908099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6062189345492367134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7156239627978556543
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +200,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1680885708919153266}
+  - {fileID: 3964376506749875170}
+  - {fileID: 5262333932021492213}
+  - {fileID: 185817426466289730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7911190814667251780
@@ -163,34 +217,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847e71956f6106a4d8d102cadce950d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Rigidbody>k__BackingField: {fileID: 922206058694222237}
-  <Animator>k__BackingField: {fileID: 0}
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}
-    LastMoveDirection: -1
+    LastMoveDirection: 1
     Jump: 0
     Attack: 0
-  <GroundedBoxSize>k__BackingField: {x: 0.8, y: 0.2}
-  <GroundedBoxOffset>k__BackingField: {x: 0, y: -0.92}
+  <Rigidbody>k__BackingField: {fileID: 922206058694222237}
+  <Animator>k__BackingField: {fileID: 4827585396097924128}
+  <GroundTransform>k__BackingField: {fileID: 5262333932021492213}
+  <TopTransform>k__BackingField: {fileID: 185817426466289730}
+  <GroundBoxSize>k__BackingField: {x: 0.7, y: 0.1}
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 5120
+  <TopBoxSize>k__BackingField: {x: 0.7, y: 0.1}
+  <TopLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 2048
   <MoveActive>k__BackingField: 1
-  <MaxSpeed>k__BackingField: 18
+  <MaxSpeed>k__BackingField: 13
   <AccelerationCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 6.198558
-      outSlope: 6.198558
+      inSlope: 14.16745
+      outSlope: 14.16745
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.041857634
+      outWeight: 0.036004294
     - serializedVersion: 3
-      time: 0.30904576
+      time: 0.19998737
       value: 1
       inSlope: 0
       outSlope: 0
@@ -215,20 +274,20 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.24583334
     - serializedVersion: 3
-      time: 0.20568338
+      time: 0.110927716
       value: 0
-      inSlope: -11.763979
-      outSlope: -11.763979
+      inSlope: -26.379622
+      outSlope: -26.379622
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.05502052
+      inWeight: 0.04348131
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   <JumpActive>k__BackingField: 1
   <MaxJumps>k__BackingField: 2
-  <JumpHeight>k__BackingField: 35
+  <JumpHeight>k__BackingField: 26
   <MinJumpTime>k__BackingField: 0.12
   <JumpCurve>k__BackingField:
     serializedVersion: 2
@@ -236,20 +295,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -4.4474397
-      outSlope: -4.4474397
+      inSlope: -5.636508
+      outSlope: -5.636508
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.07368422
+      outWeight: 0.039238136
     - serializedVersion: 3
       time: 0.40108374
       value: 0.004716981
-      inSlope: -0.7273913
-      outSlope: -0.7273913
+      inSlope: -0.47372907
+      outSlope: -0.47372907
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.2021022
+      inWeight: 0.21101725
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -260,20 +319,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: -216.71356
-      outSlope: -216.71356
+      inSlope: -267.2646
+      outSlope: -267.2646
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.11379121
+      outWeight: 0.040639706
     - serializedVersion: 3
       time: 0.2849388
       value: -23.755724
-      inSlope: -34.10205
-      outSlope: -34.10205
+      inSlope: -4.899462
+      outSlope: -4.899462
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.2521069
+      inWeight: 0.13340198
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -341,5 +400,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.8, y: 2}
   m_Direction: 0

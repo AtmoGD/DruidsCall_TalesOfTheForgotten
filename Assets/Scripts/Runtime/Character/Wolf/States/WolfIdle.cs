@@ -29,7 +29,7 @@ public class WolfIdle : WolfState
     {
         base.DoStateChecks();
 
-        if (!wolf.IsGrounded())
+        if (!wolf.Grounded())
             wolf.ChangeState(wolf.Falling);
 
         if (wolf.CurrentInput.Jump && wolf.CanJump)
