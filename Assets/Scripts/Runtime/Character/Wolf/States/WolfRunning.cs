@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainRunning : MainMoving
+public class WolfRunning : WolfMoving
 {
-    public MainRunning(MainCharacter _character) : base(_character) { }
+    public WolfRunning(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
     {

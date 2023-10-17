@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class State
 {
+    protected float startTime;
+    protected float timeInState => Time.time - startTime;
+
+
     public virtual void Enter()
     {
-        // Debug.Log("Entering State");
+        startTime = Time.time;
     }
 
     public virtual void FrameUpdate()
     {
-        // Debug.Log("Updating State");
-
         DoStateChecks();
     }
 
-    public virtual void PhysicsUpdate()
-    {
-        // Debug.Log("Updating Physics");
-    }
+    public virtual void PhysicsUpdate() { }
 
-    public virtual void DoStateChecks()
-    {
-        // Debug.Log("Doing State Checks");
-    }
+    public virtual void DoStateChecks() { }
 
-    public virtual void Exit()
-    {
-        // Debug.Log("Exiting State");
-    }
+    public virtual void Exit() { }
 }

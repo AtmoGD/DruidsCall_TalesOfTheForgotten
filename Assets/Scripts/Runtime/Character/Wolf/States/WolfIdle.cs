@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainIdle : MainState
+public class WolfIdle : WolfState
 {
-    public MainIdle(MainCharacter _character) : base(_character) { }
+    public WolfIdle(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
     {
@@ -17,7 +17,7 @@ public class MainIdle : MainState
     {
         base.FrameUpdate();
 
-        character.Rigidbody.velocity = Vector2.zero;
+        wolf.Rigidbody.velocity = Vector2.zero;
     }
 
     public override void PhysicsUpdate()
@@ -29,14 +29,14 @@ public class MainIdle : MainState
     {
         base.DoStateChecks();
 
-        if (!character.IsGrounded())
-            character.ChangeState(character.Falling);
+        if (!wolf.IsGrounded())
+            wolf.ChangeState(wolf.Falling);
 
-        if (character.CurrentInput.Jump && character.CanJump)
-            character.ChangeState(character.Jumping);
+        if (wolf.CurrentInput.Jump && wolf.CanJump)
+            wolf.ChangeState(wolf.Jumping);
 
-        if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f && character.MoveActive)
-            character.ChangeState(character.Running);
+        if (Mathf.Abs(wolf.CurrentInput.Move.x) > 0.1f && wolf.MoveActive)
+            wolf.ChangeState(wolf.Running);
     }
 
     public override void Exit()

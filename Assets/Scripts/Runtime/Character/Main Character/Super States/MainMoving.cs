@@ -13,7 +13,7 @@ public class MainMoving : MainState
 
     protected bool CanMoveHorizontal { get; set; } = true;
 
-    public MainMoving(MainCharacter character) : base(character) { }
+    public MainMoving(MainCharacter _character) : base(_character) { }
 
     public override void Enter()
     {

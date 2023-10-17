@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainJumping : MainMoving
 {
-    public MainJumping(MainCharacter character) : base(character) { }
+    public MainJumping(MainCharacter _character) : base(_character) { }
 
     public override void Enter()
     {

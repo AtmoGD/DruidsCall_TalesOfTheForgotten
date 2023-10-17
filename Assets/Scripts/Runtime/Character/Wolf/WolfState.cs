@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolfState : MonoBehaviour
+public class WolfState : State
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected Wolf wolf;
 
-    // Update is called once per frame
-    void Update()
+    public WolfState(Wolf _wolf)
     {
-        
+        this.wolf = _wolf;
     }
 }

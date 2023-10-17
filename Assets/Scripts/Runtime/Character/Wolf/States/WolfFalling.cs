@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainFalling : MainMoving
+public class WolfFalling : WolfMoving
 {
-    public MainFalling(MainCharacter _character) : base(_character) { }
+    public WolfFalling(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
     {
@@ -29,16 +29,16 @@ public class MainFalling : MainMoving
     {
         // base.DoStateChecks(); <---- This is commented out because we don't want to run the base class's DoStateChecks() method
 
-        if (character.IsGrounded())
+        if (wolf.IsGrounded())
         {
-            if (Mathf.Abs(character.Rigidbody.velocity.x) > 0.1f)
-                character.ChangeState(character.Running);
+            if (Mathf.Abs(wolf.Rigidbody.velocity.x) > 0.1f)
+                wolf.ChangeState(wolf.Running);
             else
-                character.ChangeState(character.Idle);
+                wolf.ChangeState(wolf.Idle);
         }
 
-        if (character.CurrentInput.Jump && character.CanJump)
-            character.ChangeState(character.Jumping);
+        if (wolf.CurrentInput.Jump && wolf.CanJump)
+            wolf.ChangeState(wolf.Jumping);
     }
 
     public override void Exit()
@@ -50,8 +50,8 @@ public class MainFalling : MainMoving
 
     private void MoveDown()
     {
-        float fallSpeed = character.FallCurve.Evaluate(timeInState);
-        fallSpeed = Mathf.Lerp(character.Rigidbody.velocity.y, fallSpeed, character.FallLerpSpeed * Time.deltaTime);
-        character.Rigidbody.velocity = new Vector2(character.Rigidbody.velocity.x, fallSpeed);
+        float fallSpeed = wolf.FallCurve.Evaluate(timeInState);
+        fallSpeed = Mathf.Lerp(wolf.Rigidbody.velocity.y, fallSpeed, wolf.FallLerpSpeed * Time.deltaTime);
+        wolf.Rigidbody.velocity = new Vector2(wolf.Rigidbody.velocity.x, fallSpeed);
     }
 }

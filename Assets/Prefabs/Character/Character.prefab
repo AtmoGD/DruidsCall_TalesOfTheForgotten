@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1680885708919153266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3964376506749875170}
   - component: {fileID: 9012730775144882080}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7911190814667251780}
   - component: {fileID: 922206058694222237}
   - component: {fileID: 6685215740180198465}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
     Jump: 0
     Attack: 0
   <GroundedBoxSize>k__BackingField: {x: 0.8, y: 0.2}
-  <GroundedBoxOffset>k__BackingField: {x: 0, y: -0.95}
+  <GroundedBoxOffset>k__BackingField: {x: 0, y: -0.92}
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 5120
@@ -297,13 +297,13 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c7b9c6add802939429361a2b7ce1a0a1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582746865336081935}
   - component: {fileID: 8830330602745046243}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 682544369309718525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3439847772301405459}
   - component: {fileID: 973918003813365587}
   - component: {fileID: 8649335083049267017}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,124 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd53a426f11c364d8febbe0a214c9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Rigidbody>k__BackingField: {fileID: 973918003813365587}
+  <Animator>k__BackingField: {fileID: 0}
+  <CurrentInput>k__BackingField:
+    Move: {x: 0, y: 0}
+    LastMoveDirection: 1
+    Jump: 0
+    Attack: 0
+  <GroundedBoxSize>k__BackingField: {x: 1.5, y: 0.2}
+  <GroundedBoxOffset>k__BackingField: {x: 0, y: -0.42}
+  <GroundLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 5120
+  <MoveActive>k__BackingField: 1
+  <MaxSpeed>k__BackingField: 18
+  <AccelerationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.198558
+      outSlope: 6.198558
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.041857634
+    - serializedVersion: 3
+      time: 0.30904576
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <ResetAccelerationOnDirectionChange>k__BackingField: 1
+  <DeccelerationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.24583334
+    - serializedVersion: 3
+      time: 0.20568338
+      value: 0
+      inSlope: -11.763979
+      outSlope: -11.763979
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05502052
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <JumpActive>k__BackingField: 1
+  <MaxJumps>k__BackingField: 2
+  <JumpHeight>k__BackingField: 35
+  <MinJumpTime>k__BackingField: 0.12
+  <JumpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -4.4474397
+      outSlope: -4.4474397
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07368422
+    - serializedVersion: 3
+      time: 0.40108374
+      value: 0.004716981
+      inSlope: -0.7273913
+      outSlope: -0.7273913
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2021022
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <FallCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -216.71356
+      outSlope: -216.71356
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.11379121
+    - serializedVersion: 3
+      time: 0.2849388
+      value: -23.755724
+      inSlope: -34.10205
+      outSlope: -34.10205
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2521069
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <FallLerpSpeed>k__BackingField: 15
+  <StateText>k__BackingField: {fileID: 0}
+  <JumpsLeft>k__BackingField: 2
 --- !u!50 &973918003813365587
 Rigidbody2D:
   serializedVersion: 4
@@ -179,17 +297,17 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c9510c3f7a6ab55478af642128b8c3e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &8649335083049267017
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
