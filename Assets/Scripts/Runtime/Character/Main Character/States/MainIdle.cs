@@ -27,14 +27,14 @@ public class MainIdle : MainState
     {
         base.DoStateChecks();
 
-        if (!character.IsGrounded)
+        if (!character.IsGrounded())
             character.ChangeState(character.Falling);
 
-        if (character.CurrentInput.Jump)
+        if (character.CurrentInput.Jump && character.CanJump)
             character.ChangeState(character.Jumping);
 
-        if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f)
-            character.ChangeState(character.Moving);
+        if (Mathf.Abs(character.CurrentInput.Move.x) > 0.1f && character.MoveActive)
+            character.ChangeState(character.Running);
     }
 
     public override void Exit()

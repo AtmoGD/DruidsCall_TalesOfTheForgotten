@@ -16,21 +16,24 @@ public class MainFalling : MainMoving
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+
+        MoveDown();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-        character.Rigidbody.gravityScale = -character.FallCurve.Evaluate(timeInState);
     }
 
     public override void DoStateChecks()
     {
         // base.DoStateChecks(); <---- This is commented out because we don't want to run the base class's DoStateChecks() method
 
-        if (character.IsGrounded)
+        if (character.IsGrounded())
             character.ChangeState(character.Idle);
+
+        if (character.CurrentInput.Jump && character.CanJump)
+            character.ChangeState(character.Jumping);
     }
 
     public override void Exit()
@@ -38,5 +41,12 @@ public class MainFalling : MainMoving
         base.Exit();
 
         Debug.Log("Exiting Falling State");
+    }
+
+    private void MoveDown()
+    {
+        float fallSpeed = character.FallCurve.Evaluate(timeInState);
+        fallSpeed = Mathf.Lerp(character.Rigidbody.velocity.y, fallSpeed, character.FallLerpSpeed * Time.deltaTime);
+        character.Rigidbody.velocity = new Vector2(character.Rigidbody.velocity.x, fallSpeed);
     }
 }

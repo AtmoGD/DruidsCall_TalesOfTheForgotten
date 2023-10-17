@@ -30,12 +30,16 @@ public class InputController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.started)
-            Data.Jump = context.started || context.performed;
+            Data.Jump = true;
+        else if (context.canceled)
+            Data.Jump = false;
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.started)
-            Data.Attack = context.started || context.performed;
+            Data.Attack = true;
+        else if (context.canceled)
+            Data.Attack = false;
     }
 }

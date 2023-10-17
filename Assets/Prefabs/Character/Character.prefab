@@ -143,6 +143,8 @@ MonoBehaviour:
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 5120
+  <MoveActive>k__BackingField: 1
+  <MaxSpeed>k__BackingField: 15
   <AccelerationCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
@@ -192,32 +194,34 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  <MaxSpeed>k__BackingField: 15
+  <JumpActive>k__BackingField: 1
+  <MaxJumps>k__BackingField: 2
+  <JumpHeight>k__BackingField: 8
+  <MinJumpTime>k__BackingField: 0.15
   <JumpCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.012304887
+      outSlope: 0.012304887
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
+      outWeight: 0.63013697
+    - serializedVersion: 3
+      time: 0.4541666
+      value: 0
+      inSlope: -4.81132
+      outSlope: -4.81132
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.050000012
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  <JumpHeight>k__BackingField: 1
   <FallCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
@@ -231,18 +235,20 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.35973573
     - serializedVersion: 3
-      time: 0.42247927
-      value: -2.9506598
-      inSlope: -18.403576
-      outSlope: -18.403576
+      time: 0.2849388
+      value: -9.181921
+      inSlope: -83.73054
+      outSlope: -83.73054
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.048854787
+      inWeight: 0.14888348
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  <FallLerpSpeed>k__BackingField: 10
   <StateText>k__BackingField: {fileID: 0}
+  <JumpsLeft>k__BackingField: 2
 --- !u!50 &922206058694222237
 Rigidbody2D:
   serializedVersion: 4

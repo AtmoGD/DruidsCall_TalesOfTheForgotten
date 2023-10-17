@@ -21,7 +21,7 @@ public class MainAccelerating : MainState
     {
         base.FrameUpdate();
 
-        if (!character.IsGrounded)
+        if (!character.IsGrounded())
             character.ChangeState(character.Falling);
 
         if (Mathf.Abs(character.CurrentInput.Move.x) < 0.1f)

@@ -17,18 +17,30 @@ public class MainCharacter : GroundCharacter
 
     #region Character Settings
     [field: Header("Movement")]
+    [field: SerializeField] public bool MoveActive { get; private set; } = true;
+    [field: SerializeField] public float MaxSpeed { get; private set; } = 1f;
     [field: SerializeField] public AnimationCurve AccelerationCurve { get; private set; } = null;
     [field: SerializeField] public bool ResetAccelerationOnDirectionChange { get; private set; } = true;
     [field: SerializeField] public AnimationCurve DeccelerationCurve { get; private set; } = null;
-    [field: SerializeField] public float MaxSpeed { get; private set; } = 1f;
 
     [field: Header("Jumping")]
-    [field: SerializeField] public AnimationCurve JumpCurve { get; private set; } = null;
+    [field: SerializeField] public bool JumpActive { get; private set; } = true;
+    [field: SerializeField] public int MaxJumps { get; private set; } = 2;
+    public bool CanJump => JumpsLeft > 0 && JumpActive;
     [field: SerializeField] public float JumpHeight { get; private set; } = 1f;
-    [field: SerializeField] public AnimationCurve FallCurve { get; private set; } = null;
+    [field: SerializeField] public float MinJumpTime { get; private set; } = 0.15f;
+    [field: SerializeField] public AnimationCurve JumpCurve { get; private set; } = null;
+    [field: SerializeField] public AnimationCurve FallCurve { get; private set; } = null; //Notiz: Bei Doppelsprung -> je länger man den ersten sprung abwartet desto höher der zweite
+    [field: SerializeField] public float FallLerpSpeed { get; private set; } = 0.1f;
 
     [field: Header("Debugging")]
     [field: SerializeField] public TMPro.TMP_Text StateText { get; private set; } = null;
+    #endregion
+
+    #region Character Variables
+    [field: Header("Runtime Variables")]
+    [field: SerializeField] public int JumpsLeft { get; set; } = 0;
+
     #endregion
 
     private void Awake()
@@ -46,5 +58,16 @@ public class MainCharacter : GroundCharacter
     private void Start()
     {
         ChangeState(Idle);
+    }
+
+    public override bool IsGrounded()
+    {
+        if (base.IsGrounded())
+        {
+            JumpsLeft = MaxJumps;
+            return true;
+        }
+
+        return false;
     }
 }

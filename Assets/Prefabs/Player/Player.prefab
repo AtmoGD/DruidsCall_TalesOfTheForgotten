@@ -65,7 +65,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55bb1bba1d00b6e4893800dc13f5428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DataHistory>k__BackingField: []
 --- !u!114 &4136916301119620034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +106,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b3f2fcf0-5cc1-4ba7-893d-51e838706205
     m_ActionName: Game/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3192359779267453803}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b69de6cc-cdd6-415a-9384-fa569a6371bf
+    m_ActionName: Game/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3192359779267453803}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 13c25b5f-6f77-40c3-a88a-12826147ae29
+    m_ActionName: Game/BaseAttack[/Keyboard/shift,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game

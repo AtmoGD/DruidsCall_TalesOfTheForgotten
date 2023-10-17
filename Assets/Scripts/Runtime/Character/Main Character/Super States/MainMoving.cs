@@ -23,8 +23,6 @@ public class MainMoving : MainState
             alreadyAccelerated = character.DeccelerationCurve.keys[^1].time;
 
         lastDir = character.CurrentInput.LastMoveDirection;
-
-        Debug.Log("Entering Moving State");
     }
 
     public override void FrameUpdate()
@@ -41,23 +39,24 @@ public class MainMoving : MainState
 
         if (updateAccelerationTime)
             UpdateAccelerationTime();
+
+        MoveHorizontal();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-        if (!CanMoveHorizontal) return;
-
-        MoveHorizontal();
     }
 
     public override void DoStateChecks()
     {
         base.DoStateChecks();
 
-        if (!character.IsGrounded)
+        if (!character.IsGrounded())
             character.ChangeState(character.Falling);
+
+        if (character.CurrentInput.Jump && character.CanJump)
+            character.ChangeState(character.Jumping);
 
         if (Mathf.Abs(character.Rigidbody.velocity.x) < 0.1f && !accelerating)
             character.ChangeState(character.Idle);
@@ -66,8 +65,6 @@ public class MainMoving : MainState
     public override void Exit()
     {
         base.Exit();
-
-        Debug.Log("Exiting Moving State");
     }
 
     private void CheckDirection()
