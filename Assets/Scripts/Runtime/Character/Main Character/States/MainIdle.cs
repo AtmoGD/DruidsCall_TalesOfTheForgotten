@@ -16,6 +16,8 @@ public class MainIdle : MainState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+
+        character.Rigidbody.velocity = Vector2.zero;
     }
 
     public override void PhysicsUpdate()

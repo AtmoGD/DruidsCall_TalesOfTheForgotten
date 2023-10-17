@@ -30,7 +30,12 @@ public class MainFalling : MainMoving
         // base.DoStateChecks(); <---- This is commented out because we don't want to run the base class's DoStateChecks() method
 
         if (character.IsGrounded())
-            character.ChangeState(character.Idle);
+        {
+            if (Mathf.Abs(character.Rigidbody.velocity.x) > 0.1f)
+                character.ChangeState(character.Running);
+            else
+                character.ChangeState(character.Idle);
+        }
 
         if (character.CurrentInput.Jump && character.CanJump)
             character.ChangeState(character.Jumping);

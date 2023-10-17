@@ -135,7 +135,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 0}
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}
-    LastMoveDirection: 1
+    LastMoveDirection: -1
     Jump: 0
     Attack: 0
   <GroundedBoxSize>k__BackingField: {x: 0.8, y: 0.2}
@@ -144,7 +144,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 5120
   <MoveActive>k__BackingField: 1
-  <MaxSpeed>k__BackingField: 15
+  <MaxSpeed>k__BackingField: 18
   <AccelerationCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
@@ -196,28 +196,28 @@ MonoBehaviour:
     m_RotationOrder: 4
   <JumpActive>k__BackingField: 1
   <MaxJumps>k__BackingField: 2
-  <JumpHeight>k__BackingField: 8
-  <MinJumpTime>k__BackingField: 0.15
+  <JumpHeight>k__BackingField: 35
+  <MinJumpTime>k__BackingField: 0.12
   <JumpCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0.012304887
-      outSlope: 0.012304887
+      inSlope: -4.4474397
+      outSlope: -4.4474397
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.63013697
+      outWeight: 0.07368422
     - serializedVersion: 3
-      time: 0.4541666
-      value: 0
-      inSlope: -4.81132
-      outSlope: -4.81132
+      time: 0.40108374
+      value: 0.004716981
+      inSlope: -0.7273913
+      outSlope: -0.7273913
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.050000012
+      inWeight: 0.2021022
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -228,25 +228,25 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: -0.09479862
-      outSlope: -0.09479862
+      inSlope: -216.71356
+      outSlope: -216.71356
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.35973573
+      outWeight: 0.11379121
     - serializedVersion: 3
       time: 0.2849388
-      value: -9.181921
-      inSlope: -83.73054
-      outSlope: -83.73054
+      value: -23.755724
+      inSlope: -34.10205
+      outSlope: -34.10205
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.14888348
+      inWeight: 0.2521069
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  <FallLerpSpeed>k__BackingField: 10
+  <FallLerpSpeed>k__BackingField: 15
   <StateText>k__BackingField: {fileID: 0}
   <JumpsLeft>k__BackingField: 2
 --- !u!50 &922206058694222237

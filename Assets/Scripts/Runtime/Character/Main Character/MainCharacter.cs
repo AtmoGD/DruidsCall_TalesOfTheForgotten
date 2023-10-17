@@ -6,13 +6,9 @@ public class MainCharacter : GroundCharacter
 {
     #region Character States
     public MainState Idle { get; private set; }
-    public MainState Accelerating { get; private set; }
-    public MainState Moving { get; private set; }
     public MainState Running { get; private set; }
-    public MainState Deccelerating { get; private set; }
     public MainState Jumping { get; private set; }
     public MainState Falling { get; private set; }
-    public MainState Landing { get; private set; }
     #endregion
 
     #region Character Settings
@@ -46,18 +42,21 @@ public class MainCharacter : GroundCharacter
     private void Awake()
     {
         Idle = new MainIdle(this);
-        Moving = new MainMoving(this);
-        Accelerating = new MainAccelerating(this);
         Running = new MainRunning(this);
-        Deccelerating = new MainDeccelerating(this);
         Jumping = new MainJumping(this);
         Falling = new MainFalling(this);
-        Landing = new MainLanding(this);
     }
 
     private void Start()
     {
         ChangeState(Idle);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        StateText.text = CurrentState.GetType().Name;
     }
 
     public override bool IsGrounded()

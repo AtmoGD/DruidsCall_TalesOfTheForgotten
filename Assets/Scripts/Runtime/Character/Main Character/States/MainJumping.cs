@@ -31,19 +31,13 @@ public class MainJumping : MainMoving
 
     public override void DoStateChecks()
     {
-        // base.DoStateChecks();
+        // base.DoStateChecks(); <------- Nicht machen! Gibt bugs!
 
         if (!character.CurrentInput.Jump && timeInState > character.MinJumpTime)
             character.ChangeState(character.Falling);
 
-        // if (character.IsGrounded() && timeInState > character.MinJumpTime)
-        //     character.ChangeState(character.Idle);
-
         if (timeInState > character.JumpCurve.keys[^1].time)
-        {
-            Debug.Log("Jumping time exceeded");
             character.ChangeState(character.Falling);
-        }
     }
 
     public override void Exit()
@@ -51,8 +45,6 @@ public class MainJumping : MainMoving
         base.Exit();
 
         character.CurrentInput.Jump = false;
-
-        // character.Rigidbody.velocity = new Vector2(character.Rigidbody.velocity.x, 0f);
 
         Debug.Log("Exiting Jumping State");
     }
