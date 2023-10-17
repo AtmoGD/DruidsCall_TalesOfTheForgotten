@@ -7,12 +7,31 @@ public class Player : MonoBehaviour
     [field: SerializeField] public InputController InputController { get; private set; }
     [field: SerializeField] public PlayerData Data { get; private set; } = new PlayerData();
     [field: SerializeField] public Character Character { get; private set; } = null;
+    [field: SerializeField] public MainCharacter MainCharacter { get; private set; } = null;
+    [field: SerializeField] public Wolf Wolf { get; private set; } = null;
 
     [field: SerializeField] public bool IsActive { get; private set; } = false;
 
-    private void Update()
+    private void Start()
     {
-        if (InputController && Character && IsActive) Character.CurrentInput = InputController.Data;
+        SwitchCharacter();
+        SwitchCharacter();
+    }
+
+    public void SwitchCharacter()
+    {
+        if (Character == MainCharacter)
+        {
+            Character = Wolf;
+            Wolf.CurrentInput = InputController.Data;
+            MainCharacter.CurrentInput = new InputData();
+        }
+        else
+        {
+            Character = MainCharacter;
+            MainCharacter.CurrentInput = InputController.Data;
+            Wolf.CurrentInput = new InputData();
+        }
     }
 
     public void SaveData()

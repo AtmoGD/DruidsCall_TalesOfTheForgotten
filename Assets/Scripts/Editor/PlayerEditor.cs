@@ -29,5 +29,8 @@ public class PlayerEditor : Editor
         EditorGUILayout.EndHorizontal();
 
         base.OnInspectorGUI();
+
+        if (GUILayout.Button("Switch Character"))
+            player.SwitchCharacter();
     }
 }

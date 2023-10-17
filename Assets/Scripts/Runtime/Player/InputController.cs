@@ -11,6 +11,17 @@ public class InputData
     public int LastMoveDirection = 1;
     public bool Jump = false;
     public bool Attack = false;
+
+    public InputData Copy()
+    {
+        return new InputData()
+        {
+            Move = Move,
+            LastMoveDirection = LastMoveDirection,
+            Jump = Jump,
+            Attack = Attack
+        };
+    }
 }
 
 public class InputController : MonoBehaviour
