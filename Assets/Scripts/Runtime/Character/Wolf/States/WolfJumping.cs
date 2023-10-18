@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WolfJumping : WolfMoving
 {
+    private LayerMask enterLayerMask;
     public WolfJumping(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
@@ -13,6 +14,10 @@ public class WolfJumping : WolfMoving
         wolf.JumpsLeft--;
 
         wolf.Rigidbody.gravityScale = 0f;
+
+        enterLayerMask = wolf.Rigidbody.excludeLayers;
+
+        wolf.Rigidbody.excludeLayers = wolf.PhaseThroughLayer;
 
         Debug.Log("Entering Jumping State");
     }
@@ -38,6 +43,9 @@ public class WolfJumping : WolfMoving
 
         if (timeInState > wolf.JumpCurve.keys[^1].time)
             wolf.ChangeState(wolf.Falling);
+
+        if (wolf.HitsTop())
+            wolf.ChangeState(wolf.Falling);
     }
 
     public override void Exit()
@@ -45,6 +53,8 @@ public class WolfJumping : WolfMoving
         base.Exit();
 
         wolf.CurrentInput.Jump = false;
+
+        wolf.Rigidbody.excludeLayers = enterLayerMask;
 
         Debug.Log("Exiting Jumping State");
     }

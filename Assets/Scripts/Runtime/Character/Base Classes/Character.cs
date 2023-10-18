@@ -22,6 +22,7 @@ public class Character : StateMachine
     [field: Header("Top Check Parameters")]
     [field: SerializeField] public Vector2 TopBoxSize { get; private set; } = Vector2.one;
     [field: SerializeField] public LayerMask TopLayer { get; private set; } = 0;
+    [field: SerializeField] public LayerMask PhaseThroughLayer { get; private set; } = 0;
 
     private void Start()
     {

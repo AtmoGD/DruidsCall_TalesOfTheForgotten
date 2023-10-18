@@ -42,14 +42,4 @@ public class Level : MonoBehaviour
         if (Game.Manager.Wolf && Game.Manager.Wolf.IsActive)
             TargetGroup.AddMember(Game.Manager.Wolf.transform, WolfWeight, WolfRadius);
     }
-
-    private void OnDrawGizmos()
-    {
-        if (Neighbours.Count == 0) return;
-
-        Gizmos.color = Color.green;
-
-        foreach (Level neighbour in Neighbours)
-            Gizmos.DrawLine(transform.position, neighbour.transform.position);
-    }
 }

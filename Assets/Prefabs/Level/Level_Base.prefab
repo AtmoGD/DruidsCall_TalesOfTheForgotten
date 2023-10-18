@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 2825346357143300824}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.612648, y: -0.9353313, z: -10}
+  m_LocalPosition: {x: -24.61265, y: -0.93533224, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -252,8 +252,8 @@ MonoBehaviour:
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.412
-  m_DeadZoneHeight: 0.426
+  m_DeadZoneWidth: 0.219
+  m_DeadZoneHeight: 0.147
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
@@ -554,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 9141387947489015622}
     - target: {fileID: 4452049340171284999, guid: 0c26425adcc214d468274a12ac3f72b7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.525
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4452049340171284999, guid: 0c26425adcc214d468274a12ac3f72b7, type: 3}
       propertyPath: m_LocalScale.y

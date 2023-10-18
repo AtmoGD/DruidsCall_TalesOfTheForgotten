@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainJumping : MainMoving
 {
+    private LayerMask enterLayerMask;
     public MainJumping(MainCharacter _character) : base(_character) { }
 
     public override void Enter()
@@ -13,6 +14,10 @@ public class MainJumping : MainMoving
         character.JumpsLeft--;
 
         character.Rigidbody.gravityScale = 0f;
+
+        enterLayerMask = character.Rigidbody.excludeLayers;
+
+        character.Rigidbody.excludeLayers = character.PhaseThroughLayer;
 
         Debug.Log("Entering Jumping State");
     }
@@ -38,6 +43,9 @@ public class MainJumping : MainMoving
 
         if (timeInState > character.JumpCurve.keys[^1].time)
             character.ChangeState(character.Falling);
+
+        if (character.HitsTop())
+            character.ChangeState(character.Falling);
     }
 
     public override void Exit()
@@ -45,6 +53,8 @@ public class MainJumping : MainMoving
         base.Exit();
 
         character.CurrentInput.Jump = false;
+
+        character.Rigidbody.excludeLayers = enterLayerMask;
 
         Debug.Log("Exiting Jumping State");
     }

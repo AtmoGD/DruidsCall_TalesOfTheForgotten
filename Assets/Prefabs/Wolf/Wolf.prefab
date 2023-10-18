@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5969338096745939972
 Transform:
   m_ObjectHideFlags: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd53a426f11c364d8febbe0a214c9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsActive>k__BackingField: 0
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}
     LastMoveDirection: 1
@@ -202,7 +203,10 @@ MonoBehaviour:
   <TopBoxSize>k__BackingField: {x: 0.8, y: 0.05}
   <TopLayer>k__BackingField:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3072
+  <PhaseThroughLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 4096
   <MoveActive>k__BackingField: 1
   <MaxSpeed>k__BackingField: 18
   <AccelerationCurve>k__BackingField:
