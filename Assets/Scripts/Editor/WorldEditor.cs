@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Player))]
-public class PlayerEditor : Editor
+[CustomEditor(typeof(World))]
+public class WorldEditor : Editor
 {
-    private Player player;
+    private World world;
 
     private void OnEnable()
     {
-        player = (Player)target;
+        world = (World)target;
     }
 
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        if (GUILayout.Button("Switch Character"))
-            player.SwitchCharacter();
+        if (GUILayout.Button("Update Level List"))
+            world.UpdateLevelList();
     }
 }

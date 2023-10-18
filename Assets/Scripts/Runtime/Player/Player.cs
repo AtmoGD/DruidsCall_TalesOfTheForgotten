@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [field: SerializeField] public InputController InputController { get; private set; }
-    [field: SerializeField] public PlayerData Data { get; private set; } = new PlayerData();
+    // [field: SerializeField] public PlayerData Data { get; private set; } = new PlayerData();
     [field: SerializeField] public Character Character { get; private set; } = null;
     [field: SerializeField] public MainCharacter MainCharacter { get; private set; } = null;
     [field: SerializeField] public Wolf Wolf { get; private set; } = null;
@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     {
         SwitchCharacter();
         SwitchCharacter();
+
+        // LoadData();
     }
 
     public void SwitchCharacter()
@@ -34,13 +36,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SaveData()
-    {
-        SaveSystem.SaveData(Data, Data.FileName);
-    }
+    // public void SaveData()
+    // {
+    //     // SaveSystem.SaveData(Data, Data.FileName);
+    // }
 
-    public void LoadData()
-    {
-        Data = SaveSystem.LoadData<PlayerData>(Data.FileName);
-    }
+    // public void LoadData()
+    // {
+    //     // Data = SaveSystem.LoadData<PlayerData>(Data.FileName);
+    // }
 }
