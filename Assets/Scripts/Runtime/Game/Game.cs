@@ -27,10 +27,14 @@ public class Game : MonoBehaviour
         if (SetDontDestroyOnLoad) DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        LoadGame(CurrentActiveFileName);
+    }
+
     public void LoadGame(string _fileName)
     {
         CurrentActiveFileName = _fileName;
-        Data = SaveSystem.LoadData<GameData>(_fileName);
     }
 
     public void SaveGame()
