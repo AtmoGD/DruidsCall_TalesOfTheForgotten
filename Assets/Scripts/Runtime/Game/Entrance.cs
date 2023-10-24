@@ -16,7 +16,7 @@ public class Entrance : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D _other)
     {
-        MainCharacter mainCharacter = _other.GetComponent<MainCharacter>();
+        Hero mainCharacter = _other.GetComponent<Hero>();
 
         if (mainCharacter != null)
         {

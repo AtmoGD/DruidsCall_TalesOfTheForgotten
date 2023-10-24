@@ -46,13 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985d6536c7f66af44bf6e5231142c3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InputController>k__BackingField: {fileID: 3192359779267453803}
-  <Data>k__BackingField:
-    FileName: 3EditorSave2.druid
-    PlayTime: 0
-    IsNewGame: 1
-  <Character>k__BackingField: {fileID: 0}
+  <PlayerInputController>k__BackingField: {fileID: 3192359779267453803}
   <MainCharacter>k__BackingField: {fileID: 0}
+  <WolfInputController>k__BackingField: {fileID: 0}
   <Wolf>k__BackingField: {fileID: 0}
   <IsActive>k__BackingField: 1
 --- !u!114 &3192359779267453803
@@ -96,7 +92,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3192359779267453803}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnMove
+        m_MethodName: OnCharacterMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -112,7 +108,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3192359779267453803}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnJump
+        m_MethodName: OnCharacterJump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -128,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3192359779267453803}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: OnAttack
+        m_MethodName: OnCharacterAttack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -140,8 +136,40 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 13c25b5f-6f77-40c3-a88a-12826147ae29
     m_ActionName: Game/BaseAttack[/Keyboard/shift,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64872389-c82b-4959-a7ae-00ca76dc0887
+    m_ActionName: Character/Dash[/Keyboard/ctrl,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38c830c5-2943-4c10-8289-63b6508a455c
+    m_ActionName: Character/Interact[/XInputControllerWindows/buttonNorth,/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 334639f3-3d0e-4816-bbc6-193de935d326
+    m_ActionName: Wolf/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5c9063fe-a51f-4f0b-a71a-6853f50b15c4
+    m_ActionName: Wolf/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d57e74b8-ed19-4416-83c8-60ad7ace7722
+    m_ActionName: Wolf/Attack[/Mouse/leftButton,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5adb2c8-ac09-4a8d-a010-a9a620a890d0
+    m_ActionName: Wolf/Dash[/Keyboard/ctrl,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 63ac5224-52e4-4be5-9c91-39764e7746a2
+    m_ActionName: Wolf/Interact[/Keyboard/r,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b21a98c-2e5e-4f2f-b4eb-2f2264dccc65
+    m_ActionName: UI/New action
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Game
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: Character
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

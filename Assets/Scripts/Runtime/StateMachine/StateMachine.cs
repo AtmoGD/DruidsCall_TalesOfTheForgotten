@@ -6,10 +6,10 @@ public class StateMachine : MonoBehaviour
 {
     public State CurrentState { get; private set; }
 
-    public void ChangeState(State newState)
+    public void ChangeState(State _newState)
     {
         CurrentState?.Exit();
-        CurrentState = newState;
+        CurrentState = _newState;
         CurrentState?.Enter();
     }
 

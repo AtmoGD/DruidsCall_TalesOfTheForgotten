@@ -4,35 +4,41 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [field: SerializeField] public InputController InputController { get; private set; }
-    // [field: SerializeField] public PlayerData Data { get; private set; } = new PlayerData();
     [field: SerializeField] public Character Character { get; private set; } = null;
-    [field: SerializeField] public MainCharacter MainCharacter { get; private set; } = null;
+    [field: SerializeField] public PlayerInputController PlayerInputController { get; private set; }
+    [field: SerializeField] public Hero Hero { get; private set; } = null;
+    [field: SerializeField] public WolfInputController WolfInputController { get; private set; } = null;
     [field: SerializeField] public Wolf Wolf { get; private set; } = null;
 
     [field: SerializeField] public bool IsActive { get; private set; } = false;
 
     private void Start()
     {
-        SwitchCharacter();
-        SwitchCharacter();
+        Hero.CurrentInput = PlayerInputController.HeroInput;
+        Wolf.CurrentInput = WolfInputController.WolfInput;
+        // SwitchCharacter();
+        // SwitchCharacter();
 
         // LoadData();
     }
 
     public void SwitchCharacter()
     {
-        if (Character == MainCharacter)
+        if (Character == Hero)
         {
             Character = Wolf;
-            Wolf.CurrentInput = InputController.Data;
-            MainCharacter.CurrentInput = new InputData();
+            Wolf.CurrentInput = PlayerInputController.WolfInput;
+            Wolf.SetIsControlledByPlayer(true);
+            Hero.SetIsControlledByPlayer(false);
+            Hero.CurrentInput = new HeroInput();
         }
         else
         {
-            Character = MainCharacter;
-            MainCharacter.CurrentInput = InputController.Data;
-            Wolf.CurrentInput = new InputData();
+            Character = Hero;
+            Hero.CurrentInput = PlayerInputController.HeroInput;
+            Hero.SetIsControlledByPlayer(true);
+            Wolf.SetIsControlledByPlayer(false);
+            Wolf.CurrentInput = WolfInputController.WolfInput;
         }
     }
 
