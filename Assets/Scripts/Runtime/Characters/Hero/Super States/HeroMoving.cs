@@ -106,6 +106,7 @@ public class HeroMoving : HeroState
     }
 
     // NOTE: This is not the true value. With remap we are getting a linear value but its still a good approximation
+    // For exact value you can use utils.FindTimeInCurve but it is more expensive and not really tested
     private void UpdateAccelerationTime()
     {
         float findValue = Mathf.Abs(hero.Rigidbody.velocity.x) / hero.MaxSpeed;
