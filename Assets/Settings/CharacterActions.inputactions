@@ -2,7 +2,7 @@
     "name": "CharacterActions",
     "maps": [
         {
-            "name": "Character",
+            "name": "Hero",
             "id": "c692e117-3493-4096-a7a7-363570d32a71",
             "actions": [
                 {

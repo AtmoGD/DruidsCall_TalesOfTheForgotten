@@ -9,8 +9,6 @@ public class Wolf : Character
     public WolfState Running { get; private set; }
     public WolfState Jumping { get; private set; }
     public WolfState Falling { get; private set; }
-    public WolfState FollowCharacter { get; private set; }
-    public WolfState Teleport { get; private set; }
     #endregion
 
     #region Wolf Settings

@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985d6536c7f66af44bf6e5231142c3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Character>k__BackingField: {fileID: 0}
+  <PlayerInput>k__BackingField: {fileID: 4136916301119620034}
   <PlayerInputController>k__BackingField: {fileID: 3192359779267453803}
-  <MainCharacter>k__BackingField: {fileID: 0}
+  <Hero>k__BackingField: {fileID: 0}
   <WolfInputController>k__BackingField: {fileID: 0}
   <Wolf>k__BackingField: {fileID: 0}
   <IsActive>k__BackingField: 1
@@ -145,11 +147,35 @@ MonoBehaviour:
     m_ActionId: 38c830c5-2943-4c10-8289-63b6508a455c
     m_ActionName: Character/Interact[/XInputControllerWindows/buttonNorth,/Keyboard/r]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3192359779267453803}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnWolfMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 334639f3-3d0e-4816-bbc6-193de935d326
     m_ActionName: Wolf/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3192359779267453803}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnWolfJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5c9063fe-a51f-4f0b-a71a-6853f50b15c4
     m_ActionName: Wolf/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
@@ -170,6 +196,6 @@ MonoBehaviour:
     m_ActionName: UI/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: Character
+  m_DefaultActionMap: Hero
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

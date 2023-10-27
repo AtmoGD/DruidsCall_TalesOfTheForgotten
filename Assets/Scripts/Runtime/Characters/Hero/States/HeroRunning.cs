@@ -11,6 +11,8 @@ public class HeroRunning : HeroMoving
     {
         base.Enter();
 
+        hero.Animator.SetBool("IsRunning", true);
+
         Debug.Log("Entering Running State");
     }
 
@@ -32,6 +34,8 @@ public class HeroRunning : HeroMoving
     public override void Exit()
     {
         base.Exit();
+
+        hero.Animator.SetBool("IsRunning", false);
 
         Debug.Log("Exiting Running State");
     }

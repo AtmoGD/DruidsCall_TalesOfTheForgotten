@@ -29,40 +29,25 @@ public class WolfIdle : WolfState
     {
         base.DoStateChecks();
 
-        if (wolf.IsControlledByPlayer)
+        if (!wolf.Grounded())
         {
-            if (!wolf.Grounded())
-            {
-                wolf.ChangeState(wolf.Falling);
-                return;
-            }
-
-            if (wolf.CurrentInput.Jump && wolf.CanJump)
-            {
-                wolf.ChangeState(wolf.Jumping);
-                return;
-            }
-
-            if (Mathf.Abs(wolf.CurrentInput.Move.x) > 0.1f && wolf.MoveActive)
-            {
-                wolf.ChangeState(wolf.Running);
-                return;
-            }
-
+            wolf.ChangeState(wolf.Falling);
             return;
         }
 
-        // if (wolf.InFollowRadius)
-        // {
-        //     wolf.ChangeState(wolf.FollowCharacter);
-        //     return;
-        // }
+        if (wolf.CurrentInput.Jump && wolf.CanJump)
+        {
+            wolf.ChangeState(wolf.Jumping);
+            return;
+        }
 
-        // if (wolf.CharacterInTeleportRadius)
-        // {
-        //     wolf.ChangeState(wolf.Teleport);
-        //     return;
-        // }
+        if (Mathf.Abs(wolf.CurrentInput.Move.x) > 0.1f && wolf.MoveActive)
+        {
+            wolf.ChangeState(wolf.Running);
+            return;
+        }
+
+        return;
     }
 
     public override void Exit()

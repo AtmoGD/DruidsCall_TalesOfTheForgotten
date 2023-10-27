@@ -13,21 +13,13 @@ public class HeroInput
     public bool Attack = false;
 }
 
-[Serializable]
-public class WolfInput
-{
-    public Vector2 Move = Vector2.zero;
-    public int LastMoveDirection = 1;
-    public bool Jump = false;
-    public bool Attack = false;
-}
-
 
 public class PlayerInputController : MonoBehaviour
 {
     public HeroInput HeroInput { get; protected set; } = new HeroInput();
     public WolfInput WolfInput { get; protected set; } = new WolfInput();
 
+    #region Hero active
     public void OnCharacterMove(InputAction.CallbackContext context)
     {
         HeroInput.Move = context.ReadValue<Vector2>();
@@ -54,4 +46,25 @@ public class PlayerInputController : MonoBehaviour
         else if (context.canceled)
             HeroInput.Attack = false;
     }
+    #endregion
+
+    #region Wolf active
+    public void OnWolfMove(InputAction.CallbackContext context)
+    {
+        WolfInput.Move = context.ReadValue<Vector2>();
+
+        if (WolfInput.Move.x > 0.1f)
+            WolfInput.LastMoveDirection = 1;
+        else if (WolfInput.Move.x < -0.1f)
+            WolfInput.LastMoveDirection = -1;
+    }
+
+    public void OnWolfJump(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            WolfInput.Jump = true;
+        else if (context.canceled)
+            WolfInput.Jump = false;
+    }
+    #endregion
 }

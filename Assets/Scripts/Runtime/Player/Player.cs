@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [field: SerializeField] public Character Character { get; private set; } = null;
+    [field: SerializeField] public PlayerInput PlayerInput { get; private set; } = null;
     [field: SerializeField] public PlayerInputController PlayerInputController { get; private set; }
     [field: SerializeField] public Hero Hero { get; private set; } = null;
     [field: SerializeField] public WolfInputController WolfInputController { get; private set; } = null;
@@ -14,12 +16,14 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        if (IsActive) Init();
+    }
+
+    public void Init()
+    {
         Hero.CurrentInput = PlayerInputController.HeroInput;
         Wolf.CurrentInput = WolfInputController.WolfInput;
-        // SwitchCharacter();
-        // SwitchCharacter();
-
-        // LoadData();
+        PlayerInput.SwitchCurrentActionMap("Hero");
     }
 
     public void SwitchCharacter()
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour
             Wolf.SetIsControlledByPlayer(true);
             Hero.SetIsControlledByPlayer(false);
             Hero.CurrentInput = new HeroInput();
+            PlayerInput.SwitchCurrentActionMap("Wolf");
         }
         else
         {
@@ -39,16 +44,7 @@ public class Player : MonoBehaviour
             Hero.SetIsControlledByPlayer(true);
             Wolf.SetIsControlledByPlayer(false);
             Wolf.CurrentInput = WolfInputController.WolfInput;
+            PlayerInput.SwitchCurrentActionMap("Hero");
         }
     }
-
-    // public void SaveData()
-    // {
-    //     // SaveSystem.SaveData(Data, Data.FileName);
-    // }
-
-    // public void LoadData()
-    // {
-    //     // Data = SaveSystem.LoadData<PlayerData>(Data.FileName);
-    // }
 }
