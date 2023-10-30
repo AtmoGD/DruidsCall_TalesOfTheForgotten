@@ -15,17 +15,14 @@ public class WolfJumping : WolfMoving
 
         wolf.Rigidbody.gravityScale = 0f;
 
-        // enterLayerMask = wolf.Rigidbody.excludeLayers;
-
-        // wolf.Rigidbody.excludeLayers = wolf.PhaseThroughLayer;
-
         if (wolf.CanPhaseThroughPlatforms)
         {
             enterLayerMask = wolf.Rigidbody.excludeLayers;
             wolf.Rigidbody.excludeLayers = wolf.PhaseThroughLayer;
         }
 
-        Debug.Log("Entering Jumping State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Entering Jumping State");
     }
 
     public override void FrameUpdate()
@@ -45,13 +42,34 @@ public class WolfJumping : WolfMoving
         // base.DoStateChecks(); <------- Nicht machen! Gibt bugs!
 
         if (!wolf.CurrentInput.Jump && timeInState > wolf.MinJumpTime)
+        {
             wolf.ChangeState(wolf.Falling);
+            return;
+        }
 
         if (timeInState > wolf.JumpCurve.keys[^1].time)
+        {
             wolf.ChangeState(wolf.Falling);
+            return;
+        }
 
         if (wolf.HitsTop())
+        {
             wolf.ChangeState(wolf.Falling);
+            return;
+        }
+
+        if (wolf.CurrentInput.TeleportToHero)
+        {
+            wolf.ChangeState(wolf.TeleportToHero);
+            return;
+        }
+
+        if (wolf.CurrentInput.Attack)
+        {
+            wolf.ChangeState(wolf.Attacking);
+            return;
+        }
     }
 
     public override void Exit()
@@ -60,11 +78,11 @@ public class WolfJumping : WolfMoving
 
         wolf.CurrentInput.Jump = false;
 
-        // wolf.Rigidbody.excludeLayers = enterLayerMask;
         if (wolf.CanPhaseThroughPlatforms)
             wolf.Rigidbody.excludeLayers = enterLayerMask;
 
-        Debug.Log("Exiting Jumping State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Exiting Jumping State");
     }
 
     private void MoveUp()

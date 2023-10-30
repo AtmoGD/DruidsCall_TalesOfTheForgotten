@@ -53,13 +53,34 @@ public class WolfMoving : WolfState
         base.DoStateChecks();
 
         if (!wolf.Grounded())
+        {
             wolf.ChangeState(wolf.Falling);
+            return;
+        }
 
         if (wolf.CurrentInput.Jump && wolf.CanJump)
+        {
             wolf.ChangeState(wolf.Jumping);
+            return;
+        }
 
         if (Mathf.Abs(wolf.Rigidbody.velocity.x) < 0.1f && !accelerating)
+        {
             wolf.ChangeState(wolf.Idle);
+            return;
+        }
+
+        if (wolf.CurrentInput.TeleportToHero)
+        {
+            wolf.ChangeState(wolf.TeleportToHero);
+            return;
+        }
+
+        if (wolf.CurrentInput.Attack)
+        {
+            wolf.ChangeState(wolf.Attacking);
+            return;
+        }
     }
 
     public override void Exit()

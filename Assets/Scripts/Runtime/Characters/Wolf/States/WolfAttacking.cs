@@ -2,30 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolfTeleportToHero : WolfState
+public class WolfAttacking : WolfState
 {
-    public WolfTeleportToHero(Wolf _wolf) : base(_wolf) { }
+    private float waitTime = 2f;
+
+    public WolfAttacking(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
     {
         base.Enter();
 
-        wolf.Rigidbody.velocity = Vector2.zero;
-
-        wolf.transform.position = wolf.Hero.transform.position + (Vector3)wolf.TeleportOffset;
-
-        wolf.CurrentInput.TeleportToHero = false;
-
-        wolf.ChangeState(wolf.Idle);
+        wolf.CurrentInput.Attack = false;
 
         if (wolf.ShowDebugLogs)
-            Debug.Log("Wolf: Entering TeleportToHero State");
+            Debug.Log("Wolf: Entering Attacking State");
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
+        wolf.Rigidbody.velocity = Vector2.zero;
     }
 
     public override void PhysicsUpdate()
@@ -36,6 +33,12 @@ public class WolfTeleportToHero : WolfState
     public override void DoStateChecks()
     {
         base.DoStateChecks();
+
+        if (timeInState > waitTime)
+        {
+            wolf.ChangeState(wolf.Idle);
+            return;
+        }
     }
 
     public override void Exit()
@@ -43,6 +46,6 @@ public class WolfTeleportToHero : WolfState
         base.Exit();
 
         if (wolf.ShowDebugLogs)
-            Debug.Log("Wolf: Exiting TeleportToHero State");
+            Debug.Log("Wolf: Exiting Attacking State");
     }
 }

@@ -9,6 +9,8 @@ public class Wolf : Character
     public WolfState Running { get; private set; }
     public WolfState Jumping { get; private set; }
     public WolfState Falling { get; private set; }
+    public WolfState TeleportToHero { get; private set; }
+    public WolfState Attacking { get; private set; }
     #endregion
 
     #region Wolf Settings
@@ -19,6 +21,10 @@ public class Wolf : Character
     [field: Header("Follow Player")]
     [field: SerializeField] public float FollowRadius { get; private set; } = 1f;
     [field: SerializeField] public float TeleportRadius { get; private set; } = 2f;
+    [field: SerializeField] public float GroundedDistance { get; private set; } = 1f;
+
+    [field: Header("Teleporting")]
+    [field: SerializeField] public Vector2 TeleportOffset { get; private set; } = Vector2.zero;
 
 
     [field: Header("Debugging")]
@@ -28,7 +34,6 @@ public class Wolf : Character
     #region Character Variables
     [field: Header("Runtime Variables")]
     [field: SerializeField] public WolfInput CurrentInput { get; set; } = new WolfInput();
-    // [field: SerializeField] public int JumpsLeft { get; set; } = 0;
 
     #endregion
 
@@ -36,8 +41,11 @@ public class Wolf : Character
     => Vector2.Distance(transform.position, Hero.transform.position) > FollowRadius
     && Vector2.Distance(transform.position, Hero.transform.position) < TeleportRadius;
 
-    public bool CharacterInTeleportRadius
-    => Vector2.Distance(transform.position, Hero.transform.position) < TeleportRadius;
+    public bool InTeleportRadius
+    => Vector2.Distance(transform.position, Hero.transform.position) > TeleportRadius;
+
+    public bool IsGroundedInMovementDirection
+    => Physics2D.OverlapBox(GroundTransform.position + ((Vector3)CurrentInput.Move * GroundedDistance), GroundBoxSize, 0, GroundLayer);
 
     private void Awake()
     {
@@ -45,6 +53,8 @@ public class Wolf : Character
         Running = new WolfRunning(this);
         Jumping = new WolfJumping(this);
         Falling = new WolfFalling(this);
+        TeleportToHero = new WolfTeleportToHero(this);
+        Attacking = new WolfAttacking(this);
     }
 
     protected new void Start()

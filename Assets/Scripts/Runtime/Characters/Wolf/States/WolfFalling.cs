@@ -10,7 +10,8 @@ public class WolfFalling : WolfMoving
     {
         base.Enter();
 
-        Debug.Log("Entering Falling State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Entering Falling State");
     }
 
     public override void FrameUpdate()
@@ -32,20 +33,43 @@ public class WolfFalling : WolfMoving
         if (wolf.Grounded())
         {
             if (Mathf.Abs(wolf.Rigidbody.velocity.x) > 0.1f)
+            {
                 wolf.ChangeState(wolf.Running);
+                return;
+            }
             else
+            {
                 wolf.ChangeState(wolf.Idle);
+                return;
+
+            }
         }
 
         if (wolf.CurrentInput.Jump && wolf.CanJump)
+        {
             wolf.ChangeState(wolf.Jumping);
+            return;
+        }
+
+        if (wolf.CurrentInput.TeleportToHero)
+        {
+            wolf.ChangeState(wolf.TeleportToHero);
+            return;
+        }
+
+        if (wolf.CurrentInput.Attack)
+        {
+            wolf.ChangeState(wolf.Attacking);
+            return;
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        Debug.Log("Exiting Falling State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Exiting Falling State");
     }
 
     private void MoveDown()

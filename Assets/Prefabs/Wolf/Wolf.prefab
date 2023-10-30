@@ -208,7 +208,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5969338096745939972}
-  - component: {fileID: 7887733353445423182}
   - component: {fileID: 3439847772301405459}
   - component: {fileID: 973918003813365587}
   - component: {fileID: 8649335083049267017}
@@ -239,18 +238,6 @@ Transform:
   - {fileID: 6035216669344497696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7887733353445423182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8085082740206462018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb32faa584702234bbc2936d5dbb8bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3439847772301405459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd53a426f11c364d8febbe0a214c9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsActive>k__BackingField: 0
+  <IsActive>k__BackingField: 1
+  <IsControlledByPlayer>k__BackingField: 0
   <Rigidbody>k__BackingField: {fileID: 973918003813365587}
   <Animator>k__BackingField: {fileID: 7610798834962825776}
   <GroundTransform>k__BackingField: {fileID: 7483330332738616218}

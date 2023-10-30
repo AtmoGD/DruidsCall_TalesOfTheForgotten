@@ -10,14 +10,15 @@ public class WolfIdle : WolfState
     {
         base.Enter();
 
-        Debug.Log("Entering Wolf Idle State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Entering Idle State");
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        wolf.Rigidbody.velocity = Vector2.zero;
+        wolf.Rigidbody.velocity = new Vector2(0, wolf.IdleGravity);
     }
 
     public override void PhysicsUpdate()
@@ -47,6 +48,18 @@ public class WolfIdle : WolfState
             return;
         }
 
+        if (wolf.CurrentInput.TeleportToHero)
+        {
+            wolf.ChangeState(wolf.TeleportToHero);
+            return;
+        }
+
+        if (wolf.CurrentInput.Attack)
+        {
+            wolf.ChangeState(wolf.Attacking);
+            return;
+        }
+
         return;
     }
 
@@ -54,6 +67,7 @@ public class WolfIdle : WolfState
     {
         base.Exit();
 
-        Debug.Log("Exiting Idle State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Exiting Idle State");
     }
 }

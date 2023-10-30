@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Player>k__BackingField: {fileID: 1849849282}
-  <MainCharacter>k__BackingField: {fileID: 6658064991134867532}
+  <Hero>k__BackingField: {fileID: 6658064991134867532}
   <Wolf>k__BackingField: {fileID: 262902637}
   <UIController>k__BackingField: {fileID: 2016575825}
   <World>k__BackingField: {fileID: 1246867218}
@@ -287,17 +287,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &517107222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7887733353445423182, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
-  m_PrefabInstance: {fileID: 1127901420324375980}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb32faa584702234bbc2936d5dbb8bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &875119058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -698,6 +687,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985d6536c7f66af44bf6e5231142c3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1849849284 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3192359779267453803, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+  m_PrefabInstance: {fileID: 9076198916339049329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55bb1bba1d00b6e4893800dc13f5428c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1849849286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1996097239011654257, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+  m_PrefabInstance: {fileID: 9076198916339049329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb32faa584702234bbc2936d5dbb8bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2016575825 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8225927844634818238, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
@@ -733,13 +744,57 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6658064991134867532}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
-      propertyPath: <IsActive>k__BackingField
-      value: 1
+      propertyPath: <MaxSpeed>k__BackingField
+      value: 13.1
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <StateText>k__BackingField
       value: 
       objectReference: {fileID: 1747795898}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <IdleGravity>k__BackingField
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FollowRadius>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <TeleportOffset>k__BackingField.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <AccelerationCurve>k__BackingField.m_Curve.Array.data[1].time
+      value: 0.19998737
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].time
+      value: 0.110927716
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <AccelerationCurve>k__BackingField.m_Curve.Array.data[0].inSlope
+      value: 14.16745
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <AccelerationCurve>k__BackingField.m_Curve.Array.data[0].outSlope
+      value: 14.16745
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].inSlope
+      value: -26.379622
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <AccelerationCurve>k__BackingField.m_Curve.Array.data[0].outWeight
+      value: 0.036004294
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].inWeight
+      value: 0.04348131
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].outSlope
+      value: -26.379622
+      objectReference: {fileID: 0}
     - target: {fileID: 5969338096745939972, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -60.808
@@ -877,15 +932,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4564726626674802173, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
     - target: {fileID: 4694769058208405870, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709683481805137621, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638385765840687625, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+--- !u!114 &2265593182326366522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2775259532697628884, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+  m_PrefabInstance: {fileID: 2265593182326366521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6658064991134867525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -946,6 +1024,14 @@ PrefabInstance:
       propertyPath: <StateText>k__BackingField
       value: 
       objectReference: {fileID: 2067142572}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <IdleGravity>k__BackingField
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <ShowDebugLogs>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1204,6 +1290,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1996097239011654257, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: <Player>k__BackingField
+      value: 
+      objectReference: {fileID: 1849849282}
+    - target: {fileID: 1996097239011654257, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: <GoalText>k__BackingField
+      value: 
+      objectReference: {fileID: 2265593182326366522}
     - target: {fileID: 2788042137298277633, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1244,6 +1338,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3192359779267453803, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: <WolfInputController>k__BackingField
+      value: 
+      objectReference: {fileID: 1849849286}
     - target: {fileID: 3640645048448910447, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
       propertyPath: <Hero>k__BackingField
       value: 
@@ -1256,10 +1354,46 @@ PrefabInstance:
       propertyPath: <Character>k__BackingField
       value: 
       objectReference: {fileID: 6658064991134867532}
-    - target: {fileID: 3640645048448910447, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
-      propertyPath: <WolfInputController>k__BackingField
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionId
+      value: 2f840285-b25d-423f-8647-4a624da82631
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionName
+      value: Hero/WolfAttack[/Keyboard/1,/XInputControllerWindows/rightShoulder]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 517107222}
+      objectReference: {fileID: 1849849284}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnWolfCommandAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInputController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4366892735815633588, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
       propertyPath: m_Name
       value: Player

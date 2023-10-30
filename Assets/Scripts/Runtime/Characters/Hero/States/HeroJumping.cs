@@ -21,8 +21,8 @@ public class HeroJumping : HeroMoving
             hero.Rigidbody.excludeLayers = hero.PhaseThroughLayer;
         }
 
-
-        Debug.Log("Entering Jumping State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Entering Jumping State");
     }
 
     public override void FrameUpdate()
@@ -60,7 +60,8 @@ public class HeroJumping : HeroMoving
         if (hero.CanPhaseThroughPlatforms)
             hero.Rigidbody.excludeLayers = enterLayerMask;
 
-        Debug.Log("Exiting Jumping State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Exiting Jumping State");
     }
 
     private void MoveUp()

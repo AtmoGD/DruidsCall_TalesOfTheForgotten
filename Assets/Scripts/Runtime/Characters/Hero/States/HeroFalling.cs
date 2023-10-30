@@ -10,7 +10,8 @@ public class HeroFalling : HeroMoving
     {
         base.Enter();
 
-        Debug.Log("Entering Falling State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Entering Falling State");
     }
 
     public override void FrameUpdate()
@@ -45,7 +46,8 @@ public class HeroFalling : HeroMoving
     {
         base.Exit();
 
-        Debug.Log("Exiting Falling State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Exiting Falling State");
     }
 
     private void MoveDown()

@@ -10,7 +10,8 @@ public class WolfRunning : WolfMoving
     {
         base.Enter();
 
-        Debug.Log("Entering Running State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Entering Running State");
     }
 
     public override void FrameUpdate()
@@ -32,6 +33,7 @@ public class WolfRunning : WolfMoving
     {
         base.Exit();
 
-        Debug.Log("Exiting Running State");
+        if (wolf.ShowDebugLogs)
+            Debug.Log("Wolf: Exiting Running State");
     }
 }

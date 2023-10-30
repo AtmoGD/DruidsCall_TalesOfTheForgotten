@@ -10,14 +10,15 @@ public class HeroIdle : HeroState
     {
         base.Enter();
 
-        Debug.Log("Entering Idle State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Entering Idle State");
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        hero.Rigidbody.velocity = Vector2.zero;
+        hero.Rigidbody.velocity = new Vector2(0, hero.IdleGravity);
     }
 
     public override void PhysicsUpdate()
@@ -43,6 +44,7 @@ public class HeroIdle : HeroState
     {
         base.Exit();
 
-        Debug.Log("Exiting Idle State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Exiting Idle State");
     }
 }

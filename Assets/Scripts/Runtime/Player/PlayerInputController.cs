@@ -17,7 +17,8 @@ public class HeroInput
 public class PlayerInputController : MonoBehaviour
 {
     public HeroInput HeroInput { get; protected set; } = new HeroInput();
-    public WolfInput WolfInput { get; protected set; } = new WolfInput();
+    [field: SerializeField] public WolfInputController WolfInputController { get; private set; } = null;
+    public WolfInput WolfInput => WolfInputController.WolfInput;
 
     #region Hero active
     public void OnCharacterMove(InputAction.CallbackContext context)
@@ -45,6 +46,14 @@ public class PlayerInputController : MonoBehaviour
             HeroInput.Attack = true;
         else if (context.canceled)
             HeroInput.Attack = false;
+    }
+
+    public void OnWolfCommandAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            WolfInput.Attack = true;
+        else if (context.canceled)
+            WolfInput.Attack = false;
     }
     #endregion
 

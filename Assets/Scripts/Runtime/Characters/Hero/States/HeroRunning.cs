@@ -13,7 +13,8 @@ public class HeroRunning : HeroMoving
 
         hero.Animator.SetBool("IsRunning", true);
 
-        Debug.Log("Entering Running State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Entering Running State");
     }
 
     public override void FrameUpdate()
@@ -37,6 +38,7 @@ public class HeroRunning : HeroMoving
 
         hero.Animator.SetBool("IsRunning", false);
 
-        Debug.Log("Exiting Running State");
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Exiting Running State");
     }
 }

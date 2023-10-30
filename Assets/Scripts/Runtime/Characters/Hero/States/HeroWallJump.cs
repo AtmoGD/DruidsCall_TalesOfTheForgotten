@@ -2,17 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroWallJump : MonoBehaviour
+public class HeroWallJump : HeroState
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public HeroWallJump(Hero _character) : base(_character) { }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Entering WallJump State");
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void FrameUpdate()
     {
+        base.FrameUpdate();
+    }
 
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+    }
+
+    public override void DoStateChecks()
+    {
+        base.DoStateChecks();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        if (hero.ShowDebugLogs)
+            Debug.Log("Hero: Exiting WallJump State");
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Character : StateMachine
 {
+    [field: SerializeField] public bool ShowDebugLogs { get; private set; } = true;
+
     [field: Header("Character Settings")]
     [field: SerializeField] public bool IsActive { get; private set; } = true;
     [field: SerializeField] public bool IsControlledByPlayer { get; private set; } = false;
@@ -48,6 +50,7 @@ public class Character : StateMachine
     [field: SerializeField] public AnimationCurve JumpCurve { get; private set; } = null;
     [field: SerializeField] public AnimationCurve FallCurve { get; private set; } = null;
     [field: SerializeField] public float FallLerpSpeed { get; private set; } = 0.1f;
+    [field: SerializeField] public float IdleGravity { get; private set; } = -1f;
 
     [field: SerializeField] public int JumpsLeft { get; set; } = 0;
 
