@@ -11,6 +11,8 @@ public class HeroJumping : HeroMoving
     {
         base.Enter();
 
+        hero.onJump?.Invoke();
+
         hero.JumpsLeft--;
 
         hero.Rigidbody.gravityScale = 0f;

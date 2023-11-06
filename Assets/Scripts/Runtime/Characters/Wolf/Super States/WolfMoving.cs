@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class WolfMoving : WolfState
 {
-    private bool accelerating = false;
-    private bool updateAccelerationTime = false;
-    private float alreadyAccelerated = 0f;
-    private int lastDir = 1;
-    private bool directionChanged = false;
+    protected bool accelerating = false;
+    protected bool updateAccelerationTime = false;
+    protected float alreadyAccelerated = 0f;
+    protected int lastDir = 1;
+    protected bool directionChanged = false;
 
     protected bool CanMoveHorizontal { get; set; } = true;
 
@@ -40,7 +40,7 @@ public class WolfMoving : WolfState
         if (updateAccelerationTime)
             UpdateAccelerationTime();
 
-        MoveHorizontal();
+        MoveHorizontal(wolf.CurrentInput.Move.x);
     }
 
     public override void PhysicsUpdate()
@@ -81,6 +81,12 @@ public class WolfMoving : WolfState
             wolf.ChangeState(wolf.Attacking);
             return;
         }
+
+        if (!wolf.IsControlledByPlayer && wolf.CurrentInput.HeroJumped)
+        {
+            wolf.ChangeState(wolf.FollowHeroJump);
+            return;
+        }
     }
 
     public override void Exit()
@@ -88,7 +94,7 @@ public class WolfMoving : WolfState
         base.Exit();
     }
 
-    private void CheckDirection()
+    protected virtual void CheckDirection()
     {
         if (!wolf.ResetAccelerationOnDirectionChange) return;
 
@@ -99,16 +105,23 @@ public class WolfMoving : WolfState
         }
     }
 
-    private void MoveHorizontal()
+    protected void MoveHorizontal(float _dir)
     {
         float acceleration;
 
         if (accelerating)
-            acceleration = wolf.AccelerationCurve.Evaluate(alreadyAccelerated) * Mathf.Abs(wolf.CurrentInput.Move.x);
+            acceleration = wolf.AccelerationCurve.Evaluate(alreadyAccelerated) * Mathf.Abs(_dir);
         else
             acceleration = wolf.DeccelerationCurve.Evaluate(alreadyAccelerated);
 
         float speed = wolf.CurrentInput.LastMoveDirection * wolf.MaxSpeed * acceleration;
+
+        if (wolf.IncreaseSpeedBasedOnHeroDistance && !wolf.InFollowRadius)
+        {
+            float heroDistance = Mathf.Abs(wolf.transform.position.x - wolf.FollowTransform.position.x);
+            float heroDistanceFactor = Utils.Remap(heroDistance, 0, wolf.TeleportRadius, 1, 2);
+            speed *= heroDistanceFactor;
+        }
 
         wolf.Rigidbody.velocity = new Vector2(speed, wolf.Rigidbody.velocity.y);
     }
@@ -117,6 +130,7 @@ public class WolfMoving : WolfState
     protected void UpdateIsAccelerating()
     {
         bool newValue = Mathf.Abs(wolf.CurrentInput.Move.x) > 0.1f;
+
         if (newValue != accelerating)
         {
             updateAccelerationTime = true;
@@ -124,7 +138,7 @@ public class WolfMoving : WolfState
         }
     }
 
-    private void UpdateAccelerationTime()
+    protected void UpdateAccelerationTime()
     {
         float findValue = Mathf.Abs(wolf.Rigidbody.velocity.x) / wolf.MaxSpeed;
 

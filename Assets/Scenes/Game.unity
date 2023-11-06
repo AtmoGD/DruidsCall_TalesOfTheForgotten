@@ -433,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106.4, y: -0.70000076, z: -10}
+  m_LocalPosition: {x: 184.41, y: -2.06, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -745,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 6658064991134867532}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <MaxSpeed>k__BackingField
-      value: 13.1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <StateText>k__BackingField
@@ -757,19 +757,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <FollowRadius>k__BackingField
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FollowTransform>k__BackingField
+      value: 
+      objectReference: {fileID: 6658064991134867526}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <TeleportOffset>k__BackingField.y
       value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[0].inSlope
+      value: -267.2646
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].inSlope
+      value: -4.899462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <JumpCurve>k__BackingField.m_Curve.Array.data[0].inSlope
+      value: -5.636508
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <JumpCurve>k__BackingField.m_Curve.Array.data[1].inSlope
+      value: -0.47372907
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[0].outSlope
+      value: -267.2646
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].inWeight
+      value: 0.13340198
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[1].outSlope
+      value: -4.899462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <JumpCurve>k__BackingField.m_Curve.Array.data[0].outSlope
+      value: -5.636508
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <JumpCurve>k__BackingField.m_Curve.Array.data[1].inWeight
+      value: 0.21101725
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <JumpCurve>k__BackingField.m_Curve.Array.data[1].outSlope
+      value: -0.47372907
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <FallCurve>k__BackingField.m_Curve.Array.data[0].outWeight
+      value: 0.040639706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <JumpCurve>k__BackingField.m_Curve.Array.data[0].outWeight
+      value: 0.039238136
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <AccelerationCurve>k__BackingField.m_Curve.Array.data[1].time
-      value: 0.19998737
+      value: 0.20177522
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].time
-      value: 0.110927716
+      value: 0.05568771
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <AccelerationCurve>k__BackingField.m_Curve.Array.data[0].inSlope
@@ -781,7 +833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].inSlope
-      value: -26.379622
+      value: -52.83171
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <AccelerationCurve>k__BackingField.m_Curve.Array.data[0].outWeight
@@ -789,11 +841,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].inWeight
-      value: 0.04348131
+      value: 0.056868702
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <DeccelerationCurve>k__BackingField.m_Curve.Array.data[1].outSlope
-      value: -26.379622
+      value: -52.83171
       objectReference: {fileID: 0}
     - target: {fileID: 5969338096745939972, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1021,9 +1073,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 262902637}
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <MaxJumps>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <StateText>k__BackingField
       value: 
       objectReference: {fileID: 2067142572}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <JumpHeight>k__BackingField
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <IdleGravity>k__BackingField
       value: -1
@@ -1040,6 +1100,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 182294546}
   m_SourcePrefab: {fileID: 100100000, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+--- !u!4 &6658064991134867526 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7741831350203235342, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+  m_PrefabInstance: {fileID: 6658064991134867525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6658064991134867532 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
@@ -1209,6 +1274,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1246867217}
     m_Modifications:
+    - target: {fileID: 3038425474517639739, guid: 335f4c295ad7f184392c0dd2ed9bdcdf, type: 3}
+      propertyPath: <HeroRadius>k__BackingField
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3038425474517639739, guid: 335f4c295ad7f184392c0dd2ed9bdcdf, type: 3}
       propertyPath: <Neighbours>k__BackingField.Array.data[0]
       value: 

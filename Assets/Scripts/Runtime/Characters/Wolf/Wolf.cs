@@ -11,6 +11,8 @@ public class Wolf : Character
     public WolfState Falling { get; private set; }
     public WolfState TeleportToHero { get; private set; }
     public WolfState Attacking { get; private set; }
+    public WolfState FollowHeroJump { get; private set; }
+    public WolfState FollowHeroFalling { get; private set; }
     #endregion
 
     #region Wolf Settings
@@ -18,10 +20,12 @@ public class Wolf : Character
     [field: SerializeField] public Hero Hero { get; private set; } = null;
 
 
-    [field: Header("Follow Player")]
+    [field: Header("Follow Hero")]
+    [field: SerializeField] public Transform FollowTransform { get; private set; } = null;
     [field: SerializeField] public float FollowRadius { get; private set; } = 1f;
     [field: SerializeField] public float TeleportRadius { get; private set; } = 2f;
     [field: SerializeField] public float GroundedDistance { get; private set; } = 1f;
+    [field: SerializeField] public bool IncreaseSpeedBasedOnHeroDistance { get; private set; } = true;
 
     [field: Header("Teleporting")]
     [field: SerializeField] public Vector2 TeleportOffset { get; private set; } = Vector2.zero;
@@ -38,11 +42,11 @@ public class Wolf : Character
     #endregion
 
     public bool InFollowRadius
-    => Vector2.Distance(transform.position, Hero.transform.position) > FollowRadius
-    && Vector2.Distance(transform.position, Hero.transform.position) < TeleportRadius;
+    => Vector2.Distance(transform.position, FollowTransform.position) > FollowRadius
+    && Vector2.Distance(transform.position, FollowTransform.position) < TeleportRadius;
 
     public bool InTeleportRadius
-    => Vector2.Distance(transform.position, Hero.transform.position) > TeleportRadius;
+    => Vector2.Distance(transform.position, FollowTransform.position) > TeleportRadius;
 
     public bool IsGroundedInMovementDirection
     => Physics2D.OverlapBox(GroundTransform.position + ((Vector3)CurrentInput.Move * GroundedDistance), GroundBoxSize, 0, GroundLayer);
@@ -55,6 +59,8 @@ public class Wolf : Character
         Falling = new WolfFalling(this);
         TeleportToHero = new WolfTeleportToHero(this);
         Attacking = new WolfAttacking(this);
+        FollowHeroJump = new WolfFollowHeroJump(this);
+        FollowHeroFalling = new WolfFollowHeroFalling(this);
     }
 
     protected new void Start()

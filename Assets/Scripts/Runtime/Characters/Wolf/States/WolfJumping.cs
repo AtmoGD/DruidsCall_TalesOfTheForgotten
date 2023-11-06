@@ -85,7 +85,7 @@ public class WolfJumping : WolfMoving
             Debug.Log("Wolf: Exiting Jumping State");
     }
 
-    private void MoveUp()
+    protected void MoveUp()
     {
         float jumpVelocity = wolf.JumpCurve.Evaluate(timeInState) * wolf.JumpHeight;
         wolf.Rigidbody.velocity = new Vector2(wolf.Rigidbody.velocity.x, jumpVelocity);

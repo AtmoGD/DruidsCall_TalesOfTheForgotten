@@ -19,9 +19,34 @@ public enum WolfGoal
 [Serializable]
 public class WolfInput
 {
-    public Vector2 Move = Vector2.zero;
-    public int LastMoveDirection = 1;
-    public bool Jump = false;
+    private Vector2 move = Vector2.zero;
+    public Vector2 Move
+    {
+        get { if (OverrideMove) return OverrideMoveValue; return move; }
+        set { move = value; }
+    }
+    public bool OverrideMove = false;
+    public Vector2 OverrideMoveValue = Vector2.zero;
+
+    private int lastMoveDirection = 1;
+    public int LastMoveDirection
+    {
+        get { if (OverrideLastMoveDirection) return OverrideLastMoveDirectionValue; return lastMoveDirection; }
+        set { lastMoveDirection = value; }
+    }
+    public bool OverrideLastMoveDirection = false;
+    public int OverrideLastMoveDirectionValue = 1;
+
+    private bool jump = false;
+    public bool Jump
+    {
+        get { if (OverrideJump) return OverrideJumpValue; return jump; }
+        set { jump = value; }
+    }
+    public bool OverrideJump = false;
+    public bool OverrideJumpValue = false;
+
+    public bool HeroJumped = false;
     public bool Attack = false;
     public bool TeleportToHero = false;
 }
@@ -37,6 +62,12 @@ public class WolfInputController : MonoBehaviour
 
     [field: Header("Debugging")]
     [field: SerializeField] public TMPro.TMP_Text GoalText { get; private set; } = null;
+
+    private void Start()
+    {
+        if (Hero)
+            Hero.onJump.AddListener(OnHeroJump);
+    }
 
     private void Update()
     {
@@ -160,7 +191,11 @@ public class WolfInputController : MonoBehaviour
 
         // If the hero is not moving and the wolf is in the follow radius, go idle
 
-        if (!Wolf.InFollowRadius && !Wolf.InTeleportRadius) CurrentGoal = WolfGoal.Idle;
+        if (!Wolf.InFollowRadius && !Wolf.InTeleportRadius)
+        {
+            if (Wolf.Hero.CurrentInput.Move.x == 0)
+                CurrentGoal = WolfGoal.Idle;
+        }
         else if (Wolf.InTeleportRadius && Wolf.Hero.Grounded()) CurrentGoal = WolfGoal.TeleportToHero;
     }
 
@@ -168,8 +203,8 @@ public class WolfInputController : MonoBehaviour
     {
         int direction = 0;
 
-        if (Wolf.IsGroundedInMovementDirection)
-            direction = Hero.transform.position.x > Wolf.transform.position.x ? 1 : -1;
+        // if (Wolf.IsGroundedInMovementDirection)
+        direction = Wolf.FollowTransform.transform.position.x > Wolf.transform.position.x ? 1 : -1;
 
         WolfInput.LastMoveDirection = direction;
         WolfInput.Move = new Vector2(direction, 0);
@@ -228,5 +263,10 @@ public class WolfInputController : MonoBehaviour
     private void WolfDistract()
     {
 
+    }
+
+    private void OnHeroJump()
+    {
+        WolfInput.HeroJumped = true;
     }
 }

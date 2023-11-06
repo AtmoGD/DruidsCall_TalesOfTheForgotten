@@ -199,6 +199,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6353030019544069157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7741831350203235342}
+  m_Layer: 0
+  m_Name: FollowWolfTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7741831350203235342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353030019544069157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6062189345492367134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6656036740478908099
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +298,7 @@ Transform:
   - {fileID: 185817426466289730}
   - {fileID: 2048213490403418322}
   - {fileID: 7449912003732070568}
+  - {fileID: 7741831350203235342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7911190814667251780
@@ -281,7 +313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847e71956f6106a4d8d102cadce950d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShowDebugLogs>k__BackingField: 1
   <IsActive>k__BackingField: 1
+  <IsControlledByPlayer>k__BackingField: 0
   <Rigidbody>k__BackingField: {fileID: 922206058694222237}
   <Animator>k__BackingField: {fileID: 4827585396097924128}
   <GroundTransform>k__BackingField: {fileID: 5262333932021492213}
@@ -408,7 +442,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   <FallLerpSpeed>k__BackingField: 15
+  <IdleGravity>k__BackingField: -1
   <JumpsLeft>k__BackingField: 2
+  onJump:
+    m_PersistentCalls:
+      m_Calls: []
   <Wolf>k__BackingField: {fileID: 0}
   <WallJumpActive>k__BackingField: 1
   <WallJumpConsumesJump>k__BackingField: 1

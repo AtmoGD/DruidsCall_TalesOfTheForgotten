@@ -12,7 +12,7 @@ public class WolfTeleportToHero : WolfState
 
         wolf.Rigidbody.velocity = Vector2.zero;
 
-        wolf.transform.position = wolf.Hero.transform.position + (Vector3)wolf.TeleportOffset;
+        wolf.transform.position = wolf.FollowTransform.position + (Vector3)wolf.TeleportOffset;
 
         wolf.CurrentInput.TeleportToHero = false;
 

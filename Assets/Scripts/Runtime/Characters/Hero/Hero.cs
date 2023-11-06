@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Hero : Character
 {
+    #region Events
+    public UnityEvent onJump = new UnityEvent();
+    #endregion
+
     #region Character States
     public HeroState Idle { get; private set; }
     public HeroState Running { get; private set; }
