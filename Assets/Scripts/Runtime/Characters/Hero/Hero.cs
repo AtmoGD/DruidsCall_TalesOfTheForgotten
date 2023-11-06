@@ -13,25 +13,21 @@ public class Hero : Character
     public HeroState Idle { get; private set; }
     public HeroState Running { get; private set; }
     public HeroState Jumping { get; private set; }
+    public HeroState WallJump { get; private set; }
     public HeroState Falling { get; private set; }
     #endregion
 
 
-    #region Character Settings
-    [field: Header("Main Character Settings")]
+    #region Hero Settings
+    [field: Header("Hero Settings")]
     [field: SerializeField] public Wolf Wolf { get; private set; } = null;
-
-
-    [field: Header("Wall Jump")]
-    [field: SerializeField] public bool WallJumpActive { get; private set; } = true;
-    [field: SerializeField] public bool WallJumpConsumesJump { get; private set; } = true;
 
 
     [field: Header("Debugging")]
     [field: SerializeField] public TMPro.TMP_Text StateText { get; private set; } = null;
     #endregion
 
-    #region Character Variables
+    #region Hero Variables
     [field: Header("Runtime Variables")]
     [field: SerializeField] public HeroInput CurrentInput { get; set; } = new HeroInput();
 
@@ -42,6 +38,7 @@ public class Hero : Character
         Idle = new HeroIdle(this);
         Running = new HeroRunning(this);
         Jumping = new HeroJumping(this);
+        WallJump = new HeroWallJump(this);
         Falling = new HeroFalling(this);
     }
 
@@ -57,6 +54,14 @@ public class Hero : Character
         base.Update();
 
         StateText.text = CurrentState.GetType().Name;
+    }
+
+    public override void ChangeState(State _newState)
+    {
+        base.ChangeState(_newState);
+
+        if (ShowDebugLogs)
+            Debug.Log($"<color=green>Hero</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
     }
 
     public override bool Grounded()

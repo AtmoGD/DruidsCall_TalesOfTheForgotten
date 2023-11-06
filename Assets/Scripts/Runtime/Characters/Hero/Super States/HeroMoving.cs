@@ -80,7 +80,7 @@ public class HeroMoving : HeroState
         }
     }
 
-    private void MoveHorizontal()
+    protected virtual void MoveHorizontal()
     {
         float acceleration;
 
@@ -107,7 +107,7 @@ public class HeroMoving : HeroState
 
     // NOTE: This is not the true value. With remap we are getting a linear value but its still a good approximation
     // For exact value you can use utils.FindTimeInCurve but it is more expensive and not really tested
-    private void UpdateAccelerationTime()
+    protected void UpdateAccelerationTime()
     {
         float findValue = Mathf.Abs(hero.Rigidbody.velocity.x) / hero.MaxSpeed;
 

@@ -12,9 +12,6 @@ public class HeroRunning : HeroMoving
         base.Enter();
 
         hero.Animator.SetBool("IsRunning", true);
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Entering Running State");
     }
 
     public override void FrameUpdate()
@@ -37,8 +34,5 @@ public class HeroRunning : HeroMoving
         base.Exit();
 
         hero.Animator.SetBool("IsRunning", false);
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Exiting Running State");
     }
 }

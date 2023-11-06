@@ -9,9 +9,6 @@ public class HeroAttacking : HeroState
     public override void Enter()
     {
         base.Enter();
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Entering Attacking State");
     }
 
     public override void FrameUpdate()
@@ -32,8 +29,5 @@ public class HeroAttacking : HeroState
     public override void Exit()
     {
         base.Exit();
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Exiting Attacking State");
     }
 }

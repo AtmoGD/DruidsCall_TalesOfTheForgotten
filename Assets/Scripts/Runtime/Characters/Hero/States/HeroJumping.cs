@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroJumping : HeroMoving
 {
-    private LayerMask enterLayerMask;
+    protected LayerMask enterLayerMask;
     public HeroJumping(Hero _character) : base(_character) { }
 
     public override void Enter()
@@ -22,9 +22,6 @@ public class HeroJumping : HeroMoving
             enterLayerMask = hero.Rigidbody.excludeLayers;
             hero.Rigidbody.excludeLayers = hero.PhaseThroughLayer;
         }
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Entering Jumping State");
     }
 
     public override void FrameUpdate()
@@ -61,12 +58,10 @@ public class HeroJumping : HeroMoving
 
         if (hero.CanPhaseThroughPlatforms)
             hero.Rigidbody.excludeLayers = enterLayerMask;
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Exiting Jumping State");
     }
 
-    private void MoveUp()
+    // Note: Multiply it with deltaTime?
+    protected virtual void MoveUp()
     {
         float jumpVelocity = hero.JumpCurve.Evaluate(timeInState) * hero.JumpHeight;
         hero.Rigidbody.velocity = new Vector2(hero.Rigidbody.velocity.x, jumpVelocity);

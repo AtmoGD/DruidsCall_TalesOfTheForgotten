@@ -433,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 184.41, y: -2.06, z: -10}
+  m_LocalPosition: {x: 282.34433, y: -2.05191, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -744,6 +744,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6658064991134867532}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <IsActive>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <MaxSpeed>k__BackingField
       value: 14
       objectReference: {fileID: 0}
@@ -890,6 +894,10 @@ PrefabInstance:
     - target: {fileID: 8085082740206462018, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_Name
       value: Wolf
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085082740206462018, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1090,7 +1098,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <ShowDebugLogs>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[0].time
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[0].value
+      value: 1.0117798
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[0].inSlope
+      value: -0.060757127
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[1].inSlope
+      value: -2.3912063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[0].outSlope
+      value: -0.060757127
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[1].inWeight
+      value: 0.049515963
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[1].outSlope
+      value: -2.3912063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <WallJumpCurve>k__BackingField.m_Curve.Array.data[0].outWeight
+      value: 0.10312994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

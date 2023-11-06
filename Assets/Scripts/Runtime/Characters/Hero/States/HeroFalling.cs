@@ -9,9 +9,6 @@ public class HeroFalling : HeroMoving
     public override void Enter()
     {
         base.Enter();
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Entering Falling State");
     }
 
     public override void FrameUpdate()
@@ -39,15 +36,17 @@ public class HeroFalling : HeroMoving
         }
 
         if (hero.CurrentInput.Jump && hero.CanJump)
-            hero.ChangeState(hero.Jumping);
+        {
+            if ((hero.HitsWallLeft() || hero.HitsWallRight()) && hero.CanWallJump)
+                hero.ChangeState(hero.WallJump);
+            else
+                hero.ChangeState(hero.Jumping);
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Exiting Falling State");
     }
 
     private void MoveDown()

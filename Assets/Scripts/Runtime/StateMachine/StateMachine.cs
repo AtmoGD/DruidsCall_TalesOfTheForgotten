@@ -6,7 +6,7 @@ public class StateMachine : MonoBehaviour
 {
     public State CurrentState { get; private set; }
 
-    public void ChangeState(State _newState)
+    public virtual void ChangeState(State _newState)
     {
         CurrentState?.Exit();
         CurrentState = _newState;
@@ -18,7 +18,7 @@ public class StateMachine : MonoBehaviour
         CurrentState?.FrameUpdate();
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         CurrentState?.PhysicsUpdate();
     }

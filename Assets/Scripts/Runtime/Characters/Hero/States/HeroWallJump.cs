@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroWallJump : HeroState
+public class HeroWallJump : HeroJumping
 {
+    private Vector2 wallJumpDirection;
+
     public HeroWallJump(Hero _character) : base(_character) { }
 
     public override void Enter()
     {
         base.Enter();
 
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Entering WallJump State");
+        if (!hero.WallJumpConsumesJump)
+            hero.JumpsLeft++;
+
+        wallJumpDirection = hero.HitsWallLeft() ? Vector2.right : Vector2.left;
     }
 
     public override void FrameUpdate()
@@ -32,8 +36,11 @@ public class HeroWallJump : HeroState
     public override void Exit()
     {
         base.Exit();
+    }
 
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Exiting WallJump State");
+    protected override void MoveHorizontal()
+    {
+        float xVelocity = (hero.WallJumpCurve.Evaluate(timeInState) * wallJumpDirection.x) + hero.Rigidbody.velocity.x;
+        hero.Rigidbody.velocity = new Vector2(xVelocity, hero.Rigidbody.velocity.y);
     }
 }

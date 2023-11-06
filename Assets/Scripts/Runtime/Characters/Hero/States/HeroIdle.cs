@@ -9,9 +9,6 @@ public class HeroIdle : HeroState
     public override void Enter()
     {
         base.Enter();
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Entering Idle State");
     }
 
     public override void FrameUpdate()
@@ -43,8 +40,5 @@ public class HeroIdle : HeroState
     public override void Exit()
     {
         base.Exit();
-
-        if (hero.ShowDebugLogs)
-            Debug.Log("Hero: Exiting Idle State");
     }
 }

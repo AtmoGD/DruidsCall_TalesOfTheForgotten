@@ -48,10 +48,19 @@ public class Character : StateMachine
     [field: SerializeField] public float JumpHeight { get; private set; } = 1f;
     [field: SerializeField] public float MinJumpTime { get; private set; } = 0.15f;
     [field: SerializeField] public AnimationCurve JumpCurve { get; private set; } = null;
+
+    [field: Header("Wall Jump")]
+    [field: SerializeField] public bool WallJumpActive { get; private set; } = true;
+    public bool CanWallJump => WallJumpActive && JumpsLeft > 0;
+    [field: SerializeField] public bool WallJumpConsumesJump { get; private set; } = true;
+    [field: SerializeField] public AnimationCurve WallJumpCurve { get; private set; } = null;
+
+    [field: Header("Falling")]
     [field: SerializeField] public AnimationCurve FallCurve { get; private set; } = null;
     [field: SerializeField] public float FallLerpSpeed { get; private set; } = 0.1f;
     [field: SerializeField] public float IdleGravity { get; private set; } = -1f;
 
+    [field: Header("Runtime Variables")]
     [field: SerializeField] public int JumpsLeft { get; set; } = 0;
 
     protected virtual void Start()
@@ -67,6 +76,16 @@ public class Character : StateMachine
     public virtual bool HitsTop()
     {
         return Physics2D.OverlapBox(TopTransform.position, TopBoxSize, 0, TopLayer);
+    }
+
+    public virtual bool HitsWallLeft()
+    {
+        return Physics2D.OverlapBox(WallLeftTransform.position, WallBoxSize, 0, WallLayer);
+    }
+
+    public virtual bool HitsWallRight()
+    {
+        return Physics2D.OverlapBox(WallRightTransform.position, WallBoxSize, 0, WallLayer);
     }
 
     public virtual void SetIsControlledByPlayer(bool _isControlledByPlayer)
