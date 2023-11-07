@@ -22,6 +22,9 @@ public class Hero : Character
     [field: Header("Hero Settings")]
     [field: SerializeField] public Wolf Wolf { get; private set; } = null;
 
+    [field: Header("Components")]
+    [field: SerializeField] public MovementComponent MovementComponent { get; private set; } = null;
+
 
     [field: Header("Debugging")]
     [field: SerializeField] public TMPro.TMP_Text StateText { get; private set; } = null;

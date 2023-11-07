@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class HeroMoving : HeroState
 {
-    private bool accelerating = false;
-    private bool updateAccelerationTime = false;
-    private float alreadyAccelerated = 0f;
-    private int lastDir = 1;
-    private bool directionChanged = false;
+    protected bool accelerating = false;
+    protected bool updateAccelerationTime = false;
+    protected float alreadyAccelerated = 0f;
+    protected int lastDir = 1;
+    protected bool directionChanged = false;
 
     protected bool CanMoveHorizontal { get; set; } = true;
 
@@ -101,6 +101,7 @@ public class HeroMoving : HeroState
         float speed = hero.CurrentInput.LastMoveDirection * hero.MaxSpeed * acceleration;
 
         hero.Rigidbody.velocity = new Vector2(speed, hero.Rigidbody.velocity.y);
+        // hero.MovementComponent.AddMovement(new Vector2(speed, 0));
     }
 
 

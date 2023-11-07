@@ -40,6 +40,19 @@ public class HeroWallJump : HeroJumping
     protected override void MoveHorizontal()
     {
         float xVelocity = hero.WallJumpCurve.Evaluate(timeInState) * wallJumpDirection.x;
-        hero.Rigidbody.velocity = new Vector2(xVelocity, hero.Rigidbody.velocity.y);
+
+        float acceleration;
+
+        if (accelerating)
+            acceleration = hero.AccelerationCurve.Evaluate(alreadyAccelerated) * Mathf.Abs(hero.CurrentInput.Move.x);
+        else
+            acceleration = hero.DeccelerationCurve.Evaluate(alreadyAccelerated);
+
+        float speed = hero.CurrentInput.LastMoveDirection * hero.MaxSpeed * acceleration;
+
+        speed = Mathf.Abs(speed) > Mathf.Abs(xVelocity) ? speed : xVelocity;
+
+        // hero.Rigidbody.velocity = new Vector2(xVelocity, hero.Rigidbody.velocity.y);
+        hero.Rigidbody.velocity = new Vector2(speed, hero.Rigidbody.velocity.y);
     }
 }
