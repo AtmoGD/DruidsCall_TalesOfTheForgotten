@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class HeroFalling : HeroMoving
 {
+    private bool fallThroughPlatform;
+    private LayerMask enterLayerMask;
     public HeroFalling(Hero _character) : base(_character) { }
 
     public override void Enter()
     {
         base.Enter();
+
+        if (hero.CurrentInput.Move.y < -0.1f && hero.CanPhaseThroughPlatforms && hero.OnPlatform())
+        {
+            fallThroughPlatform = true;
+            enterLayerMask = hero.Rigidbody.excludeLayers;
+            hero.Rigidbody.excludeLayers = hero.PhaseThroughLayer;
+        }
     }
 
     public override void FrameUpdate()
@@ -27,7 +36,15 @@ public class HeroFalling : HeroMoving
     {
         // base.DoStateChecks(); <---- This is commented out because we don't want to run the base class's DoStateChecks() method
 
-        if (hero.Grounded())
+        if (fallThroughPlatform)
+        {
+            if (timeInState > hero.FallThroughPlatformTime)
+            {
+                hero.Rigidbody.excludeLayers = enterLayerMask;
+                fallThroughPlatform = false;
+            }
+        }
+        else if (hero.Grounded())
         {
             if (Mathf.Abs(hero.Rigidbody.velocity.x) > 0.1f)
                 hero.ChangeState(hero.Running);
@@ -47,6 +64,12 @@ public class HeroFalling : HeroMoving
     public override void Exit()
     {
         base.Exit();
+
+        if (fallThroughPlatform)
+        {
+            hero.Rigidbody.excludeLayers = enterLayerMask;
+            fallThroughPlatform = false;
+        }
     }
 
     private void MoveDown()

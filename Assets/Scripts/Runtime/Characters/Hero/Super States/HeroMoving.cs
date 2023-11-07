@@ -55,13 +55,22 @@ public class HeroMoving : HeroState
         base.DoStateChecks();
 
         if (!hero.Grounded())
+        {
             hero.ChangeState(hero.Falling);
+            return;
+        }
 
         if (hero.CurrentInput.Jump && hero.CanJump)
+        {
             hero.ChangeState(hero.Jumping);
+            return;
+        }
 
         if (Mathf.Abs(hero.Rigidbody.velocity.x) < 0.1f && !accelerating)
+        {
             hero.ChangeState(hero.Idle);
+            return;
+        }
     }
 
     public override void Exit()

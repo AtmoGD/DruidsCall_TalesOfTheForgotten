@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1797078967848947870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: -0.42000008, z: 0}
+  m_LocalPosition: {x: 0.38, y: 0.83000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 4784290169458719583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 4868359112359363665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: -0.42, z: 0}
+  m_LocalPosition: {x: -0.38, y: 0.83000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 3964376506749875170}
   - component: {fileID: 9012730775144882080}
   - component: {fileID: 4827585396097924128}
+  - component: {fileID: 5460917300267126661}
   m_Layer: 7
   m_Name: Skin
   m_TagString: Untagged
@@ -120,8 +121,8 @@ Transform:
   m_GameObject: {fileID: 5484858021436608816}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.060000002, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6062189345492367134}
@@ -199,6 +200,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5460917300267126661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484858021436608816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 673416958
+      Data2: 1095930079
+      Data3: -592207444
+      Data4: 493389624
+    Path: event:/DEBUG/TEST_CHAR_FOOTSTEPS
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 60
 --- !u!1 &6353030019544069157
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +287,7 @@ Transform:
   m_GameObject: {fileID: 6656036740478908099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -330,7 +362,7 @@ MonoBehaviour:
   <TopLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
-  <WallBoxSize>k__BackingField: {x: 0.1, y: 1.2}
+  <WallBoxSize>k__BackingField: {x: 0.1, y: 0.8}
   <WallLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
@@ -391,8 +423,8 @@ MonoBehaviour:
   <JumpActive>k__BackingField: 1
   <CanPhaseThroughPlatforms>k__BackingField: 1
   <MaxJumps>k__BackingField: 3
-  <JumpHeight>k__BackingField: 26
-  <MinJumpTime>k__BackingField: 0.12
+  <JumpHeight>k__BackingField: 25
+  <MinJumpTime>k__BackingField: 0.14
   <JumpCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
@@ -417,20 +449,46 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  <WallJumpActive>k__BackingField: 1
+  <WallJumpConsumesJump>k__BackingField: 0
+  <WallJumpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 15.03076
+      inSlope: -0.060757127
+      outSlope: -0.060757127
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.10312994
+    - serializedVersion: 3
+      time: 0.21390325
+      value: 0
+      inSlope: -164.89986
+      outSlope: -164.89986
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.114032485
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   <FallCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: -267.2646
-      outSlope: -267.2646
+      inSlope: -166.81517
+      outSlope: -166.81517
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.040639706
+      outWeight: 0.050581362
     - serializedVersion: 3
-      time: 0.2849388
+      time: 0.41716877
       value: -23.755724
       inSlope: -4.899462
       outSlope: -4.899462
@@ -442,18 +500,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   <FallLerpSpeed>k__BackingField: 15
-  <IdleGravity>k__BackingField: -1
+  <IdleGravity>k__BackingField: -0.01
+  <FallThroughPlatformActive>k__BackingField: 1
+  <FallThroughPlatformTime>k__BackingField: 0.25
   <JumpsLeft>k__BackingField: 2
   onJump:
     m_PersistentCalls:
       m_Calls: []
   <Wolf>k__BackingField: {fileID: 0}
-  <WallJumpActive>k__BackingField: 1
-  <WallJumpConsumesJump>k__BackingField: 1
   <StateText>k__BackingField: {fileID: 0}
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}
-    LastMoveDirection: 1
+    LastMoveDirection: -1
     Jump: 0
     Attack: 0
 --- !u!50 &922206058694222237
@@ -515,6 +573,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.8, y: 2}
+  m_Offset: {x: 0, y: 0.75}
+  m_Size: {x: 0.8, y: 1.5}
   m_Direction: 0

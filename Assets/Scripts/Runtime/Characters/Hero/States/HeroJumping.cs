@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeroJumping : HeroMoving
 {
     protected LayerMask enterLayerMask;
+    protected bool consumeJump = true;
     public HeroJumping(Hero _character) : base(_character) { }
 
     public override void Enter()
@@ -13,7 +14,8 @@ public class HeroJumping : HeroMoving
 
         hero.onJump?.Invoke();
 
-        hero.JumpsLeft--;
+        if (consumeJump)
+            hero.JumpsLeft--;
 
         hero.Rigidbody.gravityScale = 0f;
 
@@ -41,13 +43,22 @@ public class HeroJumping : HeroMoving
         // base.DoStateChecks(); <------- Nicht machen! Gibt bugs!
 
         if (!hero.CurrentInput.Jump && timeInState > hero.MinJumpTime)
+        {
             hero.ChangeState(hero.Falling);
+            return;
+        }
 
         if (timeInState > hero.JumpCurve.keys[^1].time)
+        {
             hero.ChangeState(hero.Falling);
+            return;
+        }
 
         if (hero.HitsTop())
+        {
             hero.ChangeState(hero.Falling);
+            return;
+        }
     }
 
     public override void Exit()

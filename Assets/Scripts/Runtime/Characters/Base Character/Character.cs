@@ -51,7 +51,7 @@ public class Character : StateMachine
 
     [field: Header("Wall Jump")]
     [field: SerializeField] public bool WallJumpActive { get; private set; } = true;
-    public bool CanWallJump => WallJumpActive && JumpsLeft > 0;
+    public bool CanWallJump => WallJumpActive && (JumpsLeft > 0 || !WallJumpConsumesJump);
     [field: SerializeField] public bool WallJumpConsumesJump { get; private set; } = true;
     [field: SerializeField] public AnimationCurve WallJumpCurve { get; private set; } = null;
 
@@ -59,6 +59,12 @@ public class Character : StateMachine
     [field: SerializeField] public AnimationCurve FallCurve { get; private set; } = null;
     [field: SerializeField] public float FallLerpSpeed { get; private set; } = 0.1f;
     [field: SerializeField] public float IdleGravity { get; private set; } = -1f;
+
+    [field: Header("Fall Through Platform")]
+    [field: SerializeField] public bool FallThroughPlatformActive { get; private set; } = true;
+    public bool CanFallThroughPlatform => FallThroughPlatformActive && CanPhaseThroughPlatforms;
+    [field: SerializeField] public float FallThroughPlatformTime { get; private set; } = 0.1f;
+    [field: SerializeField] public float FallThroughPlatformThreshold { get; private set; } = -0.9f;
 
     [field: Header("Runtime Variables")]
     [field: SerializeField] public int JumpsLeft { get; set; } = 0;
@@ -71,6 +77,11 @@ public class Character : StateMachine
     public virtual bool Grounded()
     {
         return Physics2D.OverlapBox(GroundTransform.position, GroundBoxSize, 0, GroundLayer);
+    }
+
+    public virtual bool OnPlatform()
+    {
+        return Physics2D.OverlapBox(GroundTransform.position, GroundBoxSize, 0, PhaseThroughLayer);
     }
 
     public virtual bool HitsTop()

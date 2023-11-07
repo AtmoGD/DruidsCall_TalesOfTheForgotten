@@ -28,13 +28,29 @@ public class HeroIdle : HeroState
         base.DoStateChecks();
 
         if (!hero.Grounded())
+        {
             hero.ChangeState(hero.Falling);
+            return;
+        }
+
+        if (hero.CurrentInput.Move.y < hero.FallThroughPlatformThreshold && hero.CanFallThroughPlatform && hero.OnPlatform())
+        {
+            Debug.Log("<color=pink>Fall Through Platform</color>");
+            hero.ChangeState(hero.Falling);
+            return;
+        }
 
         if (hero.CurrentInput.Jump && hero.CanJump)
+        {
             hero.ChangeState(hero.Jumping);
+            return;
+        }
 
         if (Mathf.Abs(hero.CurrentInput.Move.x) > 0.1f && hero.MoveActive)
+        {
             hero.ChangeState(hero.Running);
+            return;
+        }
     }
 
     public override void Exit()

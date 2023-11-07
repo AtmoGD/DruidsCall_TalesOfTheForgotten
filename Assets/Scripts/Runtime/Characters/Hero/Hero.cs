@@ -68,7 +68,9 @@ public class Hero : Character
     {
         if (base.Grounded())
         {
-            JumpsLeft = MaxJumps;
+            if (Rigidbody.velocity.y < 0f)
+                JumpsLeft = MaxJumps;
+
             return true;
         }
 

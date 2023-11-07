@@ -10,10 +10,9 @@ public class HeroWallJump : HeroJumping
 
     public override void Enter()
     {
-        base.Enter();
+        consumeJump = hero.WallJumpConsumesJump;
 
-        if (!hero.WallJumpConsumesJump)
-            hero.JumpsLeft++;
+        base.Enter();
 
         wallJumpDirection = hero.HitsWallLeft() ? Vector2.right : Vector2.left;
     }
@@ -40,7 +39,7 @@ public class HeroWallJump : HeroJumping
 
     protected override void MoveHorizontal()
     {
-        float xVelocity = (hero.WallJumpCurve.Evaluate(timeInState) * wallJumpDirection.x) + hero.Rigidbody.velocity.x;
+        float xVelocity = hero.WallJumpCurve.Evaluate(timeInState) * wallJumpDirection.x;
         hero.Rigidbody.velocity = new Vector2(xVelocity, hero.Rigidbody.velocity.y);
     }
 }

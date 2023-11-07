@@ -8,6 +8,7 @@ public class Entrance : MonoBehaviour
     [field: SerializeField] public bool OverrideBlend { get; private set; } = false;
     [field: SerializeField] public CinemachineBlendDefinition BlendOverride { get; private set; } = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut, 0f);
 
+    [field: SerializeField] public bool ShowGizmo { get; private set; } = true;
     private void Start()
     {
         if (Level == null)
@@ -23,6 +24,15 @@ public class Entrance : MonoBehaviour
             Game.Manager.World.ActivateLevel(Level);
 
             if (OverrideBlend) CinemachineBlendManager.SetNextBlend(BlendOverride);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (ShowGizmo)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, 0.5f);
         }
     }
 }
