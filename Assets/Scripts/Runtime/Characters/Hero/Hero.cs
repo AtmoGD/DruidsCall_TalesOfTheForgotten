@@ -63,8 +63,7 @@ public class Hero : Character
     {
         base.ChangeState(_newState);
 
-        if (ShowDebugLogs)
-            Debug.Log($"<color=green>Hero</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
+        if (ShowDebugLogs) Debug.Log($"<color=green>Hero</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
     }
 
     public override bool Grounded()

@@ -1,32 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovementComponent : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Vector2 moveDirection = Vector2.zero;
-    [field: SerializeField] public bool CanMoveHorizontal { get; set; } = true;
-    private void Start()
+    protected Rigidbody2D rb;
+    [field: SerializeField] public bool CanMove = true;
+    [field: SerializeField] public float MaxSpeed = 10f;
+    [field: SerializeField] public AnimationCurve Accelleration = new AnimationCurve();
+    [field: SerializeField] public AnimationCurve Decceleration = new AnimationCurve();
+    protected Vector2 targetVelocity = Vector2.zero;
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    public void OnMove(InputAction.CallbackContext _context)
     {
-        if (!CanMoveHorizontal) return;
-
-        rb.velocity = moveDirection * Time.deltaTime;
-    }
-
-    public void AddMovement(Vector2 _movement)
-    {
-        moveDirection += _movement;
-    }
-
-    public void SetMovement(Vector2 _movement)
-    {
-        moveDirection = _movement;
+        float xVel = _context.ReadValue<Vector2>().x;
     }
 }
