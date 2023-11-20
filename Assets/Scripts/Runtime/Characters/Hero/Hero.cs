@@ -36,6 +36,10 @@ public class Hero : Character
 
     #endregion
 
+    #region Hero Skill Variables
+    [field: SerializeField] public bool WallJumpResetsJumps { get; private set; } = true;
+    #endregion
+
     private void Awake()
     {
         Idle = new HeroIdle(this);
@@ -71,7 +75,7 @@ public class Hero : Character
         if (base.Grounded())
         {
             if (Rigidbody.velocity.y < 0f)
-                JumpsLeft = MaxJumps;
+                ResetJumpsLeft();
 
             return true;
         }

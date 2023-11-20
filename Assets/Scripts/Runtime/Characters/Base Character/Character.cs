@@ -51,7 +51,7 @@ public class Character : StateMachine
 
     [field: Header("Wall Jump")]
     [field: SerializeField] public bool WallJumpActive { get; private set; } = true;
-    public bool CanWallJump => WallJumpActive && (JumpsLeft > 0 || !WallJumpConsumesJump);
+    public bool CanWallJump => WallJumpActive && (WallJumpConsumesJump ? JumpsLeft > 0 : true);
     [field: SerializeField] public bool WallJumpConsumesJump { get; private set; } = true;
     [field: SerializeField] public AnimationCurve WallJumpCurve { get; private set; } = null;
 
@@ -77,6 +77,11 @@ public class Character : StateMachine
     public virtual bool Grounded()
     {
         return Physics2D.OverlapBox(GroundTransform.position, GroundBoxSize, 0, GroundLayer);
+    }
+
+    public virtual void ResetJumpsLeft()
+    {
+        JumpsLeft = MaxJumps;
     }
 
     public virtual bool OnPlatform()

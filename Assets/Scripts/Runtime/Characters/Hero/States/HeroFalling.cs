@@ -52,11 +52,11 @@ public class HeroFalling : HeroMoving
                 hero.ChangeState(hero.Idle);
         }
 
-        if (hero.CurrentInput.Jump && hero.CanJump)
+        if (hero.CurrentInput.Jump)
         {
             if ((hero.HitsWallLeft() || hero.HitsWallRight()) && hero.CanWallJump)
                 hero.ChangeState(hero.WallJump);
-            else
+            else if (hero.CanJump)
                 hero.ChangeState(hero.Jumping);
         }
     }

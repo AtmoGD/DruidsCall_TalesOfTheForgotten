@@ -15,6 +15,8 @@ public class HeroWallJump : HeroJumping
         base.Enter();
 
         wallJumpDirection = hero.HitsWallLeft() ? Vector2.right : Vector2.left;
+
+        if (hero.WallJumpResetsJumps) hero.ResetJumpsLeft();
     }
 
     public override void FrameUpdate()
