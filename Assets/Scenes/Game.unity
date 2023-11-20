@@ -569,7 +569,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.72798, y: 30.575148, z: -10}
+  m_LocalPosition: {x: 86.81, y: 27.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -802,11 +802,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2634986637905569976, guid: ff278099150e91a48a7812fe9c622a6d, type: 3}
   m_PrefabInstance: {fileID: 1390910558}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1413992351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7156239627978556543, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
-  m_PrefabInstance: {fileID: 6658064991134867525}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1418982738
 PrefabInstance:
@@ -1602,14 +1597,11 @@ PrefabInstance:
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <MovementComponent>k__BackingField
       value: 
-      objectReference: {fileID: 6658064991134867536}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7156239627978556543, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6658064991134867536}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
 --- !u!4 &6658064991134867526 stripped
 Transform:
@@ -1621,38 +1613,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
   m_PrefabInstance: {fileID: 6658064991134867525}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413992351}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 847e71956f6106a4d8d102cadce950d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6658064991134867536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413992351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d146025e19010a248847ad96a55d7ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanMove: 1
-  MaxSpeed: 10
-  Accelleration:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Decceleration:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &7461249015160482639
 PrefabInstance:
   m_ObjectHideFlags: 0
