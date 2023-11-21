@@ -18,10 +18,6 @@ public class HeroRunning : HeroMoving
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-
-        // float speedX = Utils.Remap01(Mathf.Abs(hero.Rigidbody.velocity.x), 0, hero.MaxSpeed);
-
-        // hero.Animator.SetFloat("SpeedX", speedX);
     }
 
     public override void PhysicsUpdate()

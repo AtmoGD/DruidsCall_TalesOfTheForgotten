@@ -12,6 +12,8 @@ public class WolfJumping : WolfMoving
     {
         base.Enter();
 
+        wolf.Animator.Play("Base Layer.Jumping_Wolf");
+
         wolf.JumpsLeft--;
 
         wolf.Rigidbody.gravityScale = 0f;

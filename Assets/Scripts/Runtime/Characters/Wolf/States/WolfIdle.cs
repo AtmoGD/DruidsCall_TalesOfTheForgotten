@@ -10,6 +10,8 @@ public class WolfIdle : WolfState
     {
         base.Enter();
 
+        wolf.Animator.Play("Base Layer.Idle_Wolf");
+
         if (wolf.ShowDebugLogs)
             Debug.Log("Wolf: Entering Idle State");
     }

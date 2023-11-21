@@ -10,6 +10,8 @@ public class WolfRunning : WolfMoving
     {
         base.Enter();
 
+        wolf.Animator.Play("Base Layer.Running_Wolf");
+
         if (wolf.ShowDebugLogs)
             Debug.Log("Wolf: Entering Running State");
     }

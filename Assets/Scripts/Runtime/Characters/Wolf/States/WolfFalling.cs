@@ -10,6 +10,8 @@ public class WolfFalling : WolfMoving
     {
         base.Enter();
 
+        wolf.Animator.Play("Base Layer.Falling_Wolf");
+
         if (wolf.ShowDebugLogs)
             Debug.Log("Wolf: Entering Falling State");
     }

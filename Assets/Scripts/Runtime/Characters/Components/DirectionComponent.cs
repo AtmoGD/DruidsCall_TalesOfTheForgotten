@@ -7,6 +7,7 @@ public class DirectionComponent : MonoBehaviour
 {
     private Character character;
     [field: SerializeField] public Vector2 Direction { get; private set; } = Vector2.right;
+    [field: SerializeField] public bool Invert { get; private set; } = false;
 
     private void Start()
     {
@@ -23,8 +24,11 @@ public class DirectionComponent : MonoBehaviour
 
     private void UpdateDirection()
     {
+        float newDirection = character.Rigidbody.velocity.x < 0f ? -1f : 1f;
+        newDirection *= Invert ? -1f : 1f;
+
         if (Mathf.Abs(character.Rigidbody.velocity.x) > 0.15f)
-            character.transform.localScale = new Vector3(character.Rigidbody.velocity.x < 0f ? -1f : 1f, 1f, 1f);
+            character.transform.localScale = new Vector3(newDirection, 1f, 1f);
     }
 
     private void UpdateAnimationTime()
