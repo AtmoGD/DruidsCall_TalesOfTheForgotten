@@ -7,7 +7,7 @@ public class HeroJumping : HeroMoving
 {
     protected LayerMask enterLayerMask;
     protected bool consumeJump = true;
-    public HeroJumping(Hero _character, string _animationName = "Jump") : base(_character, _animationName) { }
+    public HeroJumping(Hero _character) : base(_character) { }
 
     public override void Enter()
     {
@@ -25,6 +25,8 @@ public class HeroJumping : HeroMoving
             enterLayerMask = hero.Rigidbody.excludeLayers;
             hero.Rigidbody.excludeLayers = hero.PhaseThroughLayer;
         }
+
+        hero.Animator.Play("Base Layer.Jumping_Hero");
     }
 
     public override void FrameUpdate()

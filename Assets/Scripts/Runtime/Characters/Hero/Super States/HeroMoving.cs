@@ -13,7 +13,7 @@ public class HeroMoving : HeroState
 
     protected bool CanMoveHorizontal { get; set; } = true;
 
-    public HeroMoving(Hero _character, string _animationName) : base(_character, _animationName) { }
+    public HeroMoving(Hero _character) : base(_character) { }
 
     public override void Enter()
     {
@@ -101,7 +101,6 @@ public class HeroMoving : HeroState
         float speed = hero.CurrentInput.LastMoveDirection * hero.MaxSpeed * acceleration;
 
         hero.Rigidbody.velocity = new Vector2(speed, hero.Rigidbody.velocity.y);
-        // hero.MovementComponent.AddMovement(new Vector2(speed, 0));
     }
 
 

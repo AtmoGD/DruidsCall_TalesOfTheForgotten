@@ -6,7 +6,7 @@ public class HeroFalling : HeroMoving
 {
     private bool fallThroughPlatform;
     private LayerMask enterLayerMask;
-    public HeroFalling(Hero _character, string _animationName = "Fall") : base(_character, _animationName) { }
+    public HeroFalling(Hero _character) : base(_character) { }
 
     public override void Enter()
     {
@@ -18,6 +18,8 @@ public class HeroFalling : HeroMoving
             enterLayerMask = hero.Rigidbody.excludeLayers;
             hero.Rigidbody.excludeLayers = hero.PhaseThroughLayer;
         }
+
+        hero.Animator.Play("Base Layer.Falling_Hero");
     }
 
     public override void FrameUpdate()
@@ -71,7 +73,7 @@ public class HeroFalling : HeroMoving
             fallThroughPlatform = false;
         }
 
-        hero.Animator.SetTrigger("Land");
+        // hero.Animator.SetTrigger("Land");
     }
 
     private void MoveDown()

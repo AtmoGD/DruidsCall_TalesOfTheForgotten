@@ -6,7 +6,7 @@ public class WolfAttacking : WolfState
 {
     private float waitTime = 2f;
 
-    public WolfAttacking(Wolf _wolf, string _animationName = "Attack") : base(_wolf, _animationName) { }
+    public WolfAttacking(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
     {

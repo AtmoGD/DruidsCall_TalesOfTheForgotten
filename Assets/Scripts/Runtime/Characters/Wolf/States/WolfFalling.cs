@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WolfFalling : WolfMoving
 {
-    public WolfFalling(Wolf _wolf, string _animationName = "Fall") : base(_wolf, _animationName) { }
+    public WolfFalling(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
     {

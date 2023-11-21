@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class HeroIdle : HeroState
 {
-    public HeroIdle(Hero _character, string _animationName = "Idle") : base(_character, _animationName) { }
+    public HeroIdle(Hero _character) : base(_character) { }
 
     public override void Enter()
     {
         base.Enter();
+
+        hero.Animator.Play("Base Layer.Idle_Hero");
     }
 
     public override void FrameUpdate()
@@ -35,7 +37,6 @@ public class HeroIdle : HeroState
 
         if (hero.CurrentInput.Move.y < hero.FallThroughPlatformThreshold && hero.CanFallThroughPlatform && hero.OnPlatform())
         {
-            Debug.Log("<color=pink>Fall Through Platform</color>");
             hero.ChangeState(hero.Falling);
             return;
         }

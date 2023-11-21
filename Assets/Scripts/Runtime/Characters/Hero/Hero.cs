@@ -66,17 +66,4 @@ public class Hero : Character
 
         if (ShowDebugLogs) Debug.Log($"<color=green>Hero</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
     }
-
-    public override bool Grounded()
-    {
-        if (base.Grounded())
-        {
-            if (Rigidbody.velocity.y < 0f)
-                ResetJumpsLeft();
-
-            return true;
-        }
-
-        return false;
-    }
 }

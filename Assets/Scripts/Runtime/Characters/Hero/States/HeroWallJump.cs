@@ -6,7 +6,7 @@ public class HeroWallJump : HeroJumping
 {
     private Vector2 wallJumpDirection;
 
-    public HeroWallJump(Hero _character, string _animationName = "WallJump") : base(_character, _animationName) { }
+    public HeroWallJump(Hero _character) : base(_character) { }
 
     public override void Enter()
     {
@@ -44,17 +44,14 @@ public class HeroWallJump : HeroJumping
         float xVelocity = hero.WallJumpCurve.Evaluate(timeInState) * wallJumpDirection.x;
 
         float acceleration;
-
         if (accelerating)
             acceleration = hero.AccelerationCurve.Evaluate(alreadyAccelerated) * Mathf.Abs(hero.CurrentInput.Move.x);
         else
             acceleration = hero.DeccelerationCurve.Evaluate(alreadyAccelerated);
 
         float speed = hero.CurrentInput.LastMoveDirection * hero.MaxSpeed * acceleration;
-
         speed = Mathf.Abs(speed) > Mathf.Abs(xVelocity) ? speed : xVelocity;
 
-        // hero.Rigidbody.velocity = new Vector2(xVelocity, hero.Rigidbody.velocity.y);
         hero.Rigidbody.velocity = new Vector2(speed, hero.Rigidbody.velocity.y);
     }
 }

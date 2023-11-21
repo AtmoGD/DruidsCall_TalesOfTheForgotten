@@ -6,11 +6,8 @@ public class CharacterState : State
 {
     protected Character character;
 
-    public CharacterState(Character _character, string _animationName)
+    public CharacterState(Character _character)
     {
         this.character = _character;
-
-        if (character.Animator != null)
-            character.Animator.SetTrigger(_animationName);
     }
 }

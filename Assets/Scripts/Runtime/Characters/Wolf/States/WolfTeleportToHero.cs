@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WolfTeleportToHero : WolfState
 {
-    public WolfTeleportToHero(Wolf _wolf, string _animationName = "TeleportToHero") : base(_wolf, _animationName) { }
+    public WolfTeleportToHero(Wolf _wolf) : base(_wolf) { }
 
     public override void Enter()
     {
