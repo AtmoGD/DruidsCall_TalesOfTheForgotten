@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroIdle : HeroState
 {
-    public HeroIdle(Hero _character) : base(_character) { }
+    public HeroIdle(Hero _character, string _animationName = "Idle") : base(_character, _animationName) { }
 
     public override void Enter()
     {

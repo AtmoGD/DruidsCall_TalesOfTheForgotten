@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WolfIdle : WolfState
 {
-    public WolfIdle(Wolf _wolf) : base(_wolf) { }
+    public WolfIdle(Wolf _wolf, string _animationName = "Idle") : base(_wolf, _animationName) { }
 
     public override void Enter()
     {

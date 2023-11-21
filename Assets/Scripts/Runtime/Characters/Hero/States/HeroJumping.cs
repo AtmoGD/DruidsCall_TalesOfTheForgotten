@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class HeroJumping : HeroMoving
 {
     protected LayerMask enterLayerMask;
     protected bool consumeJump = true;
-    public HeroJumping(Hero _character) : base(_character) { }
+    public HeroJumping(Hero _character, string _animationName = "Jump") : base(_character, _animationName) { }
 
     public override void Enter()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroAttacking : HeroState
 {
-    public HeroAttacking(Hero _character) : base(_character) { }
+    public HeroAttacking(Hero _character, string _animationName = "Attacking") : base(_character, _animationName) { }
 
     public override void Enter()
     {

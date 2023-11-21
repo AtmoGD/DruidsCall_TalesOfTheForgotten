@@ -6,7 +6,7 @@ public class HeroState : CharacterState
 {
     protected Hero hero;
 
-    public HeroState(Hero _hero) : base(_hero)
+    public HeroState(Hero _hero, string _animationName) : base(_hero, _animationName)
     {
         this.hero = _hero;
     }

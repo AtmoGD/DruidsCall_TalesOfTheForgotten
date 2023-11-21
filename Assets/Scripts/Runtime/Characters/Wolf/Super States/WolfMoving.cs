@@ -13,7 +13,7 @@ public class WolfMoving : WolfState
 
     protected bool CanMoveHorizontal { get; set; } = true;
 
-    public WolfMoving(Wolf _wolf) : base(_wolf) { }
+    public WolfMoving(Wolf _character, string _animationName) : base(_character, _animationName) { }
 
     public override void Enter()
     {

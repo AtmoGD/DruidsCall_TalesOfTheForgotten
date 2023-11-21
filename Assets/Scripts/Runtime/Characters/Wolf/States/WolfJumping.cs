@@ -5,7 +5,8 @@ using UnityEngine;
 public class WolfJumping : WolfMoving
 {
     private LayerMask enterLayerMask;
-    public WolfJumping(Wolf _wolf) : base(_wolf) { }
+
+    public WolfJumping(Wolf _wolf, string _animationName = "Jump") : base(_wolf, _animationName) { }
 
     public override void Enter()
     {

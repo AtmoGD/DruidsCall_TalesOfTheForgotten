@@ -6,7 +6,7 @@ public class HeroWallJump : HeroJumping
 {
     private Vector2 wallJumpDirection;
 
-    public HeroWallJump(Hero _character) : base(_character) { }
+    public HeroWallJump(Hero _character, string _animationName = "WallJump") : base(_character, _animationName) { }
 
     public override void Enter()
     {

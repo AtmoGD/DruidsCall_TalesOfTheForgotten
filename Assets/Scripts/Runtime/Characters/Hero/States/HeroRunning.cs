@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class HeroRunning : HeroMoving
 {
-    public HeroRunning(Hero _character) : base(_character) { }
+    public HeroRunning(Hero _character, string _animationName = "Run") : base(_character, _animationName) { }
 
     public override void Enter()
     {
         base.Enter();
-
-        hero.Animator.SetBool("IsRunning", true);
     }
 
     public override void FrameUpdate()
@@ -32,7 +30,5 @@ public class HeroRunning : HeroMoving
     public override void Exit()
     {
         base.Exit();
-
-        hero.Animator.SetBool("IsRunning", false);
     }
 }

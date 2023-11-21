@@ -13,7 +13,7 @@ public class HeroMoving : HeroState
 
     protected bool CanMoveHorizontal { get; set; } = true;
 
-    public HeroMoving(Hero _character) : base(_character) { }
+    public HeroMoving(Hero _character, string _animationName) : base(_character, _animationName) { }
 
     public override void Enter()
     {

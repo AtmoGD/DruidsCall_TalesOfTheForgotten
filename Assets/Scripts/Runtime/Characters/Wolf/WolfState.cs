@@ -6,7 +6,7 @@ public class WolfState : CharacterState
 {
     protected Wolf wolf;
 
-    public WolfState(Wolf _wolf) : base(_wolf)
+    public WolfState(Wolf _wolf, string _animationName) : base(_wolf, _animationName)
     {
         this.wolf = _wolf;
     }
