@@ -30,6 +30,17 @@ public class World : MonoBehaviour
         CurrentLevelActive = _level;
     }
 
+    public void ActivateLevel()
+    {
+        ActivateLevel(CurrentLevelActive);
+    }
+
+    public void SetAllLevelsActive()
+    {
+        foreach (Level level in Levels)
+            level.gameObject.SetActive(true);
+    }
+
     public void UpdateLevelList()
     {
         Levels.Clear();

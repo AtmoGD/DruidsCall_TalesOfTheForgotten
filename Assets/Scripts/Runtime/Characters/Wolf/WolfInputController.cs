@@ -63,11 +63,11 @@ public class WolfInputController : MonoBehaviour
     [field: Header("Debugging")]
     [field: SerializeField] public TMPro.TMP_Text GoalText { get; private set; } = null;
 
-    private void Start()
-    {
-        if (Hero)
-            Hero.onJump.AddListener(OnHeroJump);
-    }
+    // private void Start()
+    // {
+    //     if (Hero)
+    //         Hero.onJump.AddListener(OnHeroJump);
+    // }
 
     private void Update()
     {
@@ -191,6 +191,7 @@ public class WolfInputController : MonoBehaviour
 
         // If the hero is not moving and the wolf is in the follow radius, go idle
 
+
         if (!Wolf.InFollowRadius && !Wolf.InTeleportRadius)
         {
             if (Wolf.Hero.CurrentInput.Move.x == 0)
@@ -201,6 +202,34 @@ public class WolfInputController : MonoBehaviour
 
     private void FollowHero()
     {
+        // int direction = 0;
+
+        // // if (Wolf.IsGroundedInMovementDirection)
+        // direction = Wolf.FollowTransform.transform.position.x > Wolf.transform.position.x ? 1 : -1;
+
+        // WolfInput.LastMoveDirection = direction;
+        // WolfInput.Move = new Vector2(direction, 0);
+
+        // ____________________________________________________________
+
+        // int direction = 0;
+
+        // // if (Wolf.IsGroundedInMovementDirection)
+        // direction = Wolf.FollowTargetComponent.Direction.x > 0 ? 1 : -1;
+
+        // WolfInput.LastMoveDirection = direction;
+        // WolfInput.Move = new Vector2(direction, 0);
+
+        // if (Vector2.Distance(transform.position, Wolf.FollowTargetComponent.Path.vectorPath[Wolf.FollowTargetComponent.CurrentWaypoint]) < 0.1f)
+        //     Wolf.FollowTargetComponent.CurrentWaypoint++;
+
+        // // WolfInput.LastMoveDirection = (int)Wolf.FollowTargetComponent.Direction.x;
+        // // WolfInput.Move = Wolf.FollowTargetComponent.Direction;
+
+        // // WolfInput.Jump = Wolf.FollowTargetComponent.Direction.y > 0.5f;
+
+        // ____________________________________________________________
+
         int direction = 0;
 
         // if (Wolf.IsGroundedInMovementDirection)

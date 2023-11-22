@@ -21,6 +21,7 @@ public class Wolf : Character
 
 
     [field: Header("Follow Hero")]
+    [field: SerializeField] public FollowTargetComponent FollowTargetComponent { get; private set; } = null;
     [field: SerializeField] public Transform FollowTransform { get; private set; } = null;
     [field: SerializeField] public float FollowRadius { get; private set; } = 1f;
     [field: SerializeField] public float TeleportRadius { get; private set; } = 2f;

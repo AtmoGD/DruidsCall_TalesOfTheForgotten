@@ -19,5 +19,11 @@ public class WorldEditor : Editor
 
         if (GUILayout.Button("Update Level List"))
             world.UpdateLevelList();
+
+        if (GUILayout.Button("Activate Level"))
+            world.ActivateLevel();
+
+        if (GUILayout.Button("Set All Levels Active"))
+            world.SetAllLevelsActive();
     }
 }
