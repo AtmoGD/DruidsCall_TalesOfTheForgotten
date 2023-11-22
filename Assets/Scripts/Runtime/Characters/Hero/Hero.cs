@@ -13,7 +13,7 @@ public class Hero : Character
     public HeroState Idle { get; private set; }
     public HeroState Running { get; private set; }
     public HeroState Jumping { get; private set; }
-    public HeroState WallJump { get; private set; }
+    public HeroWallJump WallJump { get; private set; }
     public HeroState Falling { get; private set; }
     #endregion
 
@@ -65,5 +65,18 @@ public class Hero : Character
         base.ChangeState(_newState);
 
         if (ShowDebugLogs) Debug.Log($"<color=green>Hero</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
+    }
+
+    private new void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+
+        Gizmos.color = Color.cyan;
+
+        if (WallJump == null) return;
+
+        Gizmos.DrawLine(transform.position + Vector3.up, transform.position + (Vector3.right * WallJump.wallJumpDirection.x * 0.5f) + Vector3.up);
+        Gizmos.DrawWireSphere(transform.position + (Vector3.right * WallJump.wallJumpDirection.x * 0.5f) + Vector3.up, 0.1f);
+        // Gizmos.DrawRay(transform.position, WallJump.wallJumpDirection * 0.5f);
     }
 }

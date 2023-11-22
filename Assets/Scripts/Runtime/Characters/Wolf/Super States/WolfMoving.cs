@@ -76,17 +76,17 @@ public class WolfMoving : WolfState
             return;
         }
 
-        if (wolf.CurrentInput.Attack)
-        {
-            wolf.ChangeState(wolf.Attacking);
-            return;
-        }
+        // if (wolf.CurrentInput.Attack)
+        // {
+        //     wolf.ChangeState(wolf.Attacking);
+        //     return;
+        // }
 
-        if (!wolf.IsControlledByPlayer && wolf.CurrentInput.HeroJumped)
-        {
-            wolf.ChangeState(wolf.FollowHeroJump);
-            return;
-        }
+        // if (!wolf.IsControlledByPlayer && wolf.CurrentInput.HeroJumped)
+        // {
+        //     wolf.ChangeState(wolf.FollowHeroJump);
+        //     return;
+        // }
     }
 
     public override void Exit()

@@ -13,6 +13,7 @@ public class Character : StateMachine
     [field: Header("Character References")]
     [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; } = null;
     [field: SerializeField] public Animator Animator { get; private set; } = null;
+    [field: SerializeField] public Transform SkinHolder { get; private set; } = null;
     [field: SerializeField] public Transform GroundTransform { get; private set; } = null;
     [field: SerializeField] public Transform TopTransform { get; private set; } = null;
     [field: SerializeField] public Transform WallLeftTransform { get; private set; } = null;

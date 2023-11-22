@@ -237,6 +237,11 @@ public class WolfInputController : MonoBehaviour
 
         WolfInput.LastMoveDirection = direction;
         WolfInput.Move = new Vector2(direction, 0);
+
+        // if (Wolf.ObstacleCheckComponent.IsObstacleMiddleLeft || Wolf.ObstacleCheckComponent.IsObstacleMiddleRight)
+        // {
+        //     WolfInput.Jump = true;
+        // }
     }
 
     private void CheckTeleportToHeroGoal()

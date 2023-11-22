@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroWallJump : HeroJumping
 {
-    private Vector2 wallJumpDirection;
+    public Vector2 wallJumpDirection;
 
     public HeroWallJump(Hero _character) : base(_character) { }
 

@@ -26,8 +26,8 @@ public class FollowTargetComponent : MonoBehaviour
 
     private void Start()
     {
-        Seeker = GetComponent<Seeker>();
-        InvokeRepeating("UpdatePath", 0f, UpdateInterval);
+        // Seeker = GetComponent<Seeker>();
+        // InvokeRepeating("UpdatePath", 0f, UpdateInterval);
     }
 
     private void UpdatePath()

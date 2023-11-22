@@ -19,6 +19,9 @@ public class Wolf : Character
     [field: Header("Wolf Settings")]
     [field: SerializeField] public Hero Hero { get; private set; } = null;
 
+    [field: Header("Components")]
+    [field: SerializeField] public ObstacleCheckComponent ObstacleCheckComponent { get; private set; } = null;
+
 
     [field: Header("Follow Hero")]
     [field: SerializeField] public FollowTargetComponent FollowTargetComponent { get; private set; } = null;
@@ -27,6 +30,7 @@ public class Wolf : Character
     [field: SerializeField] public float TeleportRadius { get; private set; } = 2f;
     [field: SerializeField] public float GroundedDistance { get; private set; } = 1f;
     [field: SerializeField] public bool IncreaseSpeedBasedOnHeroDistance { get; private set; } = true;
+
 
     [field: Header("Teleporting")]
     [field: SerializeField] public Vector2 TeleportOffset { get; private set; } = Vector2.zero;

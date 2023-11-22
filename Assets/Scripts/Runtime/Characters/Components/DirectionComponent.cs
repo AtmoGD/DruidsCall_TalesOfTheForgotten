@@ -28,7 +28,8 @@ public class DirectionComponent : MonoBehaviour
         newDirection *= Invert ? -1f : 1f;
 
         if (Mathf.Abs(character.Rigidbody.velocity.x) > 0.15f)
-            character.transform.localScale = new Vector3(newDirection, 1f, 1f);
+            character.SkinHolder.localScale = new Vector3(newDirection, 1f, 1f);
+        // character.transform.localScale = new Vector3(newDirection, 1f, 1f);
     }
 
     private void UpdateAnimationTime()
