@@ -230,18 +230,35 @@ public class WolfInputController : MonoBehaviour
 
         // ____________________________________________________________
 
-        int direction = 0;
+        // if (!Wolf.Hero.Grounded())
+        // {
+        //     Wolf.Rigidbody.velocity = new Vector2(Wolf.Rigidbody.velocity.x * 0.25f, Wolf.Rigidbody.velocity.y);
+        // }
 
-        // if (Wolf.IsGroundedInMovementDirection)
-        direction = Wolf.FollowTransform.transform.position.x > Wolf.transform.position.x ? 1 : -1;
+        int direction = Wolf.FollowTransform.transform.position.x > Wolf.transform.position.x ? 1 : -1;
 
         WolfInput.LastMoveDirection = direction;
         WolfInput.Move = new Vector2(direction, 0);
 
-        // if (Wolf.ObstacleCheckComponent.IsObstacleMiddleLeft || Wolf.ObstacleCheckComponent.IsObstacleMiddleRight)
-        // {
-        //     WolfInput.Jump = true;
-        // }
+        if (Wolf.FollowTransform.transform.position.y > Wolf.transform.position.y)
+        {
+            if (direction == 1)
+            {
+                if ((Wolf.ObstacleCheck.ObstacleMiddleRight || Wolf.ObstacleCheck.ObstacleMiddleUpRight) && !Wolf.ObstacleCheck.ObstacleUpRight)
+                {
+                    Wolf.Jumping.SmallJump = !Wolf.ObstacleCheck.ObstacleMiddleUpRight;
+                    WolfInput.Jump = true;
+                }
+            }
+            else
+            {
+                if ((Wolf.ObstacleCheck.ObstacleMiddleLeft || Wolf.ObstacleCheck.ObstacleMiddleUpLeft) && !Wolf.ObstacleCheck.ObstacleUpLeft)
+                {
+                    Wolf.Jumping.SmallJump = !Wolf.ObstacleCheck.ObstacleMiddleUpLeft;
+                    WolfInput.Jump = true;
+                }
+            }
+        }
     }
 
     private void CheckTeleportToHeroGoal()

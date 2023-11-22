@@ -5,6 +5,7 @@ using UnityEngine;
 public class WolfJumping : WolfMoving
 {
     private LayerMask enterLayerMask;
+    public bool SmallJump { get; set; } = false;
 
     public WolfJumping(Wolf _wolf) : base(_wolf) { }
 
@@ -13,6 +14,8 @@ public class WolfJumping : WolfMoving
         base.Enter();
 
         wolf.Animator.Play("Base Layer.Jumping_Wolf");
+
+        Debug.Log("Jumping: " + SmallJump);
 
         wolf.JumpsLeft--;
 
@@ -44,13 +47,13 @@ public class WolfJumping : WolfMoving
     {
         // base.DoStateChecks(); <------- Nicht machen! Gibt bugs!
 
-        if (!wolf.CurrentInput.Jump && timeInState > wolf.MinJumpTime)
-        {
-            wolf.ChangeState(wolf.Falling);
-            return;
-        }
+        // if (!wolf.CurrentInput.Jump && timeInState > wolf.MinJumpTime)
+        // {
+        //     wolf.ChangeState(wolf.Falling);
+        //     return;
+        // }
 
-        if (timeInState > wolf.JumpCurve.keys[^1].time)
+        if (timeInState > (wolf.JumpCurve.keys[^1].time * (SmallJump ? wolf.SmallJumpMultiplier : 1f)))
         {
             wolf.ChangeState(wolf.Falling);
             return;

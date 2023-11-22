@@ -1184,6 +1184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 7741831350203235342, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.086
+      objectReference: {fileID: 0}
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <Wolf>k__BackingField
       value: 

@@ -8,26 +8,37 @@ public class ObstacleCheckComponent : MonoBehaviour
 
     [field: Header("Obstacle Checking")]
     [field: SerializeField] public LayerMask ObstacleCheckLayer { get; private set; } = 0;
+
     [field: SerializeField] public Transform MiddleLeftCheck { get; private set; } = null;
+    [field: SerializeField] public Vector2 MiddleLeftCheckSize { get; private set; } = Vector2.zero;
     [field: SerializeField] public Transform MiddleRightCheck { get; private set; } = null;
+    [field: SerializeField] public Vector2 MiddleRightCheckSize { get; private set; } = Vector2.zero;
+    [field: SerializeField] public Transform MiddleUpLeftCheck { get; private set; } = null;
+    [field: SerializeField] public Vector2 MiddleUpLeftCheckSize { get; private set; } = Vector2.zero;
+    [field: SerializeField] public Transform MiddleUpRightCheck { get; private set; } = null;
+    [field: SerializeField] public Vector2 MiddleUpRightCheckSize { get; private set; } = Vector2.zero;
     [field: SerializeField] public Transform UpLeftCheck { get; private set; } = null;
+    [field: SerializeField] public Vector2 UpLeftCheckSize { get; private set; } = Vector2.zero;
     [field: SerializeField] public Transform UpRightCheck { get; private set; } = null;
+    [field: SerializeField] public Vector2 UpRightCheckSize { get; private set; } = Vector2.zero;
 
-    [field: SerializeField] public float CheckRadius { get; private set; } = 0.1f;
-
-    [field: SerializeField] public bool IsObstacleMiddleLeft { get; private set; } = false;
-    [field: SerializeField] public bool IsObstacleMiddleRight { get; private set; } = false;
-    [field: SerializeField] public bool IsObstacleUpLeft { get; private set; } = false;
-    [field: SerializeField] public bool IsObstacleUpRight { get; private set; } = false;
+    [field: SerializeField] public bool ObstacleMiddleLeft { get; private set; } = false;
+    [field: SerializeField] public bool ObstacleMiddleRight { get; private set; } = false;
+    [field: SerializeField] public bool ObstacleMiddleUpLeft { get; private set; } = false;
+    [field: SerializeField] public bool ObstacleMiddleUpRight { get; private set; } = false;
+    [field: SerializeField] public bool ObstacleUpLeft { get; private set; } = false;
+    [field: SerializeField] public bool ObstacleUpRight { get; private set; } = false;
 
     private void Update()
     {
         if (!IsActive) return;
 
-        IsObstacleMiddleLeft = Physics2D.OverlapCircle(MiddleLeftCheck.position, CheckRadius, ObstacleCheckLayer);
-        IsObstacleMiddleRight = Physics2D.OverlapCircle(MiddleRightCheck.position, CheckRadius, ObstacleCheckLayer);
-        IsObstacleUpLeft = Physics2D.OverlapCircle(UpLeftCheck.position, CheckRadius, ObstacleCheckLayer);
-        IsObstacleUpRight = Physics2D.OverlapCircle(UpRightCheck.position, CheckRadius, ObstacleCheckLayer);
+        ObstacleMiddleLeft = Physics2D.OverlapBox(MiddleLeftCheck.position, MiddleLeftCheckSize, 0, ObstacleCheckLayer);
+        ObstacleMiddleRight = Physics2D.OverlapBox(MiddleRightCheck.position, MiddleRightCheckSize, 0, ObstacleCheckLayer);
+        ObstacleMiddleUpLeft = Physics2D.OverlapBox(MiddleUpLeftCheck.position, MiddleUpLeftCheckSize, 0, ObstacleCheckLayer);
+        ObstacleMiddleUpRight = Physics2D.OverlapBox(MiddleUpRightCheck.position, MiddleUpRightCheckSize, 0, ObstacleCheckLayer);
+        ObstacleUpLeft = Physics2D.OverlapBox(UpLeftCheck.position, UpLeftCheckSize, 0, ObstacleCheckLayer);
+        ObstacleUpRight = Physics2D.OverlapBox(UpRightCheck.position, UpRightCheckSize, 0, ObstacleCheckLayer);
     }
 
     private void OnDrawGizmosSelected()
@@ -35,9 +46,11 @@ public class ObstacleCheckComponent : MonoBehaviour
         if (!IsActive) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(MiddleLeftCheck.position, CheckRadius);
-        Gizmos.DrawWireSphere(MiddleRightCheck.position, CheckRadius);
-        Gizmos.DrawWireSphere(UpLeftCheck.position, CheckRadius);
-        Gizmos.DrawWireSphere(UpRightCheck.position, CheckRadius);
+        Gizmos.DrawWireCube(MiddleLeftCheck.position, MiddleLeftCheckSize);
+        Gizmos.DrawWireCube(MiddleRightCheck.position, MiddleRightCheckSize);
+        Gizmos.DrawWireCube(MiddleUpLeftCheck.position, MiddleUpLeftCheckSize);
+        Gizmos.DrawWireCube(MiddleUpRightCheck.position, MiddleUpRightCheckSize);
+        Gizmos.DrawWireCube(UpLeftCheck.position, UpLeftCheckSize);
+        Gizmos.DrawWireCube(UpRightCheck.position, UpRightCheckSize);
     }
 }

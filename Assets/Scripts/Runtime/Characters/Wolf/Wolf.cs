@@ -7,7 +7,7 @@ public class Wolf : Character
     #region Wolf States
     public WolfState Idle { get; private set; }
     public WolfState Running { get; private set; }
-    public WolfState Jumping { get; private set; }
+    public WolfJumping Jumping { get; private set; }
     public WolfState Falling { get; private set; }
     public WolfState TeleportToHero { get; private set; }
     public WolfState Attacking { get; private set; }
@@ -20,12 +20,13 @@ public class Wolf : Character
     [field: SerializeField] public Hero Hero { get; private set; } = null;
 
     [field: Header("Components")]
-    [field: SerializeField] public ObstacleCheckComponent ObstacleCheckComponent { get; private set; } = null;
+    [field: SerializeField] public ObstacleCheckComponent ObstacleCheck { get; private set; } = null;
 
 
     [field: Header("Follow Hero")]
     [field: SerializeField] public FollowTargetComponent FollowTargetComponent { get; private set; } = null;
     [field: SerializeField] public Transform FollowTransform { get; private set; } = null;
+    [field: SerializeField] public float SmallJumpMultiplier { get; private set; } = 0.3f;
     [field: SerializeField] public float FollowRadius { get; private set; } = 1f;
     [field: SerializeField] public float TeleportRadius { get; private set; } = 2f;
     [field: SerializeField] public float GroundedDistance { get; private set; } = 1f;
