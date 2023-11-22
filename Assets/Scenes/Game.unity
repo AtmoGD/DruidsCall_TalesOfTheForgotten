@@ -1416,12 +1416,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <MaxSpeed>k__BackingField
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <StateText>k__BackingField
       value: 
       objectReference: {fileID: 1747795898}
+    - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: <JumpHeight>k__BackingField
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <IdleGravity>k__BackingField
       value: -1
