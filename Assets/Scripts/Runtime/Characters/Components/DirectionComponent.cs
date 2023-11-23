@@ -24,12 +24,11 @@ public class DirectionComponent : MonoBehaviour
 
     private void UpdateDirection()
     {
-        float newDirection = character.Rigidbody.velocity.x < 0f ? -1f : 1f;
-        newDirection *= Invert ? -1f : 1f;
+        Direction = new Vector2(character.Rigidbody.velocity.x < 0f ? -1f : 1f, 1f);
+        Direction *= Invert ? -1f : 1f;
 
         if (Mathf.Abs(character.Rigidbody.velocity.x) > 0.15f)
-            character.SkinHolder.localScale = new Vector3(newDirection, 1f, 1f);
-        // character.transform.localScale = new Vector3(newDirection, 1f, 1f);
+            character.SkinHolder.localScale = new Vector3(Direction.x, 1f, 1f);
     }
 
     private void UpdateAnimationTime()

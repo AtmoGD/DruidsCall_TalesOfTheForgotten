@@ -192,7 +192,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1127901420324375980}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dd53a426f11c364d8febbe0a214c9b8, type: 3}
   m_Name: 
@@ -523,7 +523,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.81, y: 27.94, z: -10}
+  m_LocalPosition: {x: 58.800003, y: 24.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -947,6 +947,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273915019449738869, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: Hero
+      value: 
+      objectReference: {fileID: 6658064991134867532}
+    - target: {fileID: 1273915019449738869, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: Speed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3439847772301405459, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: <Hero>k__BackingField
       value: 
@@ -959,6 +967,14 @@ PrefabInstance:
       propertyPath: <FollowTransform>k__BackingField
       value: 
       objectReference: {fileID: 6658064991134867526}
+    - target: {fileID: 4582746865336081935, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582746865336081935, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5969338096745939972, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1003,6 +1019,10 @@ PrefabInstance:
       propertyPath: <Target>k__BackingField
       value: 
       objectReference: {fileID: 6658064991134867533}
+    - target: {fileID: 7610798834962825776, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 505e711df7994d64eaadafbfbb08afca, type: 2}
     - target: {fileID: 8085082740206462018, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_Name
       value: Wolf
@@ -1183,10 +1203,6 @@ PrefabInstance:
     - target: {fileID: 7156239627978556543, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_Name
       value: Hero
-      objectReference: {fileID: 0}
-    - target: {fileID: 7741831350203235342, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.086
       objectReference: {fileID: 0}
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <Wolf>k__BackingField

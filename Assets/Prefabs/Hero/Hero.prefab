@@ -167,7 +167,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1307333228, guid: aa4c7141358c18c4fac22a1e22ec68df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -261,6 +261,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3964376506749875170}
+  - {fileID: 7741831350203235342}
   m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6353030019544069157
@@ -287,12 +288,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6353030019544069157}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.49999994, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15, y: 0.086000025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6062189345492367134}
+  m_Father: {fileID: 3885905797276956817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6656036740478908099
 GameObject:
@@ -364,7 +365,6 @@ Transform:
   - {fileID: 185817426466289730}
   - {fileID: 2048213490403418322}
   - {fileID: 7449912003732070568}
-  - {fileID: 7741831350203235342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7911190814667251780
@@ -543,7 +543,9 @@ MonoBehaviour:
   onJump:
     m_PersistentCalls:
       m_Calls: []
+  <DirectionComponent>k__BackingField: {fileID: 1814506544457502347}
   <Wolf>k__BackingField: {fileID: 0}
+  <Follow>k__BackingField: {fileID: 7741831350203235342}
   <StateText>k__BackingField: {fileID: 0}
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}

@@ -17,10 +17,16 @@ public class Hero : Character
     public HeroState Falling { get; private set; }
     #endregion
 
+    #region Character Components
+    [field: Header("Character Components")]
+    [field: SerializeField] public DirectionComponent DirectionComponent { get; private set; } = null;
+    #endregion
+
 
     #region Hero Settings
     [field: Header("Hero Settings")]
     [field: SerializeField] public Wolf Wolf { get; private set; } = null;
+    [field: SerializeField] public Transform Follow { get; private set; } = null;
 
 
     [field: Header("Debugging")]
