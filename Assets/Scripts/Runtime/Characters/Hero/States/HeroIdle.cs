@@ -52,6 +52,12 @@ public class HeroIdle : HeroState
             hero.ChangeState(hero.Running);
             return;
         }
+
+        if (hero.CurrentInput.Attack && hero.CanAttack)
+        {
+            hero.ChangeState(hero.Attacking);
+            return;
+        }
     }
 
     public override void Exit()

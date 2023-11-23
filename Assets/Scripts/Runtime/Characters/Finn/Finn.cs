@@ -31,4 +31,9 @@ public class Finn : StateMachine
     {
         ChangeState(Following);
     }
+
+    public void Attack()
+    {
+
+    }
 }

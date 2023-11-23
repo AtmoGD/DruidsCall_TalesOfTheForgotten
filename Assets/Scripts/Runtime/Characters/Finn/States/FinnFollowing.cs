@@ -55,8 +55,7 @@ public class FinnFollowing : FinnState
         Vector2 newPos = Vector2.Lerp(finn.transform.position, finn.Hero.Follow.position, Time.deltaTime * finn.Speed);
         finn.transform.position = newPos;
 
-        if (Mathf.Abs(finn.Hero.Rigidbody.velocity.x) > 0.15f)
-            finn.SkinHolder.localScale = finn.Hero.DirectionComponent.Direction;
+        finn.SkinHolder.localScale = finn.Hero.DirectionComponent.Direction;
     }
 
     void UpdateAnimation()

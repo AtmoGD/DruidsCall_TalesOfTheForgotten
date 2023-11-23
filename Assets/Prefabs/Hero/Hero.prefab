@@ -93,6 +93,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5279810583178714542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2832243006230033580}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2832243006230033580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279810583178714542}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.9, y: 0.74999994, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3885905797276956817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5484858021436608816
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +293,7 @@ Transform:
   m_Children:
   - {fileID: 3964376506749875170}
   - {fileID: 7741831350203235342}
+  - {fileID: 2832243006230033580}
   m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6353030019544069157
@@ -289,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 6353030019544069157}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0.086000025, z: 0}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -338,6 +370,8 @@ GameObject:
   - component: {fileID: 7911190814667251780}
   - component: {fileID: 4422269312156941356}
   - component: {fileID: 1814506544457502347}
+  - component: {fileID: 1779479385724084231}
+  - component: {fileID: 4925339863090825640}
   - component: {fileID: 922206058694222237}
   - component: {fileID: 6685215740180198465}
   m_Layer: 7
@@ -397,7 +431,7 @@ MonoBehaviour:
   <TopLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
-  <WallBoxSize>k__BackingField: {x: 0.1, y: 0.8}
+  <WallBoxSize>k__BackingField: {x: 0.2, y: 0.8}
   <WallLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
@@ -544,8 +578,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   <DirectionComponent>k__BackingField: {fileID: 1814506544457502347}
+  <CooldownComponent>k__BackingField: {fileID: 4925339863090825640}
   <Wolf>k__BackingField: {fileID: 0}
+  <Finn>k__BackingField: {fileID: 0}
   <Follow>k__BackingField: {fileID: 7741831350203235342}
+  <AttackActive>k__BackingField: 1
+  <AttackName>k__BackingField: Attack
+  <AttackPoint>k__BackingField: {fileID: 2832243006230033580}
+  <AttackRadius>k__BackingField: 0.5
+  <AttackDamage>k__BackingField: 10
+  <AttackCooldown>k__BackingField: 0.2
+  <AttackTime>k__BackingField: 0.7
   <StateText>k__BackingField: {fileID: 0}
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}
@@ -580,8 +623,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4765d06d3b833d642a359f44b2386bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Direction>k__BackingField: {x: 1, y: 0}
+  <Target>k__BackingField: {fileID: 3885905797276956817}
   <Invert>k__BackingField: 0
+--- !u!114 &1779479385724084231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156239627978556543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef3a933066312b44a4d69ae5ac16a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  CurrentHealth: 0
+--- !u!114 &4925339863090825640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156239627978556543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afac995c413b2a04f84e4d9900bb3dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &922206058694222237
 Rigidbody2D:
   serializedVersion: 4

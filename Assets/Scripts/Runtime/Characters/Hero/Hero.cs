@@ -15,18 +15,31 @@ public class Hero : Character
     public HeroState Jumping { get; private set; }
     public HeroWallJump WallJump { get; private set; }
     public HeroState Falling { get; private set; }
+    public HeroState Attacking { get; private set; }
     #endregion
 
     #region Character Components
     [field: Header("Character Components")]
     [field: SerializeField] public DirectionComponent DirectionComponent { get; private set; } = null;
+    [field: SerializeField] public CooldownComponent CooldownComponent { get; private set; } = null;
     #endregion
 
 
     #region Hero Settings
     [field: Header("Hero Settings")]
     [field: SerializeField] public Wolf Wolf { get; private set; } = null;
+    [field: SerializeField] public Finn Finn { get; private set; } = null;
     [field: SerializeField] public Transform Follow { get; private set; } = null;
+
+    [field: Header("Attack Settings")]
+    [field: SerializeField] public bool AttackActive { get; private set; } = true;
+    [field: SerializeField] public string AttackName { get; private set; } = "Attack";
+    public bool CanAttack => AttackActive && !CooldownComponent.HasCooldown(AttackName);
+    [field: SerializeField] public Transform AttackPoint { get; private set; } = null;
+    [field: SerializeField] public float AttackRadius { get; private set; } = 0.5f;
+    [field: SerializeField] public int AttackDamage { get; private set; } = 10;
+    [field: SerializeField] public float AttackCooldown { get; private set; } = 0.2f;
+    [field: SerializeField] public float AttackTime { get; private set; } = 0.7f;
 
 
     [field: Header("Debugging")]
@@ -40,6 +53,7 @@ public class Hero : Character
     #endregion
 
     #region Hero Skill Variables
+    [field: Header("Skill Variables")]
     [field: SerializeField] public bool WallJumpResetsJumps { get; private set; } = true;
     #endregion
 
@@ -50,6 +64,7 @@ public class Hero : Character
         Jumping = new HeroJumping(this);
         WallJump = new HeroWallJump(this);
         Falling = new HeroFalling(this);
+        Attacking = new HeroAttacking(this);
     }
 
     protected new void Start()
@@ -79,10 +94,11 @@ public class Hero : Character
 
         Gizmos.color = Color.cyan;
 
+        Gizmos.DrawWireSphere(AttackPoint.position, AttackRadius);
+
         if (WallJump == null) return;
 
         Gizmos.DrawLine(transform.position + Vector3.up, transform.position + (Vector3.right * WallJump.wallJumpDirection.x * 0.5f) + Vector3.up);
         Gizmos.DrawWireSphere(transform.position + (Vector3.right * WallJump.wallJumpDirection.x * 0.5f) + Vector3.up, 0.1f);
-        // Gizmos.DrawRay(transform.position, WallJump.wallJumpDirection * 0.5f);
     }
 }

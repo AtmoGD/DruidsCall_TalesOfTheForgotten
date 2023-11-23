@@ -18,6 +18,8 @@ public class FinnIdle : FinnState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+
+        finn.Rb.velocity = Vector2.zero;
     }
 
     public override void PhysicsUpdate()
