@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class Finn : StateMachine
@@ -11,11 +12,17 @@ public class Finn : StateMachine
     public Rigidbody2D Rb;
 
     [Header("States")]
-    public FinnState Following;
     public FinnState Idle;
+    public FinnState Following;
+    public FinnState Attacking;
 
     [Header("Settings")]
     public float IdleTime = 5f;
+    public float AttackMoveTime = 0.5f;
+    public float AttackMoveSpeed = 1f;
+
+    [Header("Feedbacks")]
+    public MMF_Player AttackFeedbacks;
 
 
     [Header("Movement")]
@@ -25,6 +32,7 @@ public class Finn : StateMachine
     {
         Idle = new FinnIdle(this);
         Following = new FinnFollowing(this);
+        Attacking = new FinnAttacking(this);
     }
 
     private void Start()
@@ -34,6 +42,6 @@ public class Finn : StateMachine
 
     public void Attack()
     {
-
+        ChangeState(Attacking);
     }
 }

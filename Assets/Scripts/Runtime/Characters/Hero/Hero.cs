@@ -40,6 +40,7 @@ public class Hero : Character
     [field: SerializeField] public int AttackDamage { get; private set; } = 10;
     [field: SerializeField] public float AttackCooldown { get; private set; } = 0.2f;
     [field: SerializeField] public float AttackTime { get; private set; } = 0.7f;
+    [field: SerializeField] public float AttackStopLerpSpeed { get; private set; } = 50f;
 
 
     [field: Header("Debugging")]

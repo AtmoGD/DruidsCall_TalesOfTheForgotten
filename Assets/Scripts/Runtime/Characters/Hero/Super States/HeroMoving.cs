@@ -71,6 +71,12 @@ public class HeroMoving : HeroState
             hero.ChangeState(hero.Idle);
             return;
         }
+
+        if (hero.CurrentInput.Attack && hero.CanAttack)
+        {
+            hero.ChangeState(hero.Attacking);
+            return;
+        }
     }
 
     public override void Exit()

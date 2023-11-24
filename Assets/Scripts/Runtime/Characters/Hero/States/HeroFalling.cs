@@ -61,6 +61,12 @@ public class HeroFalling : HeroMoving
             else if (hero.CanJump)
                 hero.ChangeState(hero.Jumping);
         }
+
+        if (hero.CurrentInput.Attack && hero.CanAttack)
+        {
+            hero.ChangeState(hero.Attacking);
+            return;
+        }
     }
 
     public override void Exit()

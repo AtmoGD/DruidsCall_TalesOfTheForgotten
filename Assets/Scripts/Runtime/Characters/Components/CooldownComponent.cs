@@ -16,7 +16,7 @@ public class Cooldown
     {
         Name = _name;
         Duration = _duration;
-        TimeRemaining = 0;
+        TimeRemaining = Duration;
     }
 }
 

@@ -12,12 +12,23 @@ public class HeroAttacking : HeroState
 
         hero.CurrentInput.Attack = false;
 
-        Attack();
+        hero.Finn.Attack();
+
+        // hero.ChangeState(hero.Idle);
+
+        return;
+
+        hero.Animator.Play("Base Layer.Attack_Hero");
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+
+        hero.Rigidbody.velocity = Vector2.Lerp(hero.Rigidbody.velocity, Vector2.zero, Time.deltaTime * hero.AttackStopLerpSpeed);
+
+        if (timeInState > hero.AttackTime / 2)
+            Attack();
     }
 
     public override void PhysicsUpdate()
@@ -42,7 +53,6 @@ public class HeroAttacking : HeroState
 
     private void Attack()
     {
-        hero.Animator.Play("Base Layer.Attack_Hero");
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(hero.AttackPoint.position, hero.AttackRadius);
         foreach (Collider2D hit in hits)
@@ -51,6 +61,5 @@ public class HeroAttacking : HeroState
                 enemy.TakeDamage(new Damage(hero.gameObject, hero.AttackDamage));
         }
 
-        hero.Finn.Attack();
     }
 }

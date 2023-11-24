@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55bb1bba1d00b6e4893800dc13f5428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <WolfInputController>k__BackingField: {fileID: 1996097239011654257}
 --- !u!114 &1996097239011654257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb32faa584702234bbc2936d5dbb8bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Player>k__BackingField: {fileID: 3640645048448910447}
   <GoalText>k__BackingField: {fileID: 0}
 --- !u!114 &4136916301119620034
 MonoBehaviour:
@@ -208,6 +210,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6b21a98c-2e5e-4f2f-b4eb-2f2264dccc65
     m_ActionName: UI/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3192359779267453803}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnWolfCommandAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2f840285-b25d-423f-8647-4a624da82631
+    m_ActionName: Hero/WolfAttack[/Keyboard/1,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Hero
