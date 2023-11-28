@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2832243006230033580}
   m_Layer: 0
-  m_Name: AttackPoint
+  m_Name: AttackPoint Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 5279810583178714542}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 1.1, z: 0}
+  m_LocalPosition: {x: 0.57000005, y: 0.754, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,6 +294,7 @@ Transform:
   - {fileID: 3964376506749875170}
   - {fileID: 7741831350203235342}
   - {fileID: 2832243006230033580}
+  - {fileID: 3488602663743954651}
   m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6353030019544069157
@@ -584,11 +585,13 @@ MonoBehaviour:
   <Follow>k__BackingField: {fileID: 7741831350203235342}
   <AttackActive>k__BackingField: 1
   <AttackName>k__BackingField: Attack
-  <AttackPoint>k__BackingField: {fileID: 2832243006230033580}
-  <AttackRadius>k__BackingField: 1
+  <AttackStartPoint>k__BackingField: {fileID: 2832243006230033580}
+  <AttackEndPoint>k__BackingField: {fileID: 3488602663743954651}
+  <AttackRadius>k__BackingField: 0.7
   <AttackDamage>k__BackingField: 10
   <AttackCooldown>k__BackingField: 0.2
   <AttackTime>k__BackingField: 0.9
+  <AttackStopLerpSpeed>k__BackingField: 50
   <StateText>k__BackingField: {fileID: 0}
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}
@@ -718,3 +721,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.75}
   m_Size: {x: 0.8, y: 1.5}
   m_Direction: 0
+--- !u!1 &7568302399518382376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3488602663743954651}
+  m_Layer: 0
+  m_Name: AttackPoint End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3488602663743954651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568302399518382376}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.82, y: 0.75399995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3885905797276956817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

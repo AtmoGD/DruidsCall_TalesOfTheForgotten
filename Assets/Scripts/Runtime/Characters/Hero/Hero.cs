@@ -35,7 +35,8 @@ public class Hero : Character
     [field: SerializeField] public bool AttackActive { get; private set; } = true;
     [field: SerializeField] public string AttackName { get; private set; } = "Attack";
     public bool CanAttack => AttackActive && !CooldownComponent.HasCooldown(AttackName);
-    [field: SerializeField] public Transform AttackPoint { get; private set; } = null;
+    [field: SerializeField] public Transform AttackStartPoint { get; private set; } = null;
+    [field: SerializeField] public Transform AttackEndPoint { get; private set; } = null;
     [field: SerializeField] public float AttackRadius { get; private set; } = 0.5f;
     [field: SerializeField] public int AttackDamage { get; private set; } = 10;
     [field: SerializeField] public float AttackCooldown { get; private set; } = 0.2f;
@@ -95,7 +96,9 @@ public class Hero : Character
 
         Gizmos.color = Color.cyan;
 
-        Gizmos.DrawWireSphere(AttackPoint.position, AttackRadius);
+        // Gizmos.DrawWireSphere(AttackPoint.position, AttackRadius);
+        Gizmos.DrawWireSphere(AttackStartPoint.position, AttackRadius);
+        Gizmos.DrawWireSphere(AttackEndPoint.position, AttackRadius);
 
         if (WallJump == null) return;
 

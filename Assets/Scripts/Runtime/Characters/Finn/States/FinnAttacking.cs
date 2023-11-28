@@ -15,23 +15,16 @@ public class FinnAttacking : FinnState
 
         dir = finn.Hero.DirectionComponent.Direction.x > 0 ? 1 : -1;
 
-        // finn.Animator.SetBool("Attacking", true);
         finn.Animator.SetTrigger("Attack");
 
         finn.AttackFeedbacks.PlayFeedbacks();
-
-        // finn.SkinHolder.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-
-        finn.transform.position += Vector3.right * dir * Time.deltaTime * finn.AttackMoveSpeed;
-
-        // Vector2 newPos = Vector2.Lerp(finn.transform.position, finn.Hero.AttackPoint.position, Time.deltaTime * finn.Speed);
-        // finn.transform.position = newPos;
+        finn.transform.position = Vector2.Lerp(finn.transform.position, finn.Hero.AttackEndPoint.position, Time.deltaTime * finn.AttackSpeed);
     }
 
     public override void PhysicsUpdate()
@@ -43,15 +36,12 @@ public class FinnAttacking : FinnState
     {
         base.DoStateChecks();
 
-        if (timeInState > finn.AttackMoveTime)
+        if (timeInState > finn.AttackTime)
             finn.ChangeState(finn.Following);
     }
 
     public override void Exit()
     {
         base.Exit();
-        // finn.SkinHolder.rotation = Quaternion.identity;
-
-        // finn.Animator.SetBool("Attacking", false);
     }
 }

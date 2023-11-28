@@ -18,8 +18,8 @@ public class Finn : StateMachine
 
     [Header("Settings")]
     public float IdleTime = 5f;
-    public float AttackMoveTime = 0.5f;
-    public float AttackMoveSpeed = 1f;
+    public float AttackTime = 0.7f;
+    public float AttackSpeed = 1f;
 
     [Header("Feedbacks")]
     public MMF_Player AttackFeedbacks;

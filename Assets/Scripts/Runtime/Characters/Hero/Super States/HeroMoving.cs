@@ -107,6 +107,8 @@ public class HeroMoving : HeroState
         float speed = hero.CurrentInput.LastMoveDirection * hero.MaxSpeed * acceleration;
 
         hero.Rigidbody.velocity = new Vector2(speed, hero.Rigidbody.velocity.y);
+
+        hero.Animator.SetFloat("SpeedX", Mathf.Abs(hero.Rigidbody.velocity.x) / hero.MaxSpeed);
     }
 
 

@@ -14,11 +14,9 @@ public class HeroAttacking : HeroState
 
         hero.Finn.Attack();
 
-        // hero.ChangeState(hero.Idle);
+        hero.Animator.Play("Base Layer.Attack_Hero");
 
         return;
-
-        hero.Animator.Play("Base Layer.Attack_Hero");
     }
 
     public override void FrameUpdate()
@@ -53,13 +51,14 @@ public class HeroAttacking : HeroState
 
     private void Attack()
     {
+        Vector2 dir = hero.AttackStartPoint.position - hero.AttackEndPoint.position;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(hero.AttackPoint.position, hero.AttackRadius);
-        foreach (Collider2D hit in hits)
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(hero.AttackStartPoint.position, hero.AttackRadius, dir, dir.magnitude);
+
+        foreach (RaycastHit2D hit in hits)
         {
-            if (hit.TryGetComponent(out IAttackable enemy))
+            if (hit.collider.TryGetComponent(out IAttackable enemy))
                 enemy.TakeDamage(new Damage(hero.gameObject, hero.AttackDamage));
         }
-
     }
 }
