@@ -13,7 +13,7 @@ public class HeroJumping : HeroMoving
     {
         base.Enter();
 
-        hero.onJump?.Invoke();
+        hero.OnJump?.Invoke();
 
         if (consumeJump)
             hero.JumpsLeft--;

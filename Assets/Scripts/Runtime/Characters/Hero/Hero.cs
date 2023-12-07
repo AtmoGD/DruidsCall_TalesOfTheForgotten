@@ -5,14 +5,16 @@ using UnityEngine.Events;
 
 public class Hero : StateMachine
 {
-
-    [field: SerializeField] public bool ShowDebugLogs { get; private set; } = true;
-
-    [field: Header("Character Settings")]
     [field: SerializeField] public bool IsActive { get; private set; } = true;
     [field: SerializeField] public bool IsControlledByPlayer { get; private set; } = false;
 
-    [field: Header("Character References")]
+    [field: Header("Events")]
+    public UnityEvent OnJump { get; private set; } = new UnityEvent();
+
+    [field: Header("References")]
+    [field: SerializeField] public Wolf Wolf { get; private set; } = null;
+    [field: SerializeField] public Finn Finn { get; private set; } = null;
+    [field: SerializeField] public Transform Follow { get; private set; } = null;
     [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; } = null;
     [field: SerializeField] public Animator Animator { get; private set; } = null;
     [field: SerializeField] public Transform SkinHolder { get; private set; } = null;
@@ -20,6 +22,10 @@ public class Hero : StateMachine
     [field: SerializeField] public Transform TopTransform { get; private set; } = null;
     [field: SerializeField] public Transform WallLeftTransform { get; private set; } = null;
     [field: SerializeField] public Transform WallRightTransform { get; private set; } = null;
+
+    [field: Header("Components")]
+    [field: SerializeField] public DirectionComponent DirectionComponent { get; private set; } = null;
+    [field: SerializeField] public CooldownComponent CooldownComponent { get; private set; } = null;
 
     [field: Header("Ground Check Parameters")]
     [field: SerializeField] public Vector2 GroundBoxSize { get; private set; } = Vector2.one;
@@ -69,41 +75,6 @@ public class Hero : StateMachine
     [field: SerializeField] public float FallThroughPlatformTime { get; private set; } = 0.1f;
     [field: SerializeField] public float FallThroughPlatformThreshold { get; private set; } = -0.9f;
 
-    [field: Header("Runtime Variables")]
-    [field: SerializeField] public int JumpsLeft { get; set; } = 0;
-
-
-
-
-
-
-
-    #region Events
-    public UnityEvent onJump = new();
-    #endregion
-
-    #region Character States
-    public HeroState Idle { get; private set; }
-    public HeroState Running { get; private set; }
-    public HeroState Jumping { get; private set; }
-    public HeroWallJump WallJump { get; private set; }
-    public HeroState Falling { get; private set; }
-    public HeroState Attacking { get; private set; }
-    #endregion
-
-    #region Character Components
-    [field: Header("Character Components")]
-    [field: SerializeField] public DirectionComponent DirectionComponent { get; private set; } = null;
-    [field: SerializeField] public CooldownComponent CooldownComponent { get; private set; } = null;
-    #endregion
-
-
-    #region Hero Settings
-    [field: Header("Hero Settings")]
-    [field: SerializeField] public Wolf Wolf { get; private set; } = null;
-    [field: SerializeField] public Finn Finn { get; private set; } = null;
-    [field: SerializeField] public Transform Follow { get; private set; } = null;
-
     [field: Header("Attack Settings")]
     [field: SerializeField] public bool AttackActive { get; private set; } = true;
     [field: SerializeField] public string AttackName { get; private set; } = "Attack";
@@ -116,21 +87,25 @@ public class Hero : StateMachine
     [field: SerializeField] public float AttackTime { get; private set; } = 0.7f;
     [field: SerializeField] public float AttackStopLerpSpeed { get; private set; } = 50f;
 
-
-    [field: Header("Debugging")]
-    [field: SerializeField] public TMPro.TMP_Text StateText { get; private set; } = null;
-    #endregion
-
-    #region Hero Variables
-    [field: Header("Runtime Variables")]
-    [field: SerializeField] public HeroInput CurrentInput { get; set; } = new HeroInput();
-
-    #endregion
-
-    #region Hero Skill Variables
     [field: Header("Skill Variables")]
     [field: SerializeField] public bool WallJumpResetsJumps { get; private set; } = true;
-    #endregion
+
+    [field: Header("Debugging")]
+    [field: SerializeField] public bool ShowDebugLogs { get; private set; } = true;
+    [field: SerializeField] public TMPro.TMP_Text StateText { get; private set; } = null;
+
+
+    [field: Header("Runtime Variables")]
+    [field: SerializeField] public int JumpsLeft { get; set; } = 0;
+    [field: SerializeField] public HeroInput CurrentInput { get; set; } = new HeroInput();
+
+    public HeroState Idle { get; private set; }
+    public HeroState Running { get; private set; }
+    public HeroState Jumping { get; private set; }
+    public HeroWallJump WallJump { get; private set; }
+    public HeroState Falling { get; private set; }
+    public HeroState Attacking { get; private set; }
+
 
     private void Awake()
     {
@@ -209,12 +184,10 @@ public class Hero : StateMachine
         Gizmos.DrawWireCube(WallRightTransform.position, WallBoxSize);
 
         Gizmos.color = Color.cyan;
-
-        // Gizmos.DrawWireSphere(AttackPoint.position, AttackRadius);
         Gizmos.DrawWireSphere(AttackStartPoint.position, AttackRadius);
         Gizmos.DrawWireSphere(AttackEndPoint.position, AttackRadius);
 
-        if (WallJump == null) return;
+        if (WallJump == null) return; // The walljump state only exists at runtime
 
         Gizmos.DrawLine(transform.position + Vector3.up, transform.position + (Vector3.right * WallJump.wallJumpDirection.x * 0.5f) + Vector3.up);
         Gizmos.DrawWireSphere(transform.position + (Vector3.right * WallJump.wallJumpDirection.x * 0.5f) + Vector3.up, 0.1f);

@@ -414,9 +414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847e71956f6106a4d8d102cadce950d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ShowDebugLogs>k__BackingField: 0
   <IsActive>k__BackingField: 1
   <IsControlledByPlayer>k__BackingField: 0
+  <Wolf>k__BackingField: {fileID: 0}
+  <Finn>k__BackingField: {fileID: 0}
+  <Follow>k__BackingField: {fileID: 7741831350203235342}
   <Rigidbody>k__BackingField: {fileID: 922206058694222237}
   <Animator>k__BackingField: {fileID: 4827585396097924128}
   <SkinHolder>k__BackingField: {fileID: 3885905797276956817}
@@ -424,6 +426,8 @@ MonoBehaviour:
   <TopTransform>k__BackingField: {fileID: 185817426466289730}
   <WallLeftTransform>k__BackingField: {fileID: 2048213490403418322}
   <WallRightTransform>k__BackingField: {fileID: 7449912003732070568}
+  <DirectionComponent>k__BackingField: {fileID: 1814506544457502347}
+  <CooldownComponent>k__BackingField: {fileID: 4925339863090825640}
   <GroundBoxSize>k__BackingField: {x: 0.5, y: 0.1}
   <GroundLayer>k__BackingField:
     serializedVersion: 2
@@ -574,31 +578,24 @@ MonoBehaviour:
   <FallThroughPlatformActive>k__BackingField: 1
   <FallThroughPlatformTime>k__BackingField: 0.25
   <FallThroughPlatformThreshold>k__BackingField: -0.9
-  <JumpsLeft>k__BackingField: 2
-  onJump:
-    m_PersistentCalls:
-      m_Calls: []
-  <DirectionComponent>k__BackingField: {fileID: 1814506544457502347}
-  <CooldownComponent>k__BackingField: {fileID: 4925339863090825640}
-  <Wolf>k__BackingField: {fileID: 0}
-  <Finn>k__BackingField: {fileID: 0}
-  <Follow>k__BackingField: {fileID: 7741831350203235342}
   <AttackActive>k__BackingField: 1
   <AttackName>k__BackingField: Attack
   <AttackStartPoint>k__BackingField: {fileID: 2832243006230033580}
   <AttackEndPoint>k__BackingField: {fileID: 3488602663743954651}
   <AttackRadius>k__BackingField: 0.7
   <AttackDamage>k__BackingField: 10
-  <AttackCooldown>k__BackingField: 0.2
-  <AttackTime>k__BackingField: 0.9
-  <AttackStopLerpSpeed>k__BackingField: 50
+  <AttackCooldown>k__BackingField: 0.7
+  <AttackTime>k__BackingField: 0.3
+  <AttackStopLerpSpeed>k__BackingField: 20
+  <WallJumpResetsJumps>k__BackingField: 1
+  <ShowDebugLogs>k__BackingField: 0
   <StateText>k__BackingField: {fileID: 0}
+  <JumpsLeft>k__BackingField: 2
   <CurrentInput>k__BackingField:
     Move: {x: 0, y: 0}
     LastMoveDirection: -1
     Jump: 0
     Attack: 0
-  <WallJumpResetsJumps>k__BackingField: 1
 --- !u!114 &4422269312156941356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,12 +637,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef3a933066312b44a4d69ae5ac16a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  CurrentHealth: 0
-  CanAttackSelf: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  MaxHealth: 100
+  CurrentHealth: 0
+  CanAttackSelf: 0
 --- !u!114 &4925339863090825640
 MonoBehaviour:
   m_ObjectHideFlags: 0
