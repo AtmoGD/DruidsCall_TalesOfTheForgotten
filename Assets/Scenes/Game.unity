@@ -692,7 +692,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.72798, y: 30.575148, z: -10}
+  m_LocalPosition: {x: 58.800003, y: 24.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 1246867217}
   - component: {fileID: 1246867218}
   m_Layer: 0
-  m_Name: World
+  m_Name: Ordinary World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2727,6 +2727,10 @@ PrefabInstance:
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <AttackStopLerpSpeed>k__BackingField
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377016398687514039, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

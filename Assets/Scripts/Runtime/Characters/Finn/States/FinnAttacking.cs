@@ -5,9 +5,7 @@ using UnityEngine;
 public class FinnAttacking : FinnState
 {
     private int dir = 1;
-    public FinnAttacking(Finn _finn) : base(_finn)
-    {
-    }
+    public FinnAttacking(Finn _finn) : base(_finn) { }
 
     public override void Enter()
     {

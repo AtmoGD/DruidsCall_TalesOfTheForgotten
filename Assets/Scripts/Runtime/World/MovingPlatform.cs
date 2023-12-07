@@ -25,7 +25,7 @@ public class MovingPlatform : MonoBehaviour
 
     private float waitTimer = 0f;
     private Vector2 initialPosition = Vector2.zero;
-    private List<Character> charactersOnPlatform = new List<Character>();
+    private List<Character> charactersOnPlatform = new();
     private Vector2 LastMovement = Vector2.zero;
 
     private void Start()

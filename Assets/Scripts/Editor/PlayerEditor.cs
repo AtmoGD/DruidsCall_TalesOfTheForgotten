@@ -17,7 +17,7 @@ public class PlayerEditor : Editor
     {
         base.OnInspectorGUI();
 
-        if (GUILayout.Button("Switch Character"))
-            player.SwitchCharacter();
+        // if (GUILayout.Button("Switch Character"))
+        //     player.SwitchCharacter();
     }
 }

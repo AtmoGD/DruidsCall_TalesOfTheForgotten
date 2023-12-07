@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class FinnIdle : FinnState
 {
-    public FinnIdle(Finn _finn) : base(_finn)
-    {
-    }
+    public FinnIdle(Finn _finn) : base(_finn) { }
 
     public override void Enter()
     {

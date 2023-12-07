@@ -23,6 +23,6 @@ public static class Utils
 
     public static float Remap01(float _value, float _from1, float _to1)
     {
-        return (_value - _from1) / (_to1 - _from1);
+        return Remap(_value, _from1, _to1, 0f, 1f);
     }
 }

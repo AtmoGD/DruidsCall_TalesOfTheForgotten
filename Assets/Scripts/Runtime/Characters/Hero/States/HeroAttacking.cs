@@ -51,7 +51,7 @@ public class HeroAttacking : HeroState
 
     private void Attack()
     {
-        Vector2 dir = hero.AttackStartPoint.position - hero.AttackEndPoint.position;
+        Vector2 dir = hero.AttackEndPoint.position - hero.AttackStartPoint.position;
 
         RaycastHit2D[] hits = Physics2D.CircleCastAll(hero.AttackStartPoint.position, hero.AttackRadius, dir, dir.magnitude);
 

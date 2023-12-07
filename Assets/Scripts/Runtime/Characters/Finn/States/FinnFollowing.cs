@@ -7,9 +7,7 @@ public class FinnFollowing : FinnState
     Vector2 direction;
     float idleTimer = 0f;
 
-    public FinnFollowing(Finn _finn) : base(_finn)
-    {
-    }
+    public FinnFollowing(Finn _finn) : base(_finn) { }
 
     public override void Enter()
     {

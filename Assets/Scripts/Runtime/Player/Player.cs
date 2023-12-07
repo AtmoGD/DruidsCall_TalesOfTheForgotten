@@ -26,25 +26,25 @@ public class Player : MonoBehaviour
         PlayerInput.SwitchCurrentActionMap("Hero");
     }
 
-    public void SwitchCharacter()
-    {
-        if (Character == Hero)
-        {
-            Character = Wolf;
-            // Wolf.CurrentInput = PlayerInputController.WolfInput;
-            Wolf.SetIsControlledByPlayer(true);
-            Hero.SetIsControlledByPlayer(false);
-            Hero.CurrentInput = new HeroInput();
-            PlayerInput.SwitchCurrentActionMap("Wolf");
-        }
-        else
-        {
-            Character = Hero;
-            Hero.CurrentInput = PlayerInputController.HeroInput;
-            Hero.SetIsControlledByPlayer(true);
-            Wolf.SetIsControlledByPlayer(false);
-            // Wolf.CurrentInput = WolfInputController.WolfInput;
-            PlayerInput.SwitchCurrentActionMap("Hero");
-        }
-    }
+    // public void SwitchCharacter()
+    // {
+    //     if (Character == Hero)
+    //     {
+    //         Character = Wolf;
+    //         // Wolf.CurrentInput = PlayerInputController.WolfInput;
+    //         Wolf.SetIsControlledByPlayer(true);
+    //         Hero.SetIsControlledByPlayer(false);
+    //         Hero.CurrentInput = new HeroInput();
+    //         PlayerInput.SwitchCurrentActionMap("Wolf");
+    //     }
+    //     else
+    //     {
+    //         Character = Hero;
+    //         Hero.CurrentInput = PlayerInputController.HeroInput;
+    //         Hero.SetIsControlledByPlayer(true);
+    //         Wolf.SetIsControlledByPlayer(false);
+    //         // Wolf.CurrentInput = WolfInputController.WolfInput;
+    //         PlayerInput.SwitchCurrentActionMap("Hero");
+    //     }
+    // }
 }
