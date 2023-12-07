@@ -26,6 +26,8 @@ public class Hero : StateMachine
     [field: Header("Components")]
     [field: SerializeField] public DirectionComponent DirectionComponent { get; private set; } = null;
     [field: SerializeField] public CooldownComponent CooldownComponent { get; private set; } = null;
+    [field: SerializeField] public HealthComponent HealthComponent { get; private set; } = null;
+    [field: SerializeField] public InteractionComponent InteractionComponent { get; private set; } = null;
 
     [field: Header("Ground Check Parameters")]
     [field: SerializeField] public Vector2 GroundBoxSize { get; private set; } = Vector2.one;

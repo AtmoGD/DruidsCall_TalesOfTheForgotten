@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 1814506544457502347}
   - component: {fileID: 1779479385724084231}
   - component: {fileID: 4925339863090825640}
+  - component: {fileID: 1308764941326007423}
   - component: {fileID: 922206058694222237}
   - component: {fileID: 6685215740180198465}
   m_Layer: 7
@@ -428,6 +429,8 @@ MonoBehaviour:
   <WallRightTransform>k__BackingField: {fileID: 7449912003732070568}
   <DirectionComponent>k__BackingField: {fileID: 1814506544457502347}
   <CooldownComponent>k__BackingField: {fileID: 4925339863090825640}
+  <HealthComponent>k__BackingField: {fileID: 1779479385724084231}
+  <InteractionComponent>k__BackingField: {fileID: 1308764941326007423}
   <GroundBoxSize>k__BackingField: {x: 0.5, y: 0.1}
   <GroundLayer>k__BackingField:
     serializedVersion: 2
@@ -592,6 +595,7 @@ MonoBehaviour:
   <StateText>k__BackingField: {fileID: 0}
   <JumpsLeft>k__BackingField: 2
   <CurrentInput>k__BackingField:
+    Interact: 0
     Move: {x: 0, y: 0}
     LastMoveDirection: -1
     Jump: 0
@@ -656,6 +660,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Cooldowns>k__BackingField: []
+--- !u!114 &1308764941326007423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156239627978556543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6483f493f2736b34eb5d0b9ff779bf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &922206058694222237
 Rigidbody2D:
   serializedVersion: 4

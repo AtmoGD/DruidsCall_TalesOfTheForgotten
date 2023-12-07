@@ -159,7 +159,19 @@ MonoBehaviour:
     m_ActionId: 64872389-c82b-4959-a7ae-00ca76dc0887
     m_ActionName: Character/Dash[/Keyboard/ctrl,/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3192359779267453803}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnCharacterInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 38c830c5-2943-4c10-8289-63b6508a455c
     m_ActionName: Character/Interact[/XInputControllerWindows/buttonNorth,/Keyboard/r]
   - m_PersistentCalls:

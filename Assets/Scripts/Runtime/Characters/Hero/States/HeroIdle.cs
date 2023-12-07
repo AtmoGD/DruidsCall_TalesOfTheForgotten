@@ -58,6 +58,11 @@ public class HeroIdle : HeroState
             hero.ChangeState(hero.Attacking);
             return;
         }
+
+        if (hero.CurrentInput.Interact)
+        {
+            hero.InteractionComponent.Interact();
+        }
     }
 
     public override void Exit()

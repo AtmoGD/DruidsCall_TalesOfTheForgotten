@@ -7,6 +7,7 @@ using System;
 [Serializable]
 public class HeroInput
 {
+    public bool Interact = false;
     public Vector2 Move = Vector2.zero;
     public int LastMoveDirection = 1;
     public bool Jump = false;
@@ -46,6 +47,14 @@ public class PlayerInputController : MonoBehaviour
             HeroInput.Attack = true;
         else if (context.canceled)
             HeroInput.Attack = false;
+    }
+
+    public void OnCharacterInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            HeroInput.Interact = true;
+        else if (context.canceled)
+            HeroInput.Interact = false;
     }
 
     public void OnWolfCommandAttack(InputAction.CallbackContext context)
