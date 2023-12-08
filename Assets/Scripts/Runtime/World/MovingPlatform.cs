@@ -13,13 +13,19 @@ public class WaypointData
 
 public class MovingPlatform : MonoBehaviour
 {
-    [field: SerializeField] public List<WaypointData> Waypoints { get; private set; } = new List<WaypointData>();
+    [field: Tooltip("If true, the platform will start moving when the scene starts. If false, the platform will not start moving until Started is set to true.")]
     [field: SerializeField] public bool Started { get; private set; } = false;
+    [field: Tooltip("If true, the platform will continue to move through the waypoints in order. If false, the platform will stop moving when it reaches the end of the path.")]
     [field: SerializeField] public bool Loop { get; private set; } = true;
+    [field: Tooltip("If true, the platform will move the waypoints in reverse order when it reaches the end of the path. If false, the platform will move to the first waypoint when it reaches the end of the path.")]
+    [field: SerializeField] public bool PingPong { get; private set; } = false;
+    [field: Tooltip("If true, the platform will move any rigidbodys that are on the platform.")]
+    [field: SerializeField] public bool MoveBodysOnPlatform { get; private set; } = true;
     [field: SerializeField] public float Speed { get; private set; } = 1f;
-    [field: SerializeField] public bool MoveCharacter { get; private set; } = true;
+    [field: SerializeField] public List<WaypointData> Waypoints { get; private set; } = new List<WaypointData>();
 
     private int currentWaypointIndex = 0;
+    private int indexDir = 1;
     private WaypointData CurrentWaypoint => Waypoints[currentWaypointIndex];
     private Vector2 TargetPosition => initialPosition + CurrentWaypoint.Position;
 
@@ -48,7 +54,7 @@ public class MovingPlatform : MonoBehaviour
         MoveTowardsWaypoint();
         UpdateWaypointIndex();
 
-        if (MoveCharacter) MoveCharactersOnPlatform();
+        if (MoveBodysOnPlatform) MoveRigidbodysOnPlatform();
     }
 
     private void MoveTowardsWaypoint()
@@ -63,19 +69,28 @@ public class MovingPlatform : MonoBehaviour
         if (Vector2.Distance(transform.position, TargetPosition) < 0.01f)
         {
             waitTimer = CurrentWaypoint.WaitTime;
-            currentWaypointIndex++;
+            currentWaypointIndex += indexDir;
 
-            if (currentWaypointIndex >= Waypoints.Count)
+            if (currentWaypointIndex >= Waypoints.Count || currentWaypointIndex < 0)
             {
                 if (Loop)
-                    currentWaypointIndex = 0;
+                {
+                    if (PingPong)
+                    {
+
+                        indexDir *= -1;
+                        currentWaypointIndex += indexDir;
+                    }
+                    else
+                        currentWaypointIndex = 0;
+                }
                 else
                     Started = false;
             }
         }
     }
 
-    private void MoveCharactersOnPlatform()
+    private void MoveRigidbodysOnPlatform()
     {
         foreach (Rigidbody2D character in charactersOnPlatform)
             character.transform.position += (Vector3)LastMovement;
@@ -116,6 +131,15 @@ public class MovingPlatform : MonoBehaviour
                 WaypointData nextWaypoint = Waypoints[i + 1];
                 Vector2 nextPosition = startPos + nextWaypoint.Position;
                 Gizmos.DrawLine(position, nextPosition);
+            }
+            else
+            {
+                if (Loop && !PingPong)
+                {
+                    WaypointData nextWaypoint = Waypoints[0];
+                    Vector2 nextPosition = startPos + nextWaypoint.Position;
+                    Gizmos.DrawLine(position, nextPosition);
+                }
             }
         }
 
