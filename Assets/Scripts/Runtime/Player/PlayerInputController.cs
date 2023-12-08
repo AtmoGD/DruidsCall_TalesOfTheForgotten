@@ -18,9 +18,6 @@ public class NiamhInput
 public class PlayerInputController : MonoBehaviour
 {
     public NiamhInput NiamhInput { get; protected set; } = new NiamhInput();
-    [field: SerializeField] public WolfInputController WolfInputController { get; private set; } = null;
-    public WolfInput WolfInput => WolfInputController.WolfInput;
-
     #region Niamh active
     public void OnCharacterMove(InputAction.CallbackContext context)
     {
@@ -55,34 +52,6 @@ public class PlayerInputController : MonoBehaviour
             NiamhInput.Interact = true;
         else if (context.canceled)
             NiamhInput.Interact = false;
-    }
-
-    public void OnWolfCommandAttack(InputAction.CallbackContext context)
-    {
-        if (context.started)
-            WolfInput.Attack = true;
-        else if (context.canceled)
-            WolfInput.Attack = false;
-    }
-    #endregion
-
-    #region Wolf active
-    public void OnWolfMove(InputAction.CallbackContext context)
-    {
-        WolfInput.Move = context.ReadValue<Vector2>();
-
-        if (WolfInput.Move.x > 0.1f)
-            WolfInput.LastMoveDirection = 1;
-        else if (WolfInput.Move.x < -0.1f)
-            WolfInput.LastMoveDirection = -1;
-    }
-
-    public void OnWolfJump(InputAction.CallbackContext context)
-    {
-        if (context.started)
-            WolfInput.Jump = true;
-        else if (context.canceled)
-            WolfInput.Jump = false;
     }
     #endregion
 }

@@ -25,7 +25,7 @@ public class MovingPlatform : MonoBehaviour
 
     private float waitTimer = 0f;
     private Vector2 initialPosition = Vector2.zero;
-    private List<Character> charactersOnPlatform = new();
+    private List<Rigidbody2D> charactersOnPlatform = new();
     private Vector2 LastMovement = Vector2.zero;
 
     private void Start()
@@ -77,13 +77,13 @@ public class MovingPlatform : MonoBehaviour
 
     private void MoveCharactersOnPlatform()
     {
-        foreach (Character character in charactersOnPlatform)
+        foreach (Rigidbody2D character in charactersOnPlatform)
             character.transform.position += (Vector3)LastMovement;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Character character = collision.GetComponent<Character>();
+        Rigidbody2D character = collision.GetComponent<Rigidbody2D>();
 
         if (character != null)
             charactersOnPlatform.Add(character);
@@ -91,7 +91,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Character character = collision.GetComponent<Character>();
+        Rigidbody2D character = collision.GetComponent<Rigidbody2D>();
 
         if (character != null)
             charactersOnPlatform.Remove(character);

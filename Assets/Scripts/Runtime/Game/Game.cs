@@ -10,7 +10,6 @@ public class Game : MonoBehaviour
     [field: Header("Game References")]
     [field: SerializeField] public Player Player { get; private set; } = null;
     [field: SerializeField] public Niamh Niamh { get; private set; } = null;
-    [field: SerializeField] public Wolf Wolf { get; private set; } = null;
     [field: SerializeField] public UIController UIController { get; private set; } = null;
     [field: SerializeField] public World World { get; private set; } = null;
 

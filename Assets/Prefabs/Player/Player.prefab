@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2788042137298277633}
   - component: {fileID: 3640645048448910447}
   - component: {fileID: 3192359779267453803}
-  - component: {fileID: 1996097239011654257}
   - component: {fileID: 4136916301119620034}
   m_Layer: 6
   m_Name: Player
@@ -47,12 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985d6536c7f66af44bf6e5231142c3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Character>k__BackingField: {fileID: 0}
   <PlayerInput>k__BackingField: {fileID: 4136916301119620034}
   <PlayerInputController>k__BackingField: {fileID: 3192359779267453803}
-  <Hero>k__BackingField: {fileID: 0}
-  <WolfInputController>k__BackingField: {fileID: 1996097239011654257}
-  <Wolf>k__BackingField: {fileID: 0}
+  <Niamh>k__BackingField: {fileID: 0}
   <IsActive>k__BackingField: 1
 --- !u!114 &3192359779267453803
 MonoBehaviour:
@@ -66,21 +62,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55bb1bba1d00b6e4893800dc13f5428c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WolfInputController>k__BackingField: {fileID: 1996097239011654257}
---- !u!114 &1996097239011654257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4366892735815633588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb32faa584702234bbc2936d5dbb8bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Player>k__BackingField: {fileID: 3640645048448910447}
-  <GoalText>k__BackingField: {fileID: 0}
 --- !u!114 &4136916301119620034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +221,6 @@ MonoBehaviour:
     m_ActionName: Hero/WolfAttack[/Keyboard/1,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: Hero
+  m_DefaultActionMap: Niamh
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

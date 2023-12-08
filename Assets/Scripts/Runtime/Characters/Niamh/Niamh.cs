@@ -7,13 +7,11 @@ using MoreMountains.Feedbacks;
 public class Niamh : StateMachine
 {
     [field: SerializeField] public bool IsActive { get; private set; } = true;
-    [field: SerializeField] public bool IsControlledByPlayer { get; private set; } = false;
 
     [field: Header("Events")]
     public UnityEvent OnJump { get; private set; } = new UnityEvent();
 
     [field: Header("References")]
-    [field: SerializeField] public Wolf Wolf { get; private set; } = null;
     [field: SerializeField] public Finn Finn { get; private set; } = null;
     [field: SerializeField] public Transform Follow { get; private set; } = null;
     [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; } = null;
@@ -172,11 +170,6 @@ public class Niamh : StateMachine
     public virtual bool HitsWallRight()
     {
         return Physics2D.OverlapBox(WallRightTransform.position, WallBoxSize, 0, WallLayer);
-    }
-
-    public virtual void SetIsControlledByPlayer(bool _isControlledByPlayer)
-    {
-        IsControlledByPlayer = _isControlledByPlayer;
     }
 
     protected void OnDrawGizmos()
