@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "BaseAttack",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "13c25b5f-6f77-40c3-a88a-12826147ae29",
                     "expectedControlType": "Button",
@@ -45,15 +45,6 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "38c830c5-2943-4c10-8289-63b6508a455c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "WolfAttack",
-                    "type": "Button",
-                    "id": "2f840285-b25d-423f-8647-4a624da82631",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -156,7 +147,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "BaseAttack",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -167,7 +158,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "BaseAttack",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -214,33 +205,11 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bf91d3c4-d7c5-4c0a-a7ff-dc1254f1cab2",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "WolfAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1eb00ab6-0891-4487-8c70-b8e3ec9a4a2b",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "WolfAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Wolf",
+            "name": "Finn",
             "id": "2815c244-cd39-4a92-9238-dc278b9c5fff",
             "actions": [
                 {

@@ -764,7 +764,7 @@ MonoBehaviour:
         RandomizedPositionMax: {x: 1, y: 1, z: 1}
         ParentTransform: {fileID: 0}
         CreateObjectPool: 0
-        ObjectPoolSize: 5
+        ObjectPoolSize: 10
         MutualizePools: 0
 --- !u!1 &6353030019544069157
 GameObject:
