@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using MoreMountains.Feedbacks;
 
-public class Hero : StateMachine
+public class Niamh : StateMachine
 {
     [field: SerializeField] public bool IsActive { get; private set; } = true;
     [field: SerializeField] public bool IsControlledByPlayer { get; private set; } = false;
@@ -89,6 +90,9 @@ public class Hero : StateMachine
     [field: SerializeField] public float AttackTime { get; private set; } = 0.7f;
     [field: SerializeField] public float AttackStopLerpSpeed { get; private set; } = 50f;
 
+    [Header("Feedbacks")]
+    public MMF_Player AttackFeedbacks;
+
     [field: Header("Skill Variables")]
     [field: SerializeField] public bool WallJumpResetsJumps { get; private set; } = true;
 
@@ -99,24 +103,24 @@ public class Hero : StateMachine
 
     [field: Header("Runtime Variables")]
     [field: SerializeField] public int JumpsLeft { get; set; } = 0;
-    [field: SerializeField] public HeroInput CurrentInput { get; set; } = new HeroInput();
+    [field: SerializeField] public NiamhInput CurrentInput { get; set; } = new NiamhInput();
 
-    public HeroState Idle { get; private set; }
-    public HeroState Running { get; private set; }
-    public HeroState Jumping { get; private set; }
-    public HeroWallJump WallJump { get; private set; }
-    public HeroState Falling { get; private set; }
-    public HeroState Attacking { get; private set; }
+    public NiamhState Idle { get; private set; }
+    public NiamhState Running { get; private set; }
+    public NiamhState Jumping { get; private set; }
+    public NiamhWallJump WallJump { get; private set; }
+    public NiamhState Falling { get; private set; }
+    public NiamhState Attacking { get; private set; }
 
 
     private void Awake()
     {
-        Idle = new HeroIdle(this);
-        Running = new HeroRunning(this);
-        Jumping = new HeroJumping(this);
-        WallJump = new HeroWallJump(this);
-        Falling = new HeroFalling(this);
-        Attacking = new HeroAttacking(this);
+        Idle = new NiamhIdle(this);
+        Running = new NiamhRunning(this);
+        Jumping = new NiamhJumping(this);
+        WallJump = new NiamhWallJump(this);
+        Falling = new NiamhFalling(this);
+        Attacking = new NiamhAttacking(this);
     }
 
     protected virtual void Start()
@@ -137,7 +141,7 @@ public class Hero : StateMachine
     {
         base.ChangeState(_newState);
 
-        if (ShowDebugLogs) Debug.Log($"<color=green>Hero</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
+        if (ShowDebugLogs) Debug.Log($"<color=green>Niamh</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
     }
 
     public virtual bool Grounded()

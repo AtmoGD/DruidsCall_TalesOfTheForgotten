@@ -17,9 +17,9 @@ public class Entrance : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D _other)
     {
-        Hero mainCharacter = _other.GetComponent<Hero>();
+        Niamh niamh = _other.GetComponent<Niamh>();
 
-        if (mainCharacter != null)
+        if (niamh != null)
         {
             Game.Manager.World.ActivateLevel(Level);
 

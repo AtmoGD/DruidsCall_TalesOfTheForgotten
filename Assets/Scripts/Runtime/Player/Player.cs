@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [field: SerializeField] public Character Character { get; private set; } = null;
     [field: SerializeField] public PlayerInput PlayerInput { get; private set; } = null;
     [field: SerializeField] public PlayerInputController PlayerInputController { get; private set; }
-    [field: SerializeField] public Hero Hero { get; private set; } = null;
+    [field: SerializeField] public Niamh Niamh { get; private set; } = null;
     [field: SerializeField] public WolfInputController WolfInputController { get; private set; } = null;
     [field: SerializeField] public Wolf Wolf { get; private set; } = null;
 
@@ -21,30 +21,30 @@ public class Player : MonoBehaviour
 
     public void Init()
     {
-        Hero.CurrentInput = PlayerInputController.HeroInput;
+        Niamh.CurrentInput = PlayerInputController.NiamhInput;
         Wolf.CurrentInput = WolfInputController.WolfInput;
-        PlayerInput.SwitchCurrentActionMap("Hero");
+        PlayerInput.SwitchCurrentActionMap("Niamh");
     }
 
     // public void SwitchCharacter()
     // {
-    //     if (Character == Hero)
+    //     if (Character == Niamh)
     //     {
     //         Character = Wolf;
     //         // Wolf.CurrentInput = PlayerInputController.WolfInput;
     //         Wolf.SetIsControlledByPlayer(true);
-    //         Hero.SetIsControlledByPlayer(false);
-    //         Hero.CurrentInput = new HeroInput();
+    //         Niamh.SetIsControlledByPlayer(false);
+    //         Niamh.CurrentInput = new NiamhInput();
     //         PlayerInput.SwitchCurrentActionMap("Wolf");
     //     }
     //     else
     //     {
-    //         Character = Hero;
-    //         Hero.CurrentInput = PlayerInputController.HeroInput;
-    //         Hero.SetIsControlledByPlayer(true);
+    //         Character = Niamh;
+    //         Niamh.CurrentInput = PlayerInputController.NiamhInput;
+    //         Niamh.SetIsControlledByPlayer(true);
     //         Wolf.SetIsControlledByPlayer(false);
     //         // Wolf.CurrentInput = WolfInputController.WolfInput;
-    //         PlayerInput.SwitchCurrentActionMap("Hero");
+    //         PlayerInput.SwitchCurrentActionMap("Niamh");
     //     }
     // }
 }

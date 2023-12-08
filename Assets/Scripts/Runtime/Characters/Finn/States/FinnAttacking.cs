@@ -11,18 +11,16 @@ public class FinnAttacking : FinnState
     {
         base.Enter();
 
-        dir = finn.Hero.DirectionComponent.Direction.x > 0 ? 1 : -1;
+        dir = finn.Niamh.DirectionComponent.Direction.x > 0 ? 1 : -1;
 
         finn.Animator.SetTrigger("Attack");
-
-        finn.AttackFeedbacks.PlayFeedbacks();
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        finn.transform.position = Vector2.Lerp(finn.transform.position, finn.Hero.AttackEndPoint.position, Time.deltaTime * finn.AttackSpeed);
+        finn.transform.position = Vector2.Lerp(finn.transform.position, finn.Niamh.AttackEndPoint.position, Time.deltaTime * finn.AttackSpeed);
     }
 
     public override void PhysicsUpdate()

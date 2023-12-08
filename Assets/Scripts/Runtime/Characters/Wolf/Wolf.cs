@@ -17,7 +17,7 @@ public class Wolf : Character
 
     #region Wolf Settings
     [field: Header("Wolf Settings")]
-    [field: SerializeField] public Hero Hero { get; private set; } = null;
+    [field: SerializeField] public Niamh Hero { get; private set; } = null;
 
     [field: Header("Components")]
     [field: SerializeField] public ObstacleCheckComponent ObstacleCheck { get; private set; } = null;

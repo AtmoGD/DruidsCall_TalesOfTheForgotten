@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using System;
 
 [Serializable]
-public class HeroInput
+public class NiamhInput
 {
     public bool Interact = false;
     public Vector2 Move = Vector2.zero;
@@ -17,44 +17,44 @@ public class HeroInput
 
 public class PlayerInputController : MonoBehaviour
 {
-    public HeroInput HeroInput { get; protected set; } = new HeroInput();
+    public NiamhInput NiamhInput { get; protected set; } = new NiamhInput();
     [field: SerializeField] public WolfInputController WolfInputController { get; private set; } = null;
     public WolfInput WolfInput => WolfInputController.WolfInput;
 
-    #region Hero active
+    #region Niamh active
     public void OnCharacterMove(InputAction.CallbackContext context)
     {
-        HeroInput.Move = context.ReadValue<Vector2>();
+        NiamhInput.Move = context.ReadValue<Vector2>();
 
-        if (HeroInput.Move.x > 0.1f)
-            HeroInput.LastMoveDirection = 1;
-        else if (HeroInput.Move.x < -0.1f)
-            HeroInput.LastMoveDirection = -1;
+        if (NiamhInput.Move.x > 0.1f)
+            NiamhInput.LastMoveDirection = 1;
+        else if (NiamhInput.Move.x < -0.1f)
+            NiamhInput.LastMoveDirection = -1;
     }
 
     // TODO: Implement Jump Buffering
     public void OnCharacterJump(InputAction.CallbackContext context)
     {
         if (context.started)
-            HeroInput.Jump = true;
+            NiamhInput.Jump = true;
         else if (context.canceled)
-            HeroInput.Jump = false;
+            NiamhInput.Jump = false;
     }
 
     public void OnCharacterAttack(InputAction.CallbackContext context)
     {
         if (context.started)
-            HeroInput.Attack = true;
+            NiamhInput.Attack = true;
         else if (context.canceled)
-            HeroInput.Attack = false;
+            NiamhInput.Attack = false;
     }
 
     public void OnCharacterInteract(InputAction.CallbackContext context)
     {
         if (context.started)
-            HeroInput.Interact = true;
+            NiamhInput.Interact = true;
         else if (context.canceled)
-            HeroInput.Interact = false;
+            NiamhInput.Interact = false;
     }
 
     public void OnWolfCommandAttack(InputAction.CallbackContext context)

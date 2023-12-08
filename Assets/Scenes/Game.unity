@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Player>k__BackingField: {fileID: 1849849282}
-  <Hero>k__BackingField: {fileID: 6658064991134867532}
+  <Niamh>k__BackingField: {fileID: 0}
   <Wolf>k__BackingField: {fileID: 262902637}
   <UIController>k__BackingField: {fileID: 2016575825}
   <World>k__BackingField: {fileID: 1246867218}
@@ -1136,7 +1136,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.800003, y: 24.3, z: -10}
+  m_LocalPosition: {x: 86.81, y: 27.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1983,6 +1983,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1273915019449738869, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: Hero
+      value: 
+      objectReference: {fileID: 6658064991134867532}
+    - target: {fileID: 1273915019449738869, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
+      propertyPath: Niamh
       value: 
       objectReference: {fileID: 6658064991134867532}
     - target: {fileID: 1273915019449738869, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
@@ -3574,6 +3578,10 @@ PrefabInstance:
       propertyPath: Hero
       value: 
       objectReference: {fileID: 6658064991134867538}
+    - target: {fileID: 8417423461049824814, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: HealthComponent
+      value: 
+      objectReference: {fileID: 6658064991134867538}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3640,7 +3648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7156239627978556543, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_Name
-      value: Hero
+      value: Niamh
       objectReference: {fileID: 0}
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <Finn>k__BackingField
@@ -3995,6 +4003,14 @@ PrefabInstance:
       propertyPath: <Wolf>k__BackingField
       value: 
       objectReference: {fileID: 262902637}
+    - target: {fileID: 3640645048448910447, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: <Niamh>k__BackingField
+      value: 
+      objectReference: {fileID: 6658064991134867532}
+    - target: {fileID: 4136916301119620034, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Niamh
+      objectReference: {fileID: 0}
     - target: {fileID: 4366892735815633588, guid: 69f1220bd774de74581b19cb87dcb05e, type: 3}
       propertyPath: m_Name
       value: Player

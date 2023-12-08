@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class Finn : StateMachine
 {
     [Header("References")]
-    public Hero Hero;
+    public Niamh Niamh;
     public Animator Animator;
     public Transform SkinHolder;
     public Rigidbody2D Rb;
@@ -20,9 +19,6 @@ public class Finn : StateMachine
     public float IdleTime = 5f;
     public float AttackTime = 0.7f;
     public float AttackSpeed = 1f;
-
-    [Header("Feedbacks")]
-    public MMF_Player AttackFeedbacks;
 
 
     [Header("Movement")]

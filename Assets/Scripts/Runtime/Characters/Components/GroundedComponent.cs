@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Hero))]
+[RequireComponent(typeof(Niamh))]
 public class GroundedComponent : MonoBehaviour
 {
-    private Hero character;
+    private Niamh character;
     [field: SerializeField] public float GroundedResetTime { get; private set; } = 0.5f;
     [field: SerializeField] public bool Grounded { get; private set; } = false;
     [field: SerializeField] public Vector2 LastGroundedPosition { get; private set; } = Vector2.zero;
@@ -14,7 +14,7 @@ public class GroundedComponent : MonoBehaviour
 
     private void Start()
     {
-        character = GetComponent<Hero>();
+        character = GetComponent<Niamh>();
     }
 
     private void Update()

@@ -48,12 +48,12 @@ public class FinnFollowing : FinnState
 
     void UpdateMovement()
     {
-        direction = finn.transform.position - finn.Hero.Follow.position;
+        direction = finn.transform.position - finn.Niamh.Follow.position;
 
-        Vector2 newPos = Vector2.Lerp(finn.transform.position, finn.Hero.Follow.position, Time.deltaTime * finn.Speed);
+        Vector2 newPos = Vector2.Lerp(finn.transform.position, finn.Niamh.Follow.position, Time.deltaTime * finn.Speed);
         finn.transform.position = newPos;
 
-        finn.SkinHolder.localScale = finn.Hero.DirectionComponent.Direction;
+        finn.SkinHolder.localScale = finn.Niamh.DirectionComponent.Direction;
     }
 
     void UpdateAnimation()

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroMoving : HeroState
+public class NiamhMoving : NiamhState
 {
     protected bool accelerating = false;
     protected bool updateAccelerationTime = false;
@@ -13,7 +13,7 @@ public class HeroMoving : HeroState
 
     protected bool CanMoveHorizontal { get; set; } = true;
 
-    public HeroMoving(Hero _character) : base(_character) { }
+    public NiamhMoving(Niamh _niamh) : base(_niamh) { }
 
     public override void Enter()
     {
@@ -21,10 +21,10 @@ public class HeroMoving : HeroState
 
         accelerating = true;
 
-        if (Mathf.Abs(hero.CurrentInput.Move.x) < 0.1f && Mathf.Abs(hero.Rigidbody.velocity.x) < 0.1f)
-            alreadyAccelerated = hero.DeccelerationCurve.keys[^1].time;
+        if (Mathf.Abs(niamh.CurrentInput.Move.x) < 0.1f && Mathf.Abs(niamh.Rigidbody.velocity.x) < 0.1f)
+            alreadyAccelerated = niamh.DeccelerationCurve.keys[^1].time;
 
-        lastDir = hero.CurrentInput.LastMoveDirection;
+        lastDir = niamh.CurrentInput.LastMoveDirection;
     }
 
     public override void FrameUpdate()
@@ -54,27 +54,27 @@ public class HeroMoving : HeroState
     {
         base.DoStateChecks();
 
-        if (!hero.Grounded())
+        if (!niamh.Grounded())
         {
-            hero.ChangeState(hero.Falling);
+            niamh.ChangeState(niamh.Falling);
             return;
         }
 
-        if (hero.CurrentInput.Jump && hero.CanJump)
+        if (niamh.CurrentInput.Jump && niamh.CanJump)
         {
-            hero.ChangeState(hero.Jumping);
+            niamh.ChangeState(niamh.Jumping);
             return;
         }
 
-        if (Mathf.Abs(hero.Rigidbody.velocity.x) < 0.1f && !accelerating)
+        if (Mathf.Abs(niamh.Rigidbody.velocity.x) < 0.1f && !accelerating)
         {
-            hero.ChangeState(hero.Idle);
+            niamh.ChangeState(niamh.Idle);
             return;
         }
 
-        if (hero.CurrentInput.Attack && hero.CanAttack)
+        if (niamh.CurrentInput.Attack && niamh.CanAttack)
         {
-            hero.ChangeState(hero.Attacking);
+            niamh.ChangeState(niamh.Attacking);
             return;
         }
     }
@@ -86,11 +86,11 @@ public class HeroMoving : HeroState
 
     private void CheckDirection()
     {
-        if (!hero.ResetAccelerationOnDirectionChange) return;
+        if (!niamh.ResetAccelerationOnDirectionChange) return;
 
-        if (lastDir != hero.CurrentInput.LastMoveDirection)
+        if (lastDir != niamh.CurrentInput.LastMoveDirection)
         {
-            lastDir = hero.CurrentInput.LastMoveDirection;
+            lastDir = niamh.CurrentInput.LastMoveDirection;
             directionChanged = true;
         }
     }
@@ -100,21 +100,21 @@ public class HeroMoving : HeroState
         float acceleration;
 
         if (accelerating)
-            acceleration = hero.AccelerationCurve.Evaluate(alreadyAccelerated) * Mathf.Abs(hero.CurrentInput.Move.x);
+            acceleration = niamh.AccelerationCurve.Evaluate(alreadyAccelerated) * Mathf.Abs(niamh.CurrentInput.Move.x);
         else
-            acceleration = hero.DeccelerationCurve.Evaluate(alreadyAccelerated);
+            acceleration = niamh.DeccelerationCurve.Evaluate(alreadyAccelerated);
 
-        float speed = hero.CurrentInput.LastMoveDirection * hero.MaxSpeed * acceleration;
+        float speed = niamh.CurrentInput.LastMoveDirection * niamh.MaxSpeed * acceleration;
 
-        hero.Rigidbody.velocity = new Vector2(speed, hero.Rigidbody.velocity.y);
+        niamh.Rigidbody.velocity = new Vector2(speed, niamh.Rigidbody.velocity.y);
 
-        hero.Animator.SetFloat("SpeedX", Mathf.Abs(hero.Rigidbody.velocity.x) / hero.MaxSpeed);
+        niamh.Animator.SetFloat("SpeedX", Mathf.Abs(niamh.Rigidbody.velocity.x) / niamh.MaxSpeed);
     }
 
 
     protected void UpdateIsAccelerating()
     {
-        bool newValue = Mathf.Abs(hero.CurrentInput.Move.x) > 0.1f;
+        bool newValue = Mathf.Abs(niamh.CurrentInput.Move.x) > 0.1f;
         if (newValue != accelerating)
         {
             updateAccelerationTime = true;
@@ -126,12 +126,12 @@ public class HeroMoving : HeroState
     // For exact value you can use utils.FindTimeInCurve but it is more expensive and not really tested
     protected void UpdateAccelerationTime()
     {
-        float findValue = Mathf.Abs(hero.Rigidbody.velocity.x) / hero.MaxSpeed;
+        float findValue = Mathf.Abs(niamh.Rigidbody.velocity.x) / niamh.MaxSpeed;
 
         if (accelerating)
-            alreadyAccelerated = Utils.Remap(findValue, 0, 1, 0, hero.AccelerationCurve.keys[^1].time);
+            alreadyAccelerated = Utils.Remap(findValue, 0, 1, 0, niamh.AccelerationCurve.keys[^1].time);
         else
-            alreadyAccelerated = Utils.Remap(1 - findValue, 0, 1, 0, hero.DeccelerationCurve.keys[^1].time);
+            alreadyAccelerated = Utils.Remap(1 - findValue, 0, 1, 0, niamh.DeccelerationCurve.keys[^1].time);
 
         if (directionChanged)
         {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InGameUI : MonoBehaviour
 {
-    public HealthComponent Hero;
+    public HealthComponent HealthComponent;
     public Slider HealthSlider;
 
     private void Update()
@@ -15,6 +15,6 @@ public class InGameUI : MonoBehaviour
 
     public void UpdateHealth()
     {
-        HealthSlider.value = Hero.CurrentHealth / Hero.MaxHealth;
+        HealthSlider.value = HealthComponent.CurrentHealth / HealthComponent.MaxHealth;
     }
 }

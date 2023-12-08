@@ -55,7 +55,7 @@ public class WolfInputController : MonoBehaviour
 {
     [field: SerializeField] public Player Player { get; private set; } = null;
     public Wolf Wolf => Player.Wolf;
-    public Hero Hero => Player.Hero;
+    public Niamh Hero => Player.Niamh;
 
     public WolfInput WolfInput { get; protected set; } = new WolfInput();
     public WolfGoal CurrentGoal { get; protected set; } = WolfGoal.Idle;

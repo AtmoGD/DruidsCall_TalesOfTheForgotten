@@ -38,8 +38,8 @@ public class Level : MonoBehaviour
     {
         TargetGroup.m_Targets = new Cinemachine.CinemachineTargetGroup.Target[0];
 
-        if (Game.Manager.Hero && Game.Manager.Hero.IsActive)
-            TargetGroup.AddMember(Game.Manager.Hero.transform, HeroWeight, HeroRadius);
+        if (Game.Manager.Niamh && Game.Manager.Niamh.IsActive)
+            TargetGroup.AddMember(Game.Manager.Niamh.transform, HeroWeight, HeroRadius);
 
         if (FollowOnlyHero) return;
 

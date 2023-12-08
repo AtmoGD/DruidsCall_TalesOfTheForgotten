@@ -29,7 +29,7 @@ public class FinnIdle : FinnState
     {
         base.DoStateChecks();
 
-        if (finn.Hero.Rigidbody.velocity.magnitude > 0.1f)
+        if (finn.Niamh.Rigidbody.velocity.magnitude > 0.1f)
             finn.ChangeState(finn.Following);
     }
 
