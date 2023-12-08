@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class World : MonoBehaviour
 {
+    [field: SerializeField] public GameWorld WorldType { get; private set; } = GameWorld.Ordinary;
     [field: SerializeField] public List<Level> Levels { get; private set; } = new List<Level>();
     [field: SerializeField] public Level CurrentLevelActive { get; private set; } = null;
 
