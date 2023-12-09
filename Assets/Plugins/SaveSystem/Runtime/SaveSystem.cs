@@ -48,8 +48,12 @@ public static class SaveSystem
 
     public static bool DeleteData(string _path)
     {
-        if (!File.Exists(persistantPath + _path)) return false;
-
+        if (!File.Exists(persistantPath + _path))
+        {
+            if (savesList.Contains(_path))
+                savesList.Remove(_path);
+            return false;
+        }
         File.Delete(persistantPath + _path);
 
         RemoveFromSavesList(_path);
@@ -82,8 +86,12 @@ public static class SaveSystem
 
             return data;
         }
+#if UNITY_EDITOR
         else
+        {
             Debug.LogError("FILE DOESN'T EXISTS ON GIVEN PATH!");
+        }
+#endif
 
         return default;
     }

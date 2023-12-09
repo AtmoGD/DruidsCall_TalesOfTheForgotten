@@ -52,13 +52,17 @@ public class SaveSystemEditor : EditorWindow
             saveNameLabel.text = savesList[i];
             backgroundBox.Add(saveNameLabel);
 
+            Label saveDataLabel = new(); // Just a hack store the save name
+            saveDataLabel.text = savesList[i];
+
             Button deleteButton = new() { text = "Delete" };
             deleteButton.style.unityTextAlign = TextAnchor.MiddleRight;
-            deleteButton.clicked += () => DeleteSave(savesList[i]);
+            deleteButton.clicked += () => DeleteSave(saveDataLabel.text);
             backgroundBox.Add(deleteButton);
 
             root.Add(container);
         }
+
     }
 
     private void DeleteSave(string _saveName)

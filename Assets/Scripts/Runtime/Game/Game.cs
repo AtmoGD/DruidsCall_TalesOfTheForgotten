@@ -34,10 +34,11 @@ public class Game : MonoBehaviour
     public void LoadGame(string _fileName)
     {
         CurrentActiveFileName = _fileName;
+        Data = SaveSystem.LoadData<GameData>(CurrentActiveFileName);
     }
 
     public void SaveGame()
     {
-        SaveSystem.SaveData(Data, CurrentActiveFileName);
+        SaveSystem.SaveData<GameData>(Data, CurrentActiveFileName);
     }
 }
