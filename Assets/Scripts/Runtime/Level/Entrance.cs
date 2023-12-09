@@ -21,7 +21,7 @@ public class Entrance : MonoBehaviour
 
         if (niamh != null)
         {
-            Game.Manager.World.ActivateLevel(Level);
+            Game.Manager.WorldController.ActiveWorld.ActivateLevel(Level);
 
             if (OverrideBlend) CinemachineBlendManager.SetNextBlend(BlendOverride);
         }

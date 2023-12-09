@@ -12,11 +12,11 @@ public class NiamhWallJump : NiamhJumping
     {
         consumeJump = niamh.WallJumpConsumesJump;
 
-        if (niamh.WallJumpResetsJumps) niamh.ResetJumpsLeft();
-
         base.Enter();
 
         wallJumpDirection = niamh.HitsWallLeft() ? Vector2.right : Vector2.left;
+
+        if (niamh.WallJumpResetsJumps) niamh.ResetJumpsLeft();
     }
 
     public override void FrameUpdate()

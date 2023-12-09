@@ -32,5 +32,8 @@ public class GameEditor : Editor
 
         if (GUILayout.Button("Save Game"))
             game.SaveGame();
+
+        if (GUILayout.Button("Find Save Points"))
+            game.FindSavePoints();
     }
 }

@@ -36,7 +36,17 @@ public class SavePointEditor : Editor
             return;
         }
 
+        Level level = savePoint.GetComponentInParent<Level>();
+        if (level)
+            savePoint.Data.LevelName = level.name;
+        else
+        {
+            Debug.LogError("SavePointEditor: No Level found in parent!");
+            return;
+        }
+
         savePoint.Data.SavePointName = System.Guid.NewGuid().ToString();
+
 
         initialized = true;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorldController : MonoBehaviour
 {
-    [field: SerializeField] private World ActiveWorld { get; set; } = null;
+    [field: SerializeField] public World ActiveWorld { get; set; } = null;
     [field: SerializeField] private World OrdinaryWorld { get; set; } = null;
     [field: SerializeField] private World OtherWorld { get; set; } = null;
 
@@ -30,5 +30,15 @@ public class WorldController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void OpenOrdinaryWorld()
+    {
+        ChangeActiveWorld(GameWorld.Ordinary);
+    }
+
+    public void OpenOtherWorld()
+    {
+        ChangeActiveWorld(GameWorld.Other);
     }
 }
