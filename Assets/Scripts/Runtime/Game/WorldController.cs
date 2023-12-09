@@ -5,8 +5,8 @@ using UnityEngine;
 public class WorldController : MonoBehaviour
 {
     [field: SerializeField] public World ActiveWorld { get; set; } = null;
-    [field: SerializeField] private World OrdinaryWorld { get; set; } = null;
-    [field: SerializeField] private World OtherWorld { get; set; } = null;
+    [field: SerializeField] public World OrdinaryWorld { get; set; } = null;
+    [field: SerializeField] public World OtherWorld { get; set; } = null;
 
     private void Start()
     {

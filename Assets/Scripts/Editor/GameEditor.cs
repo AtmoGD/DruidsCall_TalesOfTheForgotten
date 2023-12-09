@@ -35,5 +35,14 @@ public class GameEditor : Editor
 
         if (GUILayout.Button("Find Save Points"))
             game.FindSavePoints();
+
+        if (GUILayout.Button("Activate all Levels"))
+        {
+            game.WorldController.OrdinaryWorld.gameObject.SetActive(true);
+            game.WorldController.OrdinaryWorld.SetAllLevelsActive();
+
+            game.WorldController.OtherWorld.gameObject.SetActive(true);
+            game.WorldController.OtherWorld.SetAllLevelsActive();
+        }
     }
 }
