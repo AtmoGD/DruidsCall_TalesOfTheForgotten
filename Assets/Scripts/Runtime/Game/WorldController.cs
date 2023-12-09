@@ -8,11 +8,6 @@ public class WorldController : MonoBehaviour
     [field: SerializeField] public World OrdinaryWorld { get; set; } = null;
     [field: SerializeField] public World OtherWorld { get; set; } = null;
 
-    private void Start()
-    {
-        ChangeActiveWorld(GameWorld.Ordinary);
-    }
-
     public void ChangeActiveWorld(GameWorld _world)
     {
         switch (_world)

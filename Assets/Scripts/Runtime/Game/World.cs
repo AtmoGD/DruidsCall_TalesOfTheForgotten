@@ -45,7 +45,7 @@ public class World : MonoBehaviour
     public void UpdateLevelList()
     {
         Levels.Clear();
-        foreach (Level level in FindObjectsOfType<Level>())
+        foreach (Level level in transform.GetComponentsInChildren<Level>(true))
             Levels.Add(level);
     }
 }

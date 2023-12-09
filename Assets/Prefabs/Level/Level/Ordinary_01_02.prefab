@@ -919,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1858384651989139319, guid: 5f0140f8507c9bb468fa0ffae59273f4, type: 3}
       propertyPath: m_Name
-      value: Level_01_02 Variant
+      value: Ordinary_01_02
       objectReference: {fileID: 0}
     - target: {fileID: 2568900233454438982, guid: 5f0140f8507c9bb468fa0ffae59273f4, type: 3}
       propertyPath: data.dataString

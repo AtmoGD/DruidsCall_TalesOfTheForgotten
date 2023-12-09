@@ -27,26 +27,7 @@ public class SavePointEditor : Editor
 
     private void Init()
     {
-        World world = savePoint.GetComponentInParent<World>();
-        if (world)
-            savePoint.Data.World = world.WorldType;
-        else
-        {
-            Debug.LogError("SavePointEditor: No World found in parent!");
-            return;
-        }
-
-        Level level = savePoint.GetComponentInParent<Level>();
-        if (level)
-            savePoint.Data.LevelName = level.name;
-        else
-        {
-            Debug.LogError("SavePointEditor: No Level found in parent!");
-            return;
-        }
-
-        savePoint.Data.SavePointName = System.Guid.NewGuid().ToString();
-
+        savePoint.Init();
 
         initialized = true;
     }

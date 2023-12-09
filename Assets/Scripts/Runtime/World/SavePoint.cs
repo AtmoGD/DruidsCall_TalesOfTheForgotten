@@ -15,7 +15,7 @@ public enum GameWorld
 public class SavePointData
 {
     [field: SerializeField] public GameWorld World { get; set; } = GameWorld.Ordinary;
-    [field: SerializeField] public string SavePointName { get; set; } = "SavePoint";
+    [field: SerializeField] public string SavePointName { get; set; } = "";
     [field: SerializeField] public string LevelName { get; set; } = "Level";
 }
 
@@ -24,7 +24,7 @@ public class SavePoint : MonoBehaviour, IInteractable
     [field: SerializeField] public SavePointData Data { get; private set; } = new SavePointData();
     [field: SerializeField] public MMFeedbacks SaveFeedbacks { get; private set; } = null;
 
-    public void Interact()
+    public virtual void Interact()
     {
         SaveGame();
     }
@@ -32,8 +32,8 @@ public class SavePoint : MonoBehaviour, IInteractable
     public void SaveGame()
     {
         Game.Manager.Data.IsNewGame = false;
-        Data.World = transform.GetComponentInParent<World>().WorldType;
-        Data.LevelName = transform.GetComponentInParent<Level>().gameObject.name;
+        Data.World = transform.GetComponentInParent<World>(true).WorldType;
+        Data.LevelName = transform.GetComponentInParent<Level>(true).gameObject.name;
         Game.Manager.Data.CurrentSavePoint = Data;
         Game.Manager.SaveGame();
 
@@ -42,6 +42,30 @@ public class SavePoint : MonoBehaviour, IInteractable
 #if UNITY_EDITOR
         print("Game Saved!");
 #endif
+    }
+
+    public void Init()
+    {
+        World world = GetComponentInParent<World>(true);
+        if (world)
+            Data.World = world.WorldType;
+        else
+        {
+            Debug.LogError("SavePointEditor: No World found in parent!");
+            return;
+        }
+
+        Level level = GetComponentInParent<Level>(true);
+        if (level)
+            Data.LevelName = level.name;
+        else
+        {
+            Debug.LogError("SavePointEditor: No Level found in parent!");
+            return;
+        }
+
+        if (Data.SavePointName == "")
+            Data.SavePointName = System.Guid.NewGuid().ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

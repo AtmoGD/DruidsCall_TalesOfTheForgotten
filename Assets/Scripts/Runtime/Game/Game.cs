@@ -11,9 +11,9 @@ public class Game : MonoBehaviour
     [field: SerializeField] public Player Player { get; private set; } = null;
     [field: SerializeField] public Niamh Niamh { get; private set; } = null;
     [field: SerializeField] public Finn Finn { get; private set; } = null;
+    [field: SerializeField] public SavePoint StartPoint { get; private set; } = null;
     [field: SerializeField] public UIController UIController { get; private set; } = null;
     [field: SerializeField] public WorldController WorldController { get; private set; } = null;
-    // [field: SerializeField] public World World { get; private set; } = null;
 
     [field: Header("Game Settings")]
     [field: SerializeField] public string CurrentActiveFileName { get; private set; } = "GameData";
@@ -45,19 +45,24 @@ public class Game : MonoBehaviour
         if (Data == null)
         {
             Data = new GameData();
+            Data.CurrentTitle = "Tutorial";
+            Data.CurrentSavePoint = StartPoint.Data;
         }
-        else
-        {
-            SavePoint savePoint = SavePoints.Find(x => x.Data.SavePointName == Data.CurrentSavePoint.SavePointName);
 
-            WorldController.ChangeActiveWorld(Data.CurrentSavePoint.World);
+        InitWorld();
+    }
 
-            Level level = WorldController.ActiveWorld.Levels.Find(x => x.gameObject.name == Data.CurrentSavePoint.LevelName);
-            WorldController.ActiveWorld.ActivateLevel(level);
+    public void InitWorld()
+    {
+        SavePoint savePoint = SavePoints.Find(x => x.Data.SavePointName == Data.CurrentSavePoint.SavePointName);
 
-            Niamh.transform.position = savePoint.transform.position;
-            Finn.transform.position = savePoint.transform.position;
-        }
+        WorldController.ChangeActiveWorld(Data.CurrentSavePoint.World);
+
+        Level level = WorldController.ActiveWorld.Levels.Find(x => x.gameObject.name == Data.CurrentSavePoint.LevelName);
+        WorldController.ActiveWorld.ActivateLevel(level);
+
+        Niamh.transform.position = savePoint.transform.position;
+        Finn.transform.position = savePoint.transform.position;
     }
 
     public void SaveGame()
@@ -68,5 +73,15 @@ public class Game : MonoBehaviour
     public void FindSavePoints()
     {
         SavePoints = new List<SavePoint>(GameObject.FindObjectsOfType<SavePoint>());
+    }
+
+    public void InitializeSavePoints()
+    {
+        SavePoints = new List<SavePoint>(GameObject.FindObjectsOfType<SavePoint>());
+
+        foreach (SavePoint savePoint in SavePoints)
+        {
+            savePoint.Init();
+        }
     }
 }
