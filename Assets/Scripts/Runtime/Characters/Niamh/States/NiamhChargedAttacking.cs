@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NiamhAttacking : NiamhState
+public class NiamhChargedAttacking : NiamhState
 {
     private bool attacked = false;
-    public NiamhAttacking(Niamh _niamh) : base(_niamh) { }
+    public NiamhChargedAttacking(Niamh _niamh) : base(_niamh) { }
 
     public override void Enter()
     {
         base.Enter();
-
-        attacked = false;
 
         niamh.CurrentInput.Attack = false;
 
@@ -49,7 +47,7 @@ public class NiamhAttacking : NiamhState
     {
         base.Exit();
 
-        niamh.CooldownComponent.AddCooldown(new Cooldown(niamh.AttackName, niamh.AttackCooldown));
+        niamh.CooldownComponent.AddCooldown(new Cooldown("Attack", niamh.AttackCooldown));
     }
 
     private void Attack()

@@ -15,6 +15,6 @@ public class InGameUI : MonoBehaviour
 
     public void UpdateHealth()
     {
-        HealthSlider.value = HealthComponent.CurrentHealth / HealthComponent.MaxHealth;
+        HealthSlider.value = (float)HealthComponent.CurrentHealth / (float)HealthComponent.MaxHealth;
     }
 }

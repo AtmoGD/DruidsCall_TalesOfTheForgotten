@@ -76,6 +76,13 @@ public class Niamh : StateMachine
     [field: SerializeField] public float FallThroughPlatformTime { get; private set; } = 0.1f;
     [field: SerializeField] public float FallThroughPlatformThreshold { get; private set; } = -0.9f;
 
+    [field: Header("Get Hit")]
+    [field: SerializeField] public bool GetHitActive { get; private set; } = true;
+    [field: SerializeField] public string GetHitName { get; private set; } = "Get Hit";
+    public bool CanGetHit => GetHitActive && !CooldownComponent.HasCooldown(GetHitName);
+    [field: SerializeField] public float GetHitTime { get; private set; } = 0.5f;
+    [field: SerializeField] public float GetHitCooldown { get; private set; } = 1f;
+
     [field: Header("Attack Settings")]
     [field: SerializeField] public bool AttackActive { get; private set; } = true;
     [field: SerializeField] public string AttackName { get; private set; } = "Attack";
@@ -85,8 +92,18 @@ public class Niamh : StateMachine
     [field: SerializeField] public float AttackRadius { get; private set; } = 0.5f;
     [field: SerializeField] public int AttackDamage { get; private set; } = 10;
     [field: SerializeField] public float AttackCooldown { get; private set; } = 0.2f;
-    [field: SerializeField] public float AttackTime { get; private set; } = 0.7f;
+    [field: SerializeField] public float AttackDoDamageTime { get; private set; } = 0.4f;
+    [field: SerializeField] public float AttackEndTime { get; private set; } = 0.7f;
     [field: SerializeField] public float AttackStopLerpSpeed { get; private set; } = 50f;
+
+    [field: Header("Charged Attack Settings")]
+    [field: SerializeField] public bool ChargedAttackActive { get; private set; } = true;
+    [field: SerializeField] public string ChargedAttackName { get; private set; } = "Charged Attack";
+    public bool CanChargedAttack => ChargedAttackActive && !CooldownComponent.HasCooldown(ChargedAttackName);
+    [field: SerializeField] public float ChargedAttackTimeMin { get; private set; } = 1f;
+    [field: SerializeField] public float ChargedAttackTimeMax { get; private set; } = 2f;
+    [field: SerializeField] public float ChargedAttackDamageMultiplier { get; private set; } = 2f;
+    [field: SerializeField] public float ChargedAttackCooldown { get; private set; } = 0.2f;
 
     [Header("Feedbacks")]
     public MMF_Player AttackFeedbacks;
@@ -108,6 +125,7 @@ public class Niamh : StateMachine
     public NiamhState Jumping { get; private set; }
     public NiamhWallJump WallJump { get; private set; }
     public NiamhState Falling { get; private set; }
+    public NiamhGetHit GetHit { get; private set; }
     public NiamhState Attacking { get; private set; }
 
 
@@ -118,6 +136,7 @@ public class Niamh : StateMachine
         Jumping = new NiamhJumping(this);
         WallJump = new NiamhWallJump(this);
         Falling = new NiamhFalling(this);
+        GetHit = new NiamhGetHit(this);
         Attacking = new NiamhAttacking(this);
     }
 
@@ -126,6 +145,16 @@ public class Niamh : StateMachine
         if (!IsActive) gameObject.SetActive(false);
 
         ChangeState(Idle);
+    }
+
+    private void OnEnable()
+    {
+        HealthComponent.OnTakeDamage.AddListener(OnTakeDamage);
+    }
+
+    private void OnDisable()
+    {
+        HealthComponent.OnTakeDamage.RemoveListener(OnTakeDamage);
     }
 
     protected override void Update()
@@ -140,6 +169,15 @@ public class Niamh : StateMachine
         base.ChangeState(_newState);
 
         if (ShowDebugLogs) Debug.Log($"<color=green>Niamh</color> changed state to <color=yellow>{CurrentState.GetType().Name}</color>");
+    }
+
+    public virtual void OnTakeDamage(Damage _damage)
+    {
+        if (CanGetHit)
+        {
+            GetHit.Damage = _damage;
+            ChangeState(GetHit);
+        }
     }
 
     public virtual bool Grounded()

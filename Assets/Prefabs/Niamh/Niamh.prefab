@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1797078967848947870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 0.83000004, z: 0}
+  m_LocalPosition: {x: 0.38, y: 0.08000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 4784290169458719583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 4868359112359363665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: 0.83000004, z: 0}
+  m_LocalPosition: {x: -0.38, y: 0.08000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,13 +287,58 @@ Transform:
   m_GameObject: {fileID: 5505736650899639245}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2420330006966881761}
   m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5574697243102247768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4798816886906481684}
+  - component: {fileID: 6507891844622536238}
+  m_Layer: 0
+  m_Name: FMD Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4798816886906481684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574697243102247768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.342, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6062189345492367134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6507891844622536238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574697243102247768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &6080408157980693318
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 6080408157980693318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -453,6 +498,7 @@ MonoBehaviour:
   - rid: 3133980315665301535
   - rid: 3133980316352118785
   - rid: 3133980316352118792
+  - rid: 6637702422194552832
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
@@ -766,6 +812,86 @@ MonoBehaviour:
         CreateObjectPool: 0
         ObjectPoolSize: 10
         MutualizePools: 0
+    - rid: 6637702422194552832
+      type: {class: FMODEventFeedback, ns: , asm: Assembly-CSharp}
+      data:
+        Active: 1
+        UniqueID: -1800495068
+        Label: FMOD Event
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        Owner: {fileID: 673239049248093251}
+        DebugActive: 0
+        Mode: 0
+        TargetFeedbacks: {fileID: 0}
+        OnlyTriggerPlayersInRange: 0
+        EventRange: 100
+        EventOriginTransform: {fileID: 6062189345492367134}
+        EventName:
+          Guid:
+            Data1: 673416958
+            Data2: 1095930079
+            Data3: -592207444
+            Data4: 493389624
+          Path: event:/DEBUG/TEST_CHAR_FOOTSTEPS
 --- !u!1 &6353030019544069157
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +948,7 @@ Transform:
   m_GameObject: {fileID: 6656036740478908099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.025, z: 0}
+  m_LocalPosition: {x: 0, y: -0.725, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -871,6 +997,7 @@ Transform:
   - {fileID: 2048213490403418322}
   - {fileID: 7449912003732070568}
   - {fileID: 8556313681852568011}
+  - {fileID: 4798816886906481684}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7911190814667251780
@@ -899,11 +1026,11 @@ MonoBehaviour:
   <CooldownComponent>k__BackingField: {fileID: 4925339863090825640}
   <HealthComponent>k__BackingField: {fileID: 1779479385724084231}
   <InteractionComponent>k__BackingField: {fileID: 1308764941326007423}
-  <GroundBoxSize>k__BackingField: {x: 0.5, y: 0.1}
+  <GroundBoxSize>k__BackingField: {x: 0.35, y: 0.1}
   <GroundLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 5120
-  <TopBoxSize>k__BackingField: {x: 0.7, y: 0.1}
+  <TopBoxSize>k__BackingField: {x: 0.2, y: 0.1}
   <TopLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
@@ -1026,14 +1153,23 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: -166.81517
-      outSlope: -166.81517
+      inSlope: 0.77397084
+      outSlope: 0.77397084
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.050581362
+      outWeight: 0.24198577
     - serializedVersion: 3
-      time: 0.41716877
+      time: 0.11428101
+      value: -13.375801
+      inSlope: -232.61662
+      outSlope: -232.61662
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.21143508
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.30107686
       value: -23.755724
       inSlope: -4.899462
       outSlope: -4.899462
@@ -1049,15 +1185,26 @@ MonoBehaviour:
   <FallThroughPlatformActive>k__BackingField: 1
   <FallThroughPlatformTime>k__BackingField: 0.25
   <FallThroughPlatformThreshold>k__BackingField: -0.9
+  <GetHitActive>k__BackingField: 1
+  <GetHitName>k__BackingField: Get Hit
+  <GetHitTime>k__BackingField: 0.2
+  <GetHitCooldown>k__BackingField: 1
   <AttackActive>k__BackingField: 1
   <AttackName>k__BackingField: Attack
   <AttackStartPoint>k__BackingField: {fileID: 2832243006230033580}
   <AttackEndPoint>k__BackingField: {fileID: 3488602663743954651}
   <AttackRadius>k__BackingField: 0.7
   <AttackDamage>k__BackingField: 10
-  <AttackCooldown>k__BackingField: 0.7
-  <AttackTime>k__BackingField: 0.3
-  <AttackStopLerpSpeed>k__BackingField: 20
+  <AttackCooldown>k__BackingField: 0.35
+  <AttackDoDamageTime>k__BackingField: 0.25
+  <AttackEndTime>k__BackingField: 0.4
+  <AttackStopLerpSpeed>k__BackingField: 8
+  <ChargedAttackActive>k__BackingField: 1
+  <ChargedAttackName>k__BackingField: Charged Attack
+  <ChargedAttackTimeMin>k__BackingField: 1
+  <ChargedAttackTimeMax>k__BackingField: 2
+  <ChargedAttackDamageMultiplier>k__BackingField: 2
+  <ChargedAttackCooldown>k__BackingField: 0.2
   AttackFeedbacks: {fileID: 673239049248093251}
   <WallJumpResetsJumps>k__BackingField: 1
   <ShowDebugLogs>k__BackingField: 0
@@ -1066,7 +1213,7 @@ MonoBehaviour:
   <CurrentInput>k__BackingField:
     Interact: 0
     Move: {x: 0, y: 0}
-    LastMoveDirection: -1
+    LastMoveDirection: 1
     Jump: 0
     Attack: 0
 --- !u!114 &4422269312156941356
@@ -1200,8 +1347,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.75}
-  m_Size: {x: 0.8, y: 1.5}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1.5}
   m_Direction: 0
 --- !u!1 &7568302399518382376
 GameObject:

@@ -7,11 +7,13 @@ public class Damage
 {
     public GameObject Attacker;
     public int DamageAmount;
+    public Vector2 KnockbackForce;
 
-    public Damage(GameObject attacker, int damageAmount)
+    public Damage(GameObject attacker, int damageAmount, Vector2 knockbackForce)
     {
         Attacker = attacker;
         DamageAmount = damageAmount;
+        KnockbackForce = knockbackForce;
     }
 }
 
