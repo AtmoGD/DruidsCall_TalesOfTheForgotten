@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class Portal : SavePoint
 {
     [field: SerializeField] public Portal OtherPortal { get; private set; } = null;
+    [field: SerializeField] public MMFeedbacks TeleportFeedbacks { get; private set; } = null;
 
     public override void Interact()
     {
-        SaveFeedbacks?.PlayFeedbacks();
+        TeleportFeedbacks?.PlayFeedbacks();
 
         OtherPortal.SaveGame();
 
-        Teleport();
+        // Teleport();
     }
 
     public void Teleport()

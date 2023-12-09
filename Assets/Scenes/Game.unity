@@ -334,7 +334,7 @@ MonoBehaviour:
       Data4: -1715977145
     Path: event:/DEBUG/TEST_FOREST_ATMO
   Event: 
-  PlayEvent: 1
+  PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -407,19 +407,17 @@ MonoBehaviour:
   <WorldController>k__BackingField: {fileID: 2043010583}
   <CurrentActiveFileName>k__BackingField: Game1
   <Data>k__BackingField:
-    <IsNewGame>k__BackingField: 0
-    <CurrentTitle>k__BackingField: GameData
+    <IsNewGame>k__BackingField: 1
+    <CurrentTitle>k__BackingField: Tutorial
     <TimePlayed>k__BackingField: 0
     <CurrentSavePoint>k__BackingField:
       <World>k__BackingField: 0
-      <SavePointName>k__BackingField: c3a37bec-5663-49ce-bd48-0daf67b21aa3
-      <LevelName>k__BackingField: Level_01_04
+      <SavePointName>k__BackingField: 8f06ab93-4cfb-459e-a666-a9e5130c242d
+      <LevelName>k__BackingField: Ordinary_01_01
   <SavePoints>k__BackingField:
+  - {fileID: 1162962528}
   - {fileID: 91402182}
-  - {fileID: 0}
   - {fileID: 2058720127}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1037516499}
   - {fileID: 1000905212}
   - {fileID: 2120238139}
@@ -491,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 1054356737691444678, guid: 6b58bd446c33a5942b4d8430546fd947, type: 3}
       propertyPath: m_Name
       value: Ordinary_01_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054356737691444678, guid: 6b58bd446c33a5942b4d8430546fd947, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1862127171818296365, guid: 6b58bd446c33a5942b4d8430546fd947, type: 3}
       propertyPath: m_LocalPosition.x
@@ -584,6 +586,10 @@ PrefabInstance:
     - target: {fileID: 6155728834659169431, guid: b7883c89ceaad054d9659909a0b66e27, type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417502050248690356, guid: b7883c89ceaad054d9659909a0b66e27, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7939267889451503860, guid: b7883c89ceaad054d9659909a0b66e27, type: 3}
       propertyPath: m_LocalPosition.x
@@ -742,7 +748,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.190002, y: -202.06, z: -10}
+  m_LocalPosition: {x: 86.81, y: 27.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -900,10 +906,10 @@ MonoBehaviour:
   <WorldType>k__BackingField: 0
   <Levels>k__BackingField:
   - {fileID: 1473707267}
-  - {fileID: 1616038029}
-  - {fileID: 8218030603640358930}
   - {fileID: 8304553037686035977}
-  <CurrentLevelActive>k__BackingField: {fileID: 1616038029}
+  - {fileID: 8218030603640358930}
+  - {fileID: 1616038029}
+  <CurrentLevelActive>k__BackingField: {fileID: 1473707267}
 --- !u!1 &1275962480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,10 +1102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WorldType>k__BackingField: 1
   <Levels>k__BackingField:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7880843329569918549}
   <CurrentLevelActive>k__BackingField: {fileID: 0}
 --- !u!4 &1940731321
 Transform:
@@ -1276,11 +1279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969338096745939972, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 126.96
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5969338096745939972, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.3
+      value: -1.1899996
       objectReference: {fileID: 0}
     - target: {fileID: 5969338096745939972, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2807,14 +2810,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050193544716614984, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4694769058208405870, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 8417423461049824814, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: Hero
-      value: 
-      objectReference: {fileID: 6658064991134867538}
     - target: {fileID: 8417423461049824814, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: HealthComponent
       value: 
@@ -3146,11 +3149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6062189345492367134, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 126.96
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6062189345492367134, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.3
+      value: 0.06000042
       objectReference: {fileID: 0}
     - target: {fileID: 6062189345492367134, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3265,14 +3268,6 @@ PrefabInstance:
       propertyPath: <OtherPortal>k__BackingField
       value: 
       objectReference: {fileID: 1162962528}
-    - target: {fileID: 687090583035418951, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
-      propertyPath: <Data>k__BackingField.<LevelName>k__BackingField
-      value: Ordinary_01_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 687090583035418951, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
-      propertyPath: <Data>k__BackingField.<SavePointName>k__BackingField
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1926156208253320636, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
       propertyPath: <Neighbours>k__BackingField.Array.data[0]
       value: 
@@ -3281,6 +3276,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1211594900}
+    - target: {fileID: 7313507803467236782, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
+      propertyPath: FeedbacksList.Array.data[1]
+      value: 6637702422194552835
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313507803467236782, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
+      propertyPath: FeedbacksList.Array.data[2]
+      value: 6637702422194552836
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313507803467236782, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
+      propertyPath: FeedbacksList.Array.data[3]
+      value: 6637702422194552837
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313507803467236782, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
+      propertyPath: FeedbacksList.Array.data[4]
+      value: 6637702422194552839
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313507803467236782, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
+      propertyPath: FeedbacksList.Array.data[5]
+      value: 6637702422194552840
+      objectReference: {fileID: 0}
     - target: {fileID: 7699933610994517094, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3400,6 +3415,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3007493228734471930, guid: 5900cf005dfa0714988448801eed08b0, type: 3}
   m_PrefabInstance: {fileID: 7880843329569918546}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7880843329569918549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1668403441503599914, guid: 5900cf005dfa0714988448801eed08b0, type: 3}
+  m_PrefabInstance: {fileID: 7880843329569918546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa24ace48181e34098f611f15d4b415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8218030603640358926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3411,6 +3437,10 @@ PrefabInstance:
     - target: {fileID: 1054356737691444678, guid: 754022bacc30f624ea2443acc1c36fbf, type: 3}
       propertyPath: m_Name
       value: Ordinary_01_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054356737691444678, guid: 754022bacc30f624ea2443acc1c36fbf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1862127171818296365, guid: 754022bacc30f624ea2443acc1c36fbf, type: 3}
       propertyPath: m_LocalPosition.x

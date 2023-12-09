@@ -3143,7 +3143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ddc1197265fed4782f4d76de1bfa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero: {fileID: 0}
+  HealthComponent: {fileID: 0}
   HealthSlider: {fileID: 3354821733620547384}
 --- !u!1 &7950728039481911386
 GameObject:

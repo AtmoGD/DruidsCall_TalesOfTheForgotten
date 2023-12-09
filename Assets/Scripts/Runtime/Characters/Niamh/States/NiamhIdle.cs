@@ -62,6 +62,7 @@ public class NiamhIdle : NiamhState
         if (niamh.CurrentInput.Interact)
         {
             niamh.InteractionComponent.Interact();
+            niamh.CurrentInput.Interact = false;
         }
     }
 
