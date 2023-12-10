@@ -74,7 +74,7 @@ public class NiamhMoving : NiamhState
 
         if (niamh.CurrentInput.Attack && niamh.CanAttack)
         {
-            niamh.ChangeState(niamh.Attacking);
+            niamh.ChangeState(niamh.ChargingAttack);
             return;
         }
     }

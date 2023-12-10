@@ -120,7 +120,6 @@ public class Niamh : StateMachine
     [field: SerializeField] public bool ShowDebugLogs { get; private set; } = true;
     [field: SerializeField] public TMPro.TMP_Text StateText { get; private set; } = null;
 
-
     [field: Header("Runtime Variables")]
     [field: SerializeField] public int JumpsLeft { get; set; } = 0;
     [field: SerializeField] public NiamhInput CurrentInput { get; set; } = new NiamhInput();
@@ -132,8 +131,9 @@ public class Niamh : StateMachine
     public NiamhState Falling { get; private set; }
     public NiamhGetHit GetHit { get; private set; }
     public NiamhState Dying { get; private set; }
+    public NiamhChargingAttack ChargingAttack { get; private set; }
     public NiamhState Attacking { get; private set; }
-
+    public NiamhChargedAttacking ChargedAttack { get; private set; }
 
     private void Awake()
     {
@@ -144,7 +144,9 @@ public class Niamh : StateMachine
         Falling = new NiamhFalling(this);
         GetHit = new NiamhGetHit(this);
         Dying = new NiamhDying(this);
+        ChargingAttack = new NiamhChargingAttack(this);
         Attacking = new NiamhAttacking(this);
+        ChargedAttack = new NiamhChargedAttacking(this);
     }
 
     protected virtual void Start()
