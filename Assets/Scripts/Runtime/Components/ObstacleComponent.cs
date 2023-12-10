@@ -25,7 +25,6 @@ public class ObstacleComponent : MonoBehaviour
         if (healthComponent != null && cooldownComponent.HasCooldown(healthComponent.gameObject.name) == false)
         {
             Vector2 knockbackForce = (collision.transform.position - transform.position).normalized * KnockbackForce;
-            print(knockbackForce);
             healthComponent.TakeDamage(new Damage(gameObject, Damage, knockbackForce));
 
             cooldownComponent.AddCooldown(new Cooldown(healthComponent.gameObject.name, DamageCooldown));

@@ -10,6 +10,7 @@ public class HealthComponent : MonoBehaviour, IAttackable
     public int MaxHealth = 100;
     public int CurrentHealth;
     public bool CanAttackSelf = false;
+    public bool InvokeTakeDamageOnDeath = true;
 
     public bool IsDead { get; private set; } = false;
 
@@ -24,12 +25,23 @@ public class HealthComponent : MonoBehaviour, IAttackable
             return;
 
         CurrentHealth -= damage.DamageAmount;
-        OnTakeDamage?.Invoke(damage);
 
         if (CurrentHealth <= 0)
         {
             IsDead = true;
+
+            if (InvokeTakeDamageOnDeath)
+                OnTakeDamage?.Invoke(damage);
+
             OnDeath?.Invoke();
         }
+        else
+            OnTakeDamage?.Invoke(damage);
+    }
+
+    public void Reset()
+    {
+        CurrentHealth = MaxHealth;
+        IsDead = false;
     }
 }

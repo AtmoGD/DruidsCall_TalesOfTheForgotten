@@ -82,8 +82,9 @@ public class Niamh : StateMachine
     public bool CanGetHit => GetHitActive && !CooldownComponent.HasCooldown(GetHitName);
     [field: SerializeField] public float GetHitTime { get; private set; } = 0.5f;
     [field: SerializeField] public float GetHitCooldown { get; private set; } = 1f;
+    [field: SerializeField] public float GetHitGravity { get; private set; } = 7f;
 
-    [field: Header("Attack Settings")]
+    [field: Header("Attack")]
     [field: SerializeField] public bool AttackActive { get; private set; } = true;
     [field: SerializeField] public string AttackName { get; private set; } = "Attack";
     public bool CanAttack => AttackActive && !CooldownComponent.HasCooldown(AttackName);
@@ -96,7 +97,11 @@ public class Niamh : StateMachine
     [field: SerializeField] public float AttackEndTime { get; private set; } = 0.7f;
     [field: SerializeField] public float AttackStopLerpSpeed { get; private set; } = 50f;
 
-    [field: Header("Charged Attack Settings")]
+    [field: Header("Dying")]
+    [field: SerializeField] public float DyingTime { get; private set; } = 2.5f;
+    [field: SerializeField] public float DyingResetTime { get; private set; } = 1f;
+
+    [field: Header("Charged Attack")]
     [field: SerializeField] public bool ChargedAttackActive { get; private set; } = true;
     [field: SerializeField] public string ChargedAttackName { get; private set; } = "Charged Attack";
     public bool CanChargedAttack => ChargedAttackActive && !CooldownComponent.HasCooldown(ChargedAttackName);
@@ -126,6 +131,7 @@ public class Niamh : StateMachine
     public NiamhWallJump WallJump { get; private set; }
     public NiamhState Falling { get; private set; }
     public NiamhGetHit GetHit { get; private set; }
+    public NiamhState Dying { get; private set; }
     public NiamhState Attacking { get; private set; }
 
 
@@ -137,6 +143,7 @@ public class Niamh : StateMachine
         WallJump = new NiamhWallJump(this);
         Falling = new NiamhFalling(this);
         GetHit = new NiamhGetHit(this);
+        Dying = new NiamhDying(this);
         Attacking = new NiamhAttacking(this);
     }
 
@@ -150,11 +157,20 @@ public class Niamh : StateMachine
     private void OnEnable()
     {
         HealthComponent.OnTakeDamage.AddListener(OnTakeDamage);
+        HealthComponent.OnDeath.AddListener(Die);
     }
 
     private void OnDisable()
     {
         HealthComponent.OnTakeDamage.RemoveListener(OnTakeDamage);
+        HealthComponent.OnDeath.RemoveListener(Die);
+    }
+
+    public void Init()
+    {
+        HealthComponent.Reset();
+
+        Rigidbody.velocity = new Vector2(0, IdleGravity);
     }
 
     protected override void Update()
@@ -178,6 +194,12 @@ public class Niamh : StateMachine
             GetHit.Damage = _damage;
             ChangeState(GetHit);
         }
+    }
+
+    public virtual void Die()
+    {
+        if (CurrentState != Dying)
+            ChangeState(Dying);
     }
 
     public virtual bool Grounded()

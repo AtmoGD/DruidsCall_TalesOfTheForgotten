@@ -62,6 +62,8 @@ public class Game : MonoBehaviour
         WorldController.ActiveWorld.ActivateLevel(level);
 
         Niamh.transform.position = savePoint.transform.position;
+        Niamh.Init();
+
         Finn.transform.position = savePoint.transform.position;
     }
 
