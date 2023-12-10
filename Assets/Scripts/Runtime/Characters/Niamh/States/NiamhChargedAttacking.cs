@@ -47,7 +47,7 @@ public class NiamhChargedAttacking : NiamhState
     {
         base.Exit();
 
-        niamh.CooldownComponent.AddCooldown(new Cooldown("Attack", niamh.AttackCooldown));
+        niamh.CooldownComponent.AddCooldown(new Cooldown(niamh.ChargedAttackName, niamh.AttackCooldown));
     }
 
     private void Attack()

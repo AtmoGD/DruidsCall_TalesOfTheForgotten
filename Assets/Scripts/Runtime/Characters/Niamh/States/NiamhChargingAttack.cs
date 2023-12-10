@@ -9,6 +9,8 @@ public class NiamhChargingAttack : NiamhState
     public override void Enter()
     {
         base.Enter();
+
+        niamh.ChargingAttackFeedbacks?.PlayFeedbacks();
     }
 
     public override void FrameUpdate()
@@ -26,6 +28,12 @@ public class NiamhChargingAttack : NiamhState
     public override void DoStateChecks()
     {
         base.DoStateChecks();
+
+        if (niamh.CooldownComponent.HasCooldown(niamh.ChargedAttackName))
+        {
+            niamh.ChangeState(niamh.Attacking);
+            return;
+        }
 
         if (!niamh.CurrentInput.Attack)
         {
@@ -48,5 +56,7 @@ public class NiamhChargingAttack : NiamhState
     public override void Exit()
     {
         base.Exit();
+
+        niamh.ChargingAttackFeedbacks?.StopFeedbacks();
     }
 }

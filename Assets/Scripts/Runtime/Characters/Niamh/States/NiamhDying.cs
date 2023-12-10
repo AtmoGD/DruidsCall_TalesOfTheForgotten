@@ -12,6 +12,8 @@ public class NiamhDying : NiamhState
         base.Enter();
 
         hasReset = false;
+
+        niamh.DieFeedbacks?.PlayFeedbacks();
     }
 
     public override void FrameUpdate()

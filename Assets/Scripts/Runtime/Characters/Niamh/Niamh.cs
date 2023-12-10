@@ -113,6 +113,8 @@ public class Niamh : StateMachine
     [field: Header("Feedbacks")]
     [field: SerializeField] public MMF_Player JumpFeedbacks { get; set; } = null;
     [field: SerializeField] public MMF_Player GetHitFeedbacks { get; set; } = null;
+    [field: SerializeField] public MMF_Player DieFeedbacks { get; set; } = null;
+    [field: SerializeField] public MMF_Player ChargingAttackFeedbacks { get; set; } = null;
     [field: SerializeField] public MMF_Player AttackFeedbacks { get; set; } = null;
     [field: SerializeField] public MMF_Player ChargedAttackFeedbacks { get; set; } = null;
 
