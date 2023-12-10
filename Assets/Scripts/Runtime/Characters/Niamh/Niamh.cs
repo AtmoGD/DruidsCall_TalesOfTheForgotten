@@ -110,8 +110,11 @@ public class Niamh : StateMachine
     [field: SerializeField] public float ChargedAttackDamageMultiplier { get; private set; } = 2f;
     [field: SerializeField] public float ChargedAttackCooldown { get; private set; } = 0.2f;
 
-    [Header("Feedbacks")]
-    public MMF_Player AttackFeedbacks;
+    [field: Header("Feedbacks")]
+    [field: SerializeField] public MMF_Player JumpFeedbacks { get; set; } = null;
+    [field: SerializeField] public MMF_Player GetHitFeedbacks { get; set; } = null;
+    [field: SerializeField] public MMF_Player AttackFeedbacks { get; set; } = null;
+    [field: SerializeField] public MMF_Player ChargedAttackFeedbacks { get; set; } = null;
 
     [field: Header("Skill Variables")]
     [field: SerializeField] public bool WallJumpResetsJumps { get; private set; } = true;

@@ -27,6 +27,8 @@ public class NiamhJumping : NiamhMoving
         }
 
         niamh.Animator.Play("Jumping_Niamh", 0);
+
+        niamh.JumpFeedbacks?.PlayFeedbacks();
     }
 
     public override void FrameUpdate()

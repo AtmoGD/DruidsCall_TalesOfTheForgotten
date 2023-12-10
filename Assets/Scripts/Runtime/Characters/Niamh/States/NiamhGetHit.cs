@@ -16,6 +16,8 @@ public class NiamhGetHit : NiamhState
         niamh.CooldownComponent.AddCooldown(new Cooldown(niamh.GetHitName, niamh.GetHitCooldown));
 
         Knockback();
+
+        niamh.GetHitFeedbacks?.PlayFeedbacks();
     }
 
     public override void FrameUpdate()

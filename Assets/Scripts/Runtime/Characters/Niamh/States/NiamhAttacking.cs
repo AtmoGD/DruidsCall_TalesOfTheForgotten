@@ -19,7 +19,7 @@ public class NiamhAttacking : NiamhState
 
         niamh.Animator.Play("Attack_Niamh", 0);
 
-        niamh.AttackFeedbacks.PlayFeedbacks();
+        niamh.AttackFeedbacks?.PlayFeedbacks();
     }
 
     public override void FrameUpdate()
