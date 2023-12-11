@@ -43,6 +43,11 @@ public class Niamh : StateMachine
     [field: Header("Phase Through Check Parameters")]
     [field: SerializeField] public LayerMask PhaseThroughLayer { get; private set; } = 0;
 
+    [field: Header("Teleport")]
+    [field: SerializeField] public bool TeleportActive { get; private set; } = true;
+    [field: SerializeField] public string TeleportName { get; private set; } = "Teleport";
+    [field: SerializeField] public float TeleportCooldown { get; private set; } = 1f;
+
     [field: Header("Movement")]
     [field: SerializeField] public bool MoveActive { get; private set; } = true;
     [field: SerializeField] public float MaxSpeed { get; private set; } = 1f;
