@@ -13,18 +13,19 @@ public class NiamhDying : NiamhState
 
         hasReset = false;
 
+        niamh.Animator.Play("Dying_Niamh", 0);
+
         niamh.DieFeedbacks?.PlayFeedbacks();
+
+        Game.Manager.UIController.PlayDieAnimation(true);
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        if (!hasReset && timeInState > niamh.DyingResetTime)
-        {
-            hasReset = true;
+        if (!hasReset && timeInState > niamh.DyingResetTime && Game.Manager.AutoRestartOnDeath)
             ResetNiamh();
-        }
     }
 
     public override void PhysicsUpdate()
@@ -35,18 +36,18 @@ public class NiamhDying : NiamhState
     public override void DoStateChecks()
     {
         base.DoStateChecks();
-
-        if (timeInState > niamh.DyingTime)
-            niamh.ChangeState(niamh.Idle);
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        Game.Manager.UIController.PlayDieAnimation(false);
     }
 
     private void ResetNiamh()
     {
+        hasReset = true;
         Game.Manager.InitWorld();
     }
 }

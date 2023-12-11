@@ -15,6 +15,8 @@ public class NiamhGetHit : NiamhState
 
         niamh.CooldownComponent.AddCooldown(new Cooldown(niamh.GetHitName, niamh.GetHitCooldown));
 
+        niamh.Animator.Play("GetHit_Niamh", 0);
+
         Knockback();
 
         niamh.GetHitFeedbacks?.PlayFeedbacks();

@@ -539,10 +539,12 @@ MonoBehaviour:
   <Player>k__BackingField: {fileID: 1849849282}
   <Niamh>k__BackingField: {fileID: 6658064991134867532}
   <Finn>k__BackingField: {fileID: 262902643}
+  <UICamera>k__BackingField: {fileID: 15296954}
   <StartPoint>k__BackingField: {fileID: 91402182}
   <UIController>k__BackingField: {fileID: 2016575825}
   <WorldController>k__BackingField: {fileID: 2043010583}
   <CurrentActiveFileName>k__BackingField: Game1
+  <AutoRestartOnDeath>k__BackingField: 1
   <Data>k__BackingField:
     <IsNewGame>k__BackingField: 1
     <CurrentTitle>k__BackingField: Tutorial
@@ -677,6 +679,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1862127171818296365, guid: 6b58bd446c33a5942b4d8430546fd947, type: 3}
   m_PrefabInstance: {fileID: 875119058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &975572797 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1706689974149081156, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+  m_PrefabInstance: {fileID: 2265593182326366521}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &999286667 stripped
 GameObject:
@@ -878,7 +885,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.72798, y: 30.575148, z: -10}
+  m_LocalPosition: {x: 86.81, y: 27.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1357,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 6658064991134867532}
     - target: {fileID: 1273915019449738869, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: AttackTime
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1273915019449738869, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
       propertyPath: AttackSpeed
@@ -2860,6 +2867,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2665797210657074565, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 300892216}
     - target: {fileID: 3918214417039401308, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2948,6 +2959,34 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 15296954}
+    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2560
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1440
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184425001369879489, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: <RectTransform>k__BackingField
+      value: 
+      objectReference: {fileID: 975572797}
     - target: {fileID: 8417423461049824814, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: HealthComponent
       value: 
@@ -3022,8 +3061,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2067142572}
     - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <AttackEndTime>k__BackingField
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <AttackCooldown>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
       propertyPath: <TeleportCooldown>k__BackingField
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911190814667251780, guid: 3d8504bfd413fa64a890001b54a421bd, type: 3}
+      propertyPath: <AttackDoDamageTime>k__BackingField
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

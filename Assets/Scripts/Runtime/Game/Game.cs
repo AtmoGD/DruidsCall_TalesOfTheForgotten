@@ -11,12 +11,14 @@ public class Game : MonoBehaviour
     [field: SerializeField] public Player Player { get; private set; } = null;
     [field: SerializeField] public Niamh Niamh { get; private set; } = null;
     [field: SerializeField] public Finn Finn { get; private set; } = null;
+    [field: SerializeField] public Camera UICamera { get; private set; } = null;
     [field: SerializeField] public SavePoint StartPoint { get; private set; } = null;
     [field: SerializeField] public UIController UIController { get; private set; } = null;
     [field: SerializeField] public WorldController WorldController { get; private set; } = null;
 
     [field: Header("Game Settings")]
     [field: SerializeField] public string CurrentActiveFileName { get; private set; } = "GameData";
+    [field: SerializeField] public bool AutoRestartOnDeath { get; private set; } = true;
     [field: SerializeField] public GameData Data { get; private set; } = new GameData();
 
     [field: SerializeField] public List<SavePoint> SavePoints { get; private set; } = new List<SavePoint>();
@@ -42,12 +44,11 @@ public class Game : MonoBehaviour
         CurrentActiveFileName = _fileName;
         Data = SaveSystem.LoadData<GameData>(CurrentActiveFileName);
 
-        if (Data == null)
+        Data ??= new GameData // <-- Means if Data is null, then create a new GameData object
         {
-            Data = new GameData();
-            Data.CurrentTitle = "Tutorial";
-            Data.CurrentSavePoint = StartPoint.Data;
-        }
+            CurrentTitle = "Tutorial",
+            CurrentSavePoint = StartPoint.Data
+        };
 
         InitWorld();
     }

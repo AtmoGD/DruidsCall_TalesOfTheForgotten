@@ -182,6 +182,8 @@ public class Niamh : StateMachine
     {
         HealthComponent.Reset();
 
+        ChangeState(Idle);
+
         Rigidbody.velocity = new Vector2(0, IdleGravity);
     }
 
