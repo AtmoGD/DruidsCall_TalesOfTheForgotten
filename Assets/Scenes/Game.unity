@@ -680,11 +680,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1862127171818296365, guid: 6b58bd446c33a5942b4d8430546fd947, type: 3}
   m_PrefabInstance: {fileID: 875119058}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &975572797 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1706689974149081156, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-  m_PrefabInstance: {fileID: 2265593182326366521}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &999286667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8085082740206462018, guid: fb2afaec1b073ad448bc058c921b9a77, type: 3}
@@ -2959,34 +2954,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 15296954}
-    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 2560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849924539390192766, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1440
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184425001369879489, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: <RectTransform>k__BackingField
-      value: 
-      objectReference: {fileID: 975572797}
     - target: {fileID: 8417423461049824814, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: HealthComponent
       value: 
