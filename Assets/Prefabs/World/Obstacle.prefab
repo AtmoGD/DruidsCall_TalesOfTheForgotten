@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 8083699664424782492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.364, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -302,7 +302,7 @@ MonoBehaviour:
   <IsSolid>k__BackingField: 1
   <Damage>k__BackingField: 1
   <DamageCooldown>k__BackingField: 1
-  <KnockbackForce>k__BackingField: {x: 5, y: 10}
+  <KnockbackForce>k__BackingField: {x: 10, y: 15}
 --- !u!70 &3490396053095000035
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

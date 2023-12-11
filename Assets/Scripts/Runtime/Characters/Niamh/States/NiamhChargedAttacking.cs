@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,7 +60,7 @@ public class NiamhChargedAttacking : NiamhState
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider.TryGetComponent(out IAttackable enemy))
-                enemy.TakeDamage(new Damage(niamh.gameObject, niamh.AttackDamage, Vector2.zero));
+                enemy.TakeDamage(new Damage(niamh.gameObject, (int)(niamh.AttackDamage * niamh.ChargedAttackDamageMultiplier), Vector2.zero));
         }
 
         attacked = true;
