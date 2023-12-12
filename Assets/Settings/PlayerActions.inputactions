@@ -1,5 +1,5 @@
 {
-    "name": "CharacterActions",
+    "name": "PlayerActions",
     "maps": [
         {
             "name": "Niamh",
@@ -45,6 +45,15 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "38c830c5-2943-4c10-8289-63b6508a455c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Glide",
+                    "type": "Button",
+                    "id": "c1a90d7c-c109-40d1-a74d-c5dcc496fa63",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -164,22 +173,22 @@
                 },
                 {
                     "name": "",
-                    "id": "7da367a6-d932-4e6f-8620-d35f7ac393ac",
-                    "path": "<Keyboard>/ctrl",
+                    "id": "62452ca2-54c1-4c13-a91f-709c6b8f54ba",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Gamepad",
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "62452ca2-54c1-4c13-a91f-709c6b8f54ba",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "9a6d85c7-8eaf-4721-8779-79385120a8b9",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Keyboard",
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -198,11 +207,33 @@
                 {
                     "name": "",
                     "id": "1c6f0b38-f69f-46a6-9c7c-f332eda85b70",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afdcb933-e629-41df-a92c-44a6abfd777a",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Glide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "759e3abf-c8b7-4a77-b733-650b17b8d975",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Glide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

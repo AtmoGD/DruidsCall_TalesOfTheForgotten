@@ -67,6 +67,18 @@ public class NiamhFalling : NiamhMoving
             niamh.ChangeState(niamh.ChargingAttack);
             return;
         }
+
+        if (niamh.CurrentInput.Glide && niamh.CanGlide)
+        {
+            niamh.ChangeState(niamh.Gliding);
+            return;
+        }
+
+        if (niamh.CurrentInput.Dash && niamh.CanDash)
+        {
+            niamh.ChangeState(niamh.Dashing);
+            return;
+        }
     }
 
     public override void Exit()
@@ -78,8 +90,6 @@ public class NiamhFalling : NiamhMoving
             niamh.Rigidbody.excludeLayers = enterLayerMask;
             fallThroughPlatform = false;
         }
-
-        // hero.Animator.SetTrigger("Land");
     }
 
     private void MoveDown()

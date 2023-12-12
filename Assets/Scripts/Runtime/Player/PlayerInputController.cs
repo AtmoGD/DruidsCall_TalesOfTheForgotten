@@ -12,6 +12,8 @@ public class NiamhInput
     public int LastMoveDirection = 1;
     public bool Jump = false;
     public bool Attack = false;
+    public bool Dash = false;
+    public bool Glide = false;
 }
 
 
@@ -46,12 +48,28 @@ public class PlayerInputController : MonoBehaviour
             NiamhInput.Attack = false;
     }
 
+    public void OnCharacterDash(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            NiamhInput.Dash = true;
+        else if (context.canceled)
+            NiamhInput.Dash = false;
+    }
+
     public void OnCharacterInteract(InputAction.CallbackContext context)
     {
         if (context.started)
             NiamhInput.Interact = true;
         else if (context.canceled)
             NiamhInput.Interact = false;
+    }
+
+    public void OnCharacterGlide(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            NiamhInput.Glide = true;
+        else if (context.canceled)
+            NiamhInput.Glide = false;
     }
     #endregion
 }

@@ -7,6 +7,8 @@ public class HealthComponent : MonoBehaviour, IAttackable
     public UnityEvent<Damage> OnTakeDamage { get; set; } = new UnityEvent<Damage>();
     public UnityEvent OnDeath = new();
 
+    public bool IsImmune = false;
+
     public int MaxHealth = 100;
     public int CurrentHealth;
     public bool CanAttackSelf = false;
@@ -21,7 +23,7 @@ public class HealthComponent : MonoBehaviour, IAttackable
 
     public void TakeDamage(Damage damage)
     {
-        if (IsDead || (!CanAttackSelf && damage.Attacker == gameObject))
+        if (IsDead || (!CanAttackSelf && damage.Attacker == gameObject) || IsImmune)
             return;
 
         CurrentHealth -= damage.DamageAmount;

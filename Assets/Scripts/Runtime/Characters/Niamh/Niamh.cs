@@ -15,6 +15,7 @@ public class Niamh : StateMachine
     [field: SerializeField] public Finn Finn { get; private set; } = null;
     [field: SerializeField] public Transform Follow { get; private set; } = null;
     [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; } = null;
+    [field: SerializeField] public Collider2D Collider { get; private set; } = null;
     [field: SerializeField] public Animator Animator { get; private set; } = null;
     [field: SerializeField] public Transform SkinHolder { get; private set; } = null;
     [field: SerializeField] public Transform GroundTransform { get; private set; } = null;
@@ -75,6 +76,13 @@ public class Niamh : StateMachine
     [field: SerializeField] public float FallLerpSpeed { get; private set; } = 0.1f;
     [field: SerializeField] public float IdleGravity { get; private set; } = -1f;
 
+    [field: Header("Gliding")]
+    [field: SerializeField] public bool GlideActive { get; private set; } = true;
+    [field: SerializeField] public string GlideName { get; private set; } = "Glide";
+    public bool CanGlide => GlideActive && !CooldownComponent.HasCooldown(GlideName);
+    [field: SerializeField] public float GlideSpeed { get; private set; } = 1f;
+    [field: SerializeField] public float GlideCooldown { get; private set; } = 0.2f;
+
     [field: Header("Fall Through Platform")]
     [field: SerializeField] public bool FallThroughPlatformActive { get; private set; } = true;
     public bool CanFallThroughPlatform => FallThroughPlatformActive && CanPhaseThroughPlatforms;
@@ -101,6 +109,18 @@ public class Niamh : StateMachine
     [field: SerializeField] public float AttackDoDamageTime { get; private set; } = 0.4f;
     [field: SerializeField] public float AttackEndTime { get; private set; } = 0.7f;
     [field: SerializeField] public float AttackStopLerpSpeed { get; private set; } = 50f;
+
+    [field: Header("Dashing")]
+    [field: SerializeField] public bool DashActive { get; private set; } = true;
+    [field: SerializeField] public string DashName { get; private set; } = "Dash";
+    public bool CanDash => DashActive && !CooldownComponent.HasCooldown(DashName);
+    [field: SerializeField] public Transform DashCheckTransform { get; private set; } = null;
+    [field: SerializeField] public Vector2 DashBoxSize { get; private set; } = Vector2.one;
+    [field: SerializeField] public AnimationCurve DashCurve { get; private set; } = null;
+    [field: SerializeField] public float DashSpeed { get; private set; } = 1f;
+    [field: SerializeField] public float DashTime { get; private set; } = 0.2f;
+    [field: SerializeField] public float DashCooldown { get; private set; } = 0.2f;
+    [field: SerializeField] public int DashDamage { get; private set; } = 10;
 
     [field: Header("Dying")]
     [field: SerializeField] public float DyingTime { get; private set; } = 2.5f;
@@ -139,11 +159,13 @@ public class Niamh : StateMachine
     public NiamhState Jumping { get; private set; }
     public NiamhWallJump WallJump { get; private set; }
     public NiamhState Falling { get; private set; }
+    public NiamhState Gliding { get; private set; }
     public NiamhGetHit GetHit { get; private set; }
     public NiamhState Dying { get; private set; }
     public NiamhChargingAttack ChargingAttack { get; private set; }
     public NiamhState Attacking { get; private set; }
     public NiamhChargedAttacking ChargedAttack { get; private set; }
+    public NiamhState Dashing { get; private set; }
 
     private void Awake()
     {
@@ -152,11 +174,13 @@ public class Niamh : StateMachine
         Jumping = new NiamhJumping(this);
         WallJump = new NiamhWallJump(this);
         Falling = new NiamhFalling(this);
+        Gliding = new NiamhGliding(this);
         GetHit = new NiamhGetHit(this);
         Dying = new NiamhDying(this);
         ChargingAttack = new NiamhChargingAttack(this);
         Attacking = new NiamhAttacking(this);
         ChargedAttack = new NiamhChargedAttacking(this);
+        Dashing = new NiamhDashing(this);
     }
 
     protected virtual void Start()
@@ -259,6 +283,9 @@ public class Niamh : StateMachine
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(AttackStartPoint.position, AttackRadius);
         Gizmos.DrawWireSphere(AttackEndPoint.position, AttackRadius);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(DashCheckTransform.position, DashBoxSize);
 
         if (WallJump == null) return; // The walljump state only exists at runtime
 

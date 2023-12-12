@@ -64,6 +64,12 @@ public class NiamhJumping : NiamhMoving
             niamh.ChangeState(niamh.Falling);
             return;
         }
+
+        if (niamh.CurrentInput.Dash && niamh.CanDash)
+        {
+            niamh.ChangeState(niamh.Dashing);
+            return;
+        }
     }
 
     public override void Exit()

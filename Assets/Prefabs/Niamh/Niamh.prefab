@@ -897,7 +897,7 @@ Transform:
   m_GameObject: {fileID: 1797078967848947870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 0.08000004, z: 0}
+  m_LocalPosition: {x: 0.13, y: 0.08000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1026,7 +1026,6 @@ MonoBehaviour:
   FeedbacksList:
   - rid: 3133980315665301535
   - rid: 3133980316352118785
-  - rid: 6637702422194552832
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
@@ -1258,86 +1257,6 @@ MonoBehaviour:
           OnlyPlayIfAdvancedRequirementsMet: 0
           OnlyPlayIfAmplitudeModulationSupported: 0
           OnlyPlayIfFrequencyModulationSupported: 0
-    - rid: 6637702422194552832
-      type: {class: FMODEventFeedback, ns: , asm: Assembly-CSharp}
-      data:
-        Active: 1
-        UniqueID: -1800495068
-        Label: FMOD Event
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        Owner: {fileID: 4325933292964738400}
-        DebugActive: 0
-        Mode: 0
-        TargetFeedbacks: {fileID: 0}
-        OnlyTriggerPlayersInRange: 0
-        EventRange: 100
-        EventOriginTransform: {fileID: 6062189345492367134}
-        EventName:
-          Guid:
-            Data1: 673416958
-            Data2: 1095930079
-            Data3: -592207444
-            Data4: 493389624
-          Path: event:/DEBUG/TEST_CHAR_FOOTSTEPS
 --- !u!1 &4784290169458719583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1313,7 @@ Transform:
   m_GameObject: {fileID: 4868359112359363665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38, y: 0.08000004, z: 0}
+  m_LocalPosition: {x: -0.13, y: 0.08000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1410,7 +1329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2832243006230033580}
   m_Layer: 0
-  m_Name: AttackPoint Start
+  m_Name: Attack Point Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,6 +1603,7 @@ Transform:
   - {fileID: 7741831350203235342}
   - {fileID: 2832243006230033580}
   - {fileID: 3488602663743954651}
+  - {fileID: 6722850108396727348}
   m_Father: {fileID: 6062189345492367134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6284736315999162857
@@ -2214,7 +2134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7741831350203235342}
   m_Layer: 0
-  m_Name: FollowWolfTransform
+  m_Name: Follow Wolf Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2265,6 +2185,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6062189345492367134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6657286832503669714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6722850108396727348}
+  m_Layer: 0
+  m_Name: Dash Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6722850108396727348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657286832503669714}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.429, y: 0.799, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3885905797276956817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6673403227373515971
 GameObject:
@@ -2846,6 +2797,7 @@ MonoBehaviour:
   <Finn>k__BackingField: {fileID: 0}
   <Follow>k__BackingField: {fileID: 7741831350203235342}
   <Rigidbody>k__BackingField: {fileID: 922206058694222237}
+  <Collider>k__BackingField: {fileID: 6685215740180198465}
   <Animator>k__BackingField: {fileID: 4827585396097924128}
   <SkinHolder>k__BackingField: {fileID: 3885905797276956817}
   <GroundTransform>k__BackingField: {fileID: 5262333932021492213}
@@ -2864,13 +2816,16 @@ MonoBehaviour:
   <TopLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
-  <WallBoxSize>k__BackingField: {x: 0.2, y: 0.8}
+  <WallBoxSize>k__BackingField: {x: 0.6, y: 0.8}
   <WallLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 1024
   <PhaseThroughLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 4096
+  <TeleportActive>k__BackingField: 1
+  <TeleportName>k__BackingField: Teleport
+  <TeleportCooldown>k__BackingField: 3
   <MoveActive>k__BackingField: 1
   <MaxSpeed>k__BackingField: 13
   <AccelerationCurve>k__BackingField:
@@ -3012,6 +2967,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   <FallLerpSpeed>k__BackingField: 15
   <IdleGravity>k__BackingField: -0.01
+  <GlideActive>k__BackingField: 1
+  <GlideName>k__BackingField: Glide
+  <GlideSpeed>k__BackingField: -2
+  <GlideCooldown>k__BackingField: 0.2
   <FallThroughPlatformActive>k__BackingField: 1
   <FallThroughPlatformTime>k__BackingField: 0.25
   <FallThroughPlatformThreshold>k__BackingField: -0.9
@@ -3026,10 +2985,42 @@ MonoBehaviour:
   <AttackEndPoint>k__BackingField: {fileID: 3488602663743954651}
   <AttackRadius>k__BackingField: 0.7
   <AttackDamage>k__BackingField: 10
-  <AttackCooldown>k__BackingField: 0.35
-  <AttackDoDamageTime>k__BackingField: 0.25
-  <AttackEndTime>k__BackingField: 0.4
+  <AttackCooldown>k__BackingField: 0.1
+  <AttackDoDamageTime>k__BackingField: 0.15
+  <AttackEndTime>k__BackingField: 0.25
   <AttackStopLerpSpeed>k__BackingField: 8
+  <DashActive>k__BackingField: 1
+  <DashName>k__BackingField: Dash
+  <DashCheckTransform>k__BackingField: {fileID: 6722850108396727348}
+  <DashBoxSize>k__BackingField: {x: 0.5, y: 1.5}
+  <DashCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.6155528
+      inSlope: 1.1728121
+      outSlope: 1.1728121
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06436234
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <DashSpeed>k__BackingField: 60
+  <DashTime>k__BackingField: 0.2
+  <DashCooldown>k__BackingField: 1
+  <DashDamage>k__BackingField: 10
   <DyingTime>k__BackingField: 2.5
   <DyingResetTime>k__BackingField: 1
   <ChargedAttackActive>k__BackingField: 1
@@ -3051,9 +3042,11 @@ MonoBehaviour:
   <CurrentInput>k__BackingField:
     Interact: 0
     Move: {x: 0, y: 0}
-    LastMoveDirection: 1
+    LastMoveDirection: -1
     Jump: 0
     Attack: 0
+    Dash: 0
+    Glide: 0
 --- !u!114 &4422269312156941356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3098,6 +3091,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  IsImmune: 0
   MaxHealth: 5
   CurrentHealth: 0
   CanAttackSelf: 0
@@ -3343,7 +3337,6 @@ MonoBehaviour:
   FeedbacksList:
   - rid: 3133980315665301535
   - rid: 3133980316352118785
-  - rid: 3133980316352118792
   - rid: 6637702422194552832
   KeepPlayModeChanges: 0
   PerformanceMode: 0
@@ -3576,88 +3569,6 @@ MonoBehaviour:
           OnlyPlayIfAdvancedRequirementsMet: 0
           OnlyPlayIfAmplitudeModulationSupported: 0
           OnlyPlayIfFrequencyModulationSupported: 0
-    - rid: 3133980316352118792
-      type: {class: MMF_InstantiateObject, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
-      data:
-        Active: 1
-        UniqueID: 1110598724
-        Label: Instantiate Object
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0.1
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        Owner: {fileID: 321107338469818398}
-        DebugActive: 0
-        GameObjectToInstantiate: {fileID: 8059807361403226578, guid: 06edd9e65400c6e428d5ab7ba700c00d, type: 3}
-        PositionMode: 1
-        AlsoApplyRotation: 0
-        AlsoApplyScale: 0
-        TargetTransform: {fileID: 3488602663743954651}
-        TargetPosition: {x: 0, y: 0, z: 0}
-        PositionOffset: {x: 0, y: 0, z: 0}
-        RandomizePosition: 0
-        RandomizedPositionMin: {x: 0, y: 0, z: 0}
-        RandomizedPositionMax: {x: 1, y: 1, z: 1}
-        ParentTransform: {fileID: 0}
-        CreateObjectPool: 0
-        ObjectPoolSize: 10
-        MutualizePools: 0
     - rid: 6637702422194552832
       type: {class: FMODEventFeedback, ns: , asm: Assembly-CSharp}
       data:

@@ -64,6 +64,12 @@ public class NiamhIdle : NiamhState
             niamh.InteractionComponent.Interact();
             niamh.CurrentInput.Interact = false;
         }
+
+        if (niamh.CurrentInput.Dash && niamh.CanDash)
+        {
+            niamh.ChangeState(niamh.Dashing);
+            return;
+        }
     }
 
     public override void Exit()
