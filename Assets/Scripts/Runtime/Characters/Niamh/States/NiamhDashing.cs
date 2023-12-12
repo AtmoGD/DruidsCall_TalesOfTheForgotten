@@ -13,7 +13,7 @@ public class NiamhDashing : NiamhState
     {
         base.Enter();
 
-        direction = niamh.DirectionComponent.Direction.x > 0f ? 1 : -1;
+        direction = niamh.CurrentInput.LastMoveDirection;
 
         alreadyAttacked.Clear();
 
