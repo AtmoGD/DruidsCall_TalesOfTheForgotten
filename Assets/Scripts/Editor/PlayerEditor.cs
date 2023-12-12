@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(Player))]
 public class PlayerEditor : Editor
 {
@@ -18,3 +20,5 @@ public class PlayerEditor : Editor
         base.OnInspectorGUI();
     }
 }
+
+#endif

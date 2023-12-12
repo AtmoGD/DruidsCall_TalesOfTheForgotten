@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(SavePoint))]
 public class SavePointEditor : Editor
 {
@@ -32,3 +34,5 @@ public class SavePointEditor : Editor
         initialized = true;
     }
 }
+
+#endif

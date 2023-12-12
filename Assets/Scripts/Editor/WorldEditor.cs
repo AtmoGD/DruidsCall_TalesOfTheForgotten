@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(World))]
 public class WorldEditor : Editor
 {
@@ -27,3 +29,5 @@ public class WorldEditor : Editor
             world.SetAllLevelsActive();
     }
 }
+
+#endif

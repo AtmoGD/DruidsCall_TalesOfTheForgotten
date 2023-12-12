@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
-using UnityEditorInternal.VersionControl;
 
+#if UNITY_EDITOR
 public class SaveSystemEditor : EditorWindow
 {
     [MenuItem("Tools/Saved Games")]
@@ -78,5 +78,4 @@ public class SaveSystemEditor : EditorWindow
         CreateGUI();
     }
 }
-
-
+#endif

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(Game))]
 public class GameEditor : Editor
 {
@@ -49,3 +51,5 @@ public class GameEditor : Editor
         }
     }
 }
+
+#endif
