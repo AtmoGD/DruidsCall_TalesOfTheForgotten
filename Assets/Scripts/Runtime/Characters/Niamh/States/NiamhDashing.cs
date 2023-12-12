@@ -17,9 +17,11 @@ public class NiamhDashing : NiamhState
 
         alreadyAttacked.Clear();
 
+        niamh.Finn.Dash();
+
         niamh.HealthComponent.IsImmune = true;
 
-        niamh.Collider.isTrigger = true;
+        niamh.Collider.enabled = false;
 
         niamh.Animator.Play("Dashing_Niamh", 0);
     }
@@ -55,7 +57,7 @@ public class NiamhDashing : NiamhState
 
         niamh.HealthComponent.IsImmune = false;
 
-        niamh.Collider.isTrigger = false;
+        niamh.Collider.enabled = true; // <-- If i just make the collider a trigger the moving paltforms will be buggy
 
         niamh.CooldownComponent.AddCooldown(new Cooldown(niamh.DashName, niamh.DashCooldown));
     }

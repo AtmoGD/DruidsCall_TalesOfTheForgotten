@@ -14,11 +14,13 @@ public class Finn : StateMachine
     public FinnState Idle;
     public FinnState Following;
     public FinnState Attacking;
+    public FinnState Dashing;
 
     [Header("Settings")]
     public float IdleTime = 5f;
     public float AttackTime = 0.7f;
     public float AttackSpeed = 1f;
+    public float DashTime = 0.5f;
 
 
     [Header("Movement")]
@@ -29,6 +31,7 @@ public class Finn : StateMachine
         Idle = new FinnIdle(this);
         Following = new FinnFollowing(this);
         Attacking = new FinnAttacking(this);
+        Dashing = new FinnDashing(this);
     }
 
     private void Start()
@@ -39,5 +42,10 @@ public class Finn : StateMachine
     public void Attack()
     {
         ChangeState(Attacking);
+    }
+
+    public void Dash()
+    {
+        ChangeState(Dashing);
     }
 }

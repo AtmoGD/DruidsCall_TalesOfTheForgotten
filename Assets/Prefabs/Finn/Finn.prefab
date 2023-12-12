@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 4306357892627060919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.869, z: 0}
-  m_LocalScale: {x: -2.7, y: 2.7, z: 2.7}
+  m_LocalPosition: {x: 0, y: 0.647, z: 0}
+  m_LocalScale: {x: -2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7197247681524313963}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1182002650, guid: 35e40bfc40ab53e4fa27a3fe3aa6116b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -190,8 +190,11 @@ MonoBehaviour:
   SkinHolder: {fileID: 7197247681524313963}
   Rb: {fileID: 973918003813365587}
   IdleTime: 5
-  AttackTime: 0.7
-  AttackSpeed: 1
+  AttackTime: 0.2
+  AttackSpeed: 15
+  DashTime: 0.5
+  DashSize: 2.5
+  DashOffset: {x: 0, y: -1}
   Speed: 20
 --- !u!50 &973918003813365587
 Rigidbody2D:
@@ -252,6 +255,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
-  m_Size: {x: 1, y: 0.6}
+  m_Offset: {x: 0, y: 0.2}
+  m_Size: {x: 1, y: 0.4}
   m_Direction: 1
