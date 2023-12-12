@@ -16,8 +16,6 @@ public class World : MonoBehaviour
 
     public void ActivateLevel(Level _level)
     {
-        // if (CurrentLevelActive == _level) return;
-
         foreach (Level level in Levels)
         {
             if (level == _level)

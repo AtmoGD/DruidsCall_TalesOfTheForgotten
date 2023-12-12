@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using Cinemachine;
@@ -23,8 +22,6 @@ public class Portal : SavePoint
         OtherPortal.SaveGame();
 
         Game.Manager.UIController.PlayTeleportAnimation();
-
-        // Teleport();
     }
 
     public void Teleport()

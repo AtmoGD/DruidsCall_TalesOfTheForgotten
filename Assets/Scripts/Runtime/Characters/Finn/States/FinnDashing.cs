@@ -40,7 +40,6 @@ public class FinnDashing : FinnState
 
     void UpdateMovement()
     {
-        // Vector2 newPos = Vector2.Lerp(finn.transform.position, finn.Niamh.Follow.position, Time.deltaTime * finn.Speed);
         finn.transform.position = finn.Niamh.Follow.position;
 
         finn.SkinHolder.localScale = finn.Niamh.DirectionComponent.Direction;
