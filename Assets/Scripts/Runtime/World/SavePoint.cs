@@ -21,11 +21,14 @@ public class SavePointData
 
 public class SavePoint : MonoBehaviour, IInteractable
 {
+    [field: SerializeField] public bool IsInteractable { get; set; } = true;
     [field: SerializeField] public SavePointData Data { get; private set; } = new SavePointData();
     [field: SerializeField] public MMFeedbacks SaveFeedbacks { get; private set; } = null;
 
     public virtual void Interact(Niamh _niamh)
     {
+        if (!IsInteractable) return;
+
         SaveGame();
     }
 

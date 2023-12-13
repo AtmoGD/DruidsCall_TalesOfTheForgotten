@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Base Volume
+  m_Name: OrdinaryWorldBase
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 2679433937587447766}
---- !u!114 &2679433937587447766
+  - {fileID: 2876952765401581009}
+--- !u!114 &2876952765401581009
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 13.34
+    m_Value: 3
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
