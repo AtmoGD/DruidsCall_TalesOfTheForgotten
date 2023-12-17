@@ -19,9 +19,11 @@ public class ParallaxController : MonoBehaviour
 
     // private Vector2 lastPosition;
 
-    private void Awake()
+    private void Start()
     {
-        if (!Target) Target = Camera.main.transform;
+        // if (!Target) Target = Camera.main.transform;
+        Target = Camera.main.transform;
+        // Target = Game.Manager.Niamh.transform;
         if (!Reference) Reference = transform;
     }
 
@@ -30,18 +32,20 @@ public class ParallaxController : MonoBehaviour
     //     lastPosition = Target.position;
     // }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 dir = Target.position - Reference.position;
 
         foreach (LayerData layer in Layers)
         {
-            Vector2 newPos = new Vector2(
-                dir.x * layer.speed.x,
-                dir.y * layer.speed.y
-            );
+            // Vector2 newPos = new Vector2(
+            //     dir.x * layer.speed.x,
+            //     dir.y * layer.speed.y
+            // );
 
-            layer.transform.localPosition = Vector2.Lerp(layer.transform.localPosition, newPos, Time.deltaTime);
+            // layer.transform.localPosition = Vector2.Lerp(layer.transform.localPosition, newPos, Time.deltaTime);
+
+            layer.transform.localPosition = dir * layer.speed;
         }
 
         // lastPosition = Target.position;
