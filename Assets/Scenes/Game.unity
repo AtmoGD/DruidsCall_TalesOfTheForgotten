@@ -659,7 +659,7 @@ Transform:
   m_GameObject: {fileID: 1211594898}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.61652, y: 8.3604, z: -10}
+  m_LocalPosition: {x: 12.992977, y: 6.752, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1412,14 +1412,6 @@ PrefabInstance:
       propertyPath: <OtherPortal>k__BackingField
       value: 
       objectReference: {fileID: 1162962528}
-    - target: {fileID: 1419412198694588573, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 144.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419412198694588573, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.19
-      objectReference: {fileID: 0}
     - target: {fileID: 1926156208253320636, guid: 02db4c98c9b357c46abecf17f0b63710, type: 3}
       propertyPath: <Neighbours>k__BackingField.Array.data[0]
       value: 

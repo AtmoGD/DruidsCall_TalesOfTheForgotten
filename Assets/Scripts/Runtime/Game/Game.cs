@@ -62,10 +62,14 @@ public class Game : MonoBehaviour
         Level level = WorldController.ActiveWorld.Levels.Find(x => x.gameObject.name == Data.CurrentSavePoint.LevelName);
         WorldController.ActiveWorld.ActivateLevel(level);
 
-        Niamh.transform.position = savePoint.transform.position;
-        Niamh.Init();
 
-        Finn.transform.position = savePoint.transform.position;
+        if(savePoint)
+        {
+            Niamh.transform.position = savePoint.transform.position;
+            Niamh.Init();
+
+            Finn.transform.position = savePoint.transform.position;
+        }
     }
 
     public void SaveGame()
