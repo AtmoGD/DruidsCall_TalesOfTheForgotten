@@ -142,6 +142,7 @@ public class Niamh : StateMachine
     [field: SerializeField] public MMF_Player ChargingAttackFeedbacks { get; set; } = null;
     [field: SerializeField] public MMF_Player AttackFeedbacks { get; set; } = null;
     [field: SerializeField] public MMF_Player ChargedAttackFeedbacks { get; set; } = null;
+    [field: SerializeField] public MMF_Player FootstepFeedbacks { get; set; } = null;
 
     [field: Header("Skill Variables")]
     [field: SerializeField] public bool WallJumpResetsJumps { get; private set; } = true;
@@ -268,6 +269,11 @@ public class Niamh : StateMachine
     public virtual bool HitsWallRight()
     {
         return Physics2D.OverlapBox(WallRightTransform.position, WallBoxSize, 0, WallLayer);
+    }
+
+    public virtual void PlayFootstepFeedback()
+    {
+        FootstepFeedbacks?.PlayFeedbacks();
     }
 
     protected void OnDrawGizmos()
