@@ -17,7 +17,7 @@ public class MovingPlatform : MonoBehaviour
     [field: SerializeField] public bool Started { get; private set; } = false;
     [field: Tooltip("If true, the platform will continue to move through the waypoints in order. If false, the platform will stop moving when it reaches the end of the path.")]
     [field: SerializeField] public bool Loop { get; private set; } = true;
-    [field: Tooltip("If true, the platform will move the waypoints in reverse order when it reaches the end of the path. If false, the platform will move to the first waypoint when it reaches the end of the path.")]
+    [field: Tooltip("If true, the platform will move if a character is on the platform. If false, the platform will not move if a character is on the platform.")]
     [field: SerializeField] public bool PingPong { get; private set; } = false;
     [field: Tooltip("If true, the platform will move any rigidbodys that are on the platform.")]
     [field: SerializeField] public bool MoveBodysOnPlatform { get; private set; } = true;
