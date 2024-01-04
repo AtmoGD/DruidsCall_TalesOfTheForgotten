@@ -60,8 +60,8 @@ public class NiamhAttacking : NiamhState
 
         foreach (RaycastHit2D hit in hits)
         {
-            if (hit.collider.TryGetComponent(out IAttackable enemy))
-                enemy.TakeDamage(new Damage(niamh.gameObject, niamh.AttackDamage, Vector2.zero));
+            if (hit.collider.TryGetComponent(out IAttackable attackable))
+                attackable.TakeDamage(new Damage(niamh.gameObject, niamh.AttackDamage, Vector2.zero));
         }
 
         attacked = true;
