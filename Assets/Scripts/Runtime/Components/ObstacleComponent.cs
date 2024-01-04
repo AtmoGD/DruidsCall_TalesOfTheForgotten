@@ -10,6 +10,8 @@ public class ObstacleComponent : MonoBehaviour
     [field: SerializeField] public int Damage { get; private set; } = 1;
     [field: SerializeField] public float DamageCooldown { get; private set; } = 1f;
     [field: SerializeField] public Vector2 KnockbackForce { get; private set; } = new Vector2(1, 1);
+    [field: SerializeField] public bool UseAbsoluteKnockback { get; private set; } = false;
+    [field: SerializeField] public float GizmoLength { get; private set; } = 1f;
 
     private CooldownComponent cooldownComponent;
 
@@ -24,7 +26,12 @@ public class ObstacleComponent : MonoBehaviour
 
         if (healthComponent != null && cooldownComponent.HasCooldown(healthComponent.gameObject.name) == false)
         {
-            Vector2 knockbackForce = (collision.transform.position - transform.position).normalized * KnockbackForce;
+            Vector2 knockbackForce;
+            if (UseAbsoluteKnockback)
+                knockbackForce = KnockbackForce;
+            else
+                knockbackForce = (transform.position - collision.transform.position).normalized * KnockbackForce;
+
             healthComponent.TakeDamage(new Damage(gameObject, Damage, knockbackForce));
 
             cooldownComponent.AddCooldown(new Cooldown(healthComponent.gameObject.name, DamageCooldown));
@@ -42,5 +49,13 @@ public class ObstacleComponent : MonoBehaviour
 
             cooldownComponent.AddCooldown(new Cooldown(healthComponent.gameObject.name, DamageCooldown));
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!UseAbsoluteKnockback) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position - (Vector3)KnockbackForce * GizmoLength);
     }
 }
