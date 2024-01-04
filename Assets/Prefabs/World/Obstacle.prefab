@@ -134,7 +134,7 @@ MonoBehaviour:
   <IsSolid>k__BackingField: 1
   <Damage>k__BackingField: 1
   <DamageCooldown>k__BackingField: 1
-  <KnockbackForce>k__BackingField: {x: 10, y: 15}
+  <KnockbackForce>k__BackingField: {x: 20, y: 25}
   <UseAbsoluteKnockback>k__BackingField: 0
   <GizmoLength>k__BackingField: 0.2
 --- !u!70 &3490396053095000035
