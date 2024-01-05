@@ -112,6 +112,13 @@ public class MovingPlatform : MonoBehaviour
             charactersOnPlatform.Remove(character);
     }
 
+    public void ResetPlatform()
+    {
+        transform.position = initialPosition;
+        currentWaypointIndex = 0;
+        waitTimer = 0f;
+    }
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

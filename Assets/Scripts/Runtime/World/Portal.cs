@@ -19,9 +19,18 @@ public class Portal : SavePoint
 
         TeleportFeedbacks?.PlayFeedbacks();
 
-        OtherPortal.SaveGame();
+        if (OtherPortal)
+        {
 
-        Game.Manager.UIController.PlayTeleportAnimation();
+            OtherPortal.SaveGame();
+
+            Game.Manager.UIController.PlayTeleportAnimation();
+        }
+        else
+        {
+            SaveGame();
+        }
+
     }
 
     public void Teleport()
