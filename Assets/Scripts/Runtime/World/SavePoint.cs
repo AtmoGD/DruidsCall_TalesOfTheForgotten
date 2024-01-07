@@ -47,7 +47,7 @@ public class SavePoint : MonoBehaviour, IInteractable
 #endif
     }
 
-    public void Init()
+    public void Init(bool _forceNewId = false)
     {
         World world = GetComponentInParent<World>(true);
         if (world)
@@ -67,7 +67,7 @@ public class SavePoint : MonoBehaviour, IInteractable
             return;
         }
 
-        if (Data.SavePointName == "")
+        if (Data.SavePointName == "" || _forceNewId)
             Data.SavePointName = System.Guid.NewGuid().ToString();
     }
 

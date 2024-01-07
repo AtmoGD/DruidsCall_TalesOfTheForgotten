@@ -63,7 +63,7 @@ public class Game : MonoBehaviour
         WorldController.ActiveWorld.ActivateLevel(level);
 
 
-        if(savePoint)
+        if (savePoint)
         {
             Niamh.transform.position = savePoint.transform.position;
             Niamh.Init();
@@ -82,13 +82,13 @@ public class Game : MonoBehaviour
         SavePoints = new List<SavePoint>(GameObject.FindObjectsOfType<SavePoint>());
     }
 
-    public void InitializeSavePoints()
+    public void InitializeSavePoints(bool _forceNewId = false)
     {
         SavePoints = new List<SavePoint>(GameObject.FindObjectsOfType<SavePoint>());
 
         foreach (SavePoint savePoint in SavePoints)
         {
-            savePoint.Init();
+            savePoint.Init(_forceNewId);
         }
     }
 }

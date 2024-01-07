@@ -3160,7 +3160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3009659010860458360, guid: 5f0140f8507c9bb468fa0ffae59273f4, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3071232256661550339, guid: 5f0140f8507c9bb468fa0ffae59273f4, type: 3}
       propertyPath: m_LocalScale.x
@@ -5474,6 +5474,10 @@ PrefabInstance:
     - target: {fileID: 7939267889451503860, guid: b7883c89ceaad054d9659909a0b66e27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993514685303747463, guid: b7883c89ceaad054d9659909a0b66e27, type: 3}
+      propertyPath: <Data>k__BackingField.<SavePointName>k__BackingField
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

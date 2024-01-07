@@ -41,6 +41,9 @@ public class GameEditor : Editor
         if (GUILayout.Button("Initialize Save Points"))
             game.InitializeSavePoints();
 
+        if (GUILayout.Button("Initialize Save Points with new ids"))
+            game.InitializeSavePoints(true);
+
         if (GUILayout.Button("Activate all Levels"))
         {
             game.WorldController.OrdinaryWorld.gameObject.SetActive(true);
