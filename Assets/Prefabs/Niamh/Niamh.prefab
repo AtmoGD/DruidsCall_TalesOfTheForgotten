@@ -3147,13 +3147,13 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.10312994
     - serializedVersion: 3
-      time: 0.21390325
+      time: 0.4222366
       value: 0
-      inSlope: -164.89986
-      outSlope: -164.89986
+      inSlope: -90.63571
+      outSlope: -90.63571
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.114032485
+      inWeight: 0.15112303
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -3210,7 +3210,7 @@ MonoBehaviour:
   <AttackStartPoint>k__BackingField: {fileID: 2832243006230033580}
   <AttackEndPoint>k__BackingField: {fileID: 3488602663743954651}
   <AttackRadius>k__BackingField: 0.7
-  <AttackDamage>k__BackingField: 10
+  <AttackDamage>k__BackingField: 1
   <AttackCooldown>k__BackingField: 0.1
   <AttackDoDamageTime>k__BackingField: 0.15
   <AttackEndTime>k__BackingField: 0.25
@@ -3262,7 +3262,7 @@ MonoBehaviour:
   <AttackFeedbacks>k__BackingField: {fileID: 673239049248093251}
   <ChargedAttackFeedbacks>k__BackingField: {fileID: 8772137281760755642}
   <FootstepFeedbacks>k__BackingField: {fileID: 6829937841163671602}
-  <WallJumpResetsJumps>k__BackingField: 1
+  <WallJumpResetsJumps>k__BackingField: 0
   <ShowDebugLogs>k__BackingField: 0
   <StateText>k__BackingField: {fileID: 0}
   <JumpsLeft>k__BackingField: 2
@@ -3587,7 +3587,7 @@ MonoBehaviour:
           TimescaleMode: 0
           ExcludeFromHoldingPauses: 0
           ContributeToTotalDuration: 1
-          InitialDelay: 0.2
+          InitialDelay: 0
           CooldownDuration: 0
           InterruptsOnStop: 1
           NumberOfRepeats: 0
@@ -3642,9 +3642,9 @@ MonoBehaviour:
         DebugActive: 0
         RepeatUntilStopped: 0
         CameraShakeProperties:
-          Duration: 0.2
-          Amplitude: 0.35
-          Frequency: 40
+          Duration: 0.3
+          Amplitude: 1
+          Frequency: 20
           AmplitudeX: 0
           AmplitudeY: 0
           AmplitudeZ: 0

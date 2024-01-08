@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9088680579967158532}
   - component: {fileID: 2635177472335047980}
+  - component: {fileID: 2556170459038366256}
   m_Layer: 0
-  m_Name: SKin
+  m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 311698557
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2556170459038366256
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822584510408151719}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3994411003641688282
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,8 +151,11 @@ GameObject:
   - component: {fileID: 6986473966068547120}
   - component: {fileID: 1642162925519304516}
   - component: {fileID: 3017155666947131938}
+  - component: {fileID: 3703043737511411419}
+  - component: {fileID: 8899895468654275226}
+  - component: {fileID: 5344004929534089538}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: BaseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6257626158293920369}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -178,7 +203,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6986473966068547120
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -226,8 +251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef3a933066312b44a4d69ae5ac16a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  IsImmune: 0
   MaxHealth: 100
   CurrentHealth: 0
+  CanAttackSelf: 0
+  InvokeTakeDamageOnDeath: 1
 --- !u!114 &3017155666947131938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,4 +271,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910b2044a3f31cf459f0923d9f69eef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthComponent: {fileID: 1642162925519304516}
+  <Animator>k__BackingField: {fileID: 0}
+  <GetHitTime>k__BackingField: 0.5
+  <Speed>k__BackingField: 5
+  <Waypoints>k__BackingField:
+  - Position: {x: -3, y: 0}
+    WaitTime: 0
+  - Position: {x: 3, y: 0}
+    WaitTime: 0
+  <PingPongWaypoints>k__BackingField: 1
+--- !u!114 &3703043737511411419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257626158293920369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afac995c413b2a04f84e4d9900bb3dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Cooldowns>k__BackingField: []
+--- !u!114 &8899895468654275226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257626158293920369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c2c4539dee33147869f518f09b5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsSolid>k__BackingField: 1
+  <Damage>k__BackingField: 1
+  <DamageCooldown>k__BackingField: 1
+  <KnockbackForce>k__BackingField: {x: 1, y: 1}
+  <UseAbsoluteKnockback>k__BackingField: 0
+  <GizmoLength>k__BackingField: 1
+--- !u!114 &5344004929534089538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257626158293920369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4765d06d3b833d642a359f44b2386bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Target>k__BackingField: {fileID: 3445156673803012540}
+  <Invert>k__BackingField: 0

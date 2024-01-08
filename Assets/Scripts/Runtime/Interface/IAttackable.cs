@@ -15,6 +15,11 @@ public class Damage
         DamageAmount = damageAmount;
         KnockbackForce = knockbackForce;
     }
+
+    public Damage Clone()
+    {
+        return new Damage(Attacker, DamageAmount, KnockbackForce);
+    }
 }
 
 public interface IAttackable
