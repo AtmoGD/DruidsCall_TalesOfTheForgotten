@@ -2,10 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    MainMenu,
+    Playing,
+    Paused,
+}
+
 public class Game : MonoBehaviour
 {
     public static Game Manager { get; private set; }
     public bool SetDontDestroyOnLoad { get; private set; } = true;
+
+    [field: SerializeField] public GameState CurrentGameState { get; set; } = GameState.Playing;
+
 
     [field: Header("Game References")]
     [field: SerializeField] public Player Player { get; private set; } = null;
@@ -72,9 +82,30 @@ public class Game : MonoBehaviour
         }
     }
 
+    public void PauseGame()
+    {
+        if (CurrentGameState == GameState.Paused)
+        {
+            UIController.ClosePauseMenu();
+            CurrentGameState = GameState.Playing;
+            Time.timeScale = 1f;
+        }
+        else if (CurrentGameState == GameState.Playing)
+        {
+            UIController.OpenPauseMenu();
+            CurrentGameState = GameState.Paused;
+            Time.timeScale = 0f;
+        }
+    }
+
     public void SaveGame()
     {
         SaveSystem.SaveData<GameData>(Data, CurrentActiveFileName);
+    }
+
+    public void DeleteGame()
+    {
+        SaveSystem.DeleteData(CurrentActiveFileName);
     }
 
     public void FindSavePoints()

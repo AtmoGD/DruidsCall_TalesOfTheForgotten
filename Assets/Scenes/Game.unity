@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff3915f6ca60984383f3091b89fffa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CurrentGameState>k__BackingField: 1
   <Player>k__BackingField: {fileID: 1849849282}
   <Niamh>k__BackingField: {fileID: 6658064991134867532}
   <Finn>k__BackingField: {fileID: 262902643}
@@ -6342,10 +6343,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 300892216}
-    - target: {fileID: 2748275544720279190, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3918214417039401308, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6434,14 +6431,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1211594900}
-    - target: {fileID: 5292098329764967821, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5292098329764967821, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 614436211
-      objectReference: {fileID: 0}
     - target: {fileID: 8417423461049824814, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: HealthComponent
       value: 

@@ -214,9 +214,18 @@ public class Niamh : StateMachine
 
     protected override void Update()
     {
+        if (!IsActive) return;
+
         base.Update();
 
         StateText.text = CurrentState.GetType().Name;
+    }
+
+    protected override void FixedUpdate()
+    {
+        if (!IsActive) return;
+
+        base.FixedUpdate();
     }
 
     public override void ChangeState(State _newState)

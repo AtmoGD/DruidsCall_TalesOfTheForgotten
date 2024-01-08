@@ -21,4 +21,9 @@ public class Player : MonoBehaviour
         Niamh.CurrentInput = PlayerInputController.NiamhInput;
         PlayerInput.SwitchCurrentActionMap("Niamh");
     }
+
+    public void Pause()
+    {
+        Game.Manager.PauseGame();
+    }
 }

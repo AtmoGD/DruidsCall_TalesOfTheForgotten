@@ -6,6 +6,15 @@
             "id": "c692e117-3493-4096-a7a7-363570d32a71",
             "actions": [
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "a29a3333-becb-402d-a2f6-e625a9d2d688",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Move",
                     "type": "Value",
                     "id": "b3f2fcf0-5cc1-4ba7-893d-51e838706205",
@@ -234,6 +243,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Glide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c0dc2cd9-32ec-42c7-beec-d3c55a239509",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "203ccbd4-a06f-46e1-8892-cbce46f31e17",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

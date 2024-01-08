@@ -50,6 +50,7 @@ MonoBehaviour:
   <PlayerInputController>k__BackingField: {fileID: 3192359779267453803}
   <Niamh>k__BackingField: {fileID: 0}
   <IsActive>k__BackingField: 1
+  <IsPaused>k__BackingField: 0
 --- !u!114 &3192359779267453803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +232,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c1a90d7c-c109-40d1-a74d-c5dcc496fa63
     m_ActionName: Niamh/Glide[/Keyboard/shift,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3192359779267453803}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a29a3333-becb-402d-a2f6-e625a9d2d688
+    m_ActionName: Niamh/Pause[/Keyboard/p,/XInputControllerWindows1/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Niamh
