@@ -10,8 +10,8 @@ public class EnemyPatroling : EnemyState
     private int indexDir = 1;
     private float waitTimer = 0f;
 
-    private WaypointData CurrentWaypoint => PatrolingEnemy.Waypoints[currentWaypointIndex];
-    private Vector2 TargetPosition => PatrolingEnemy.InitialPosition + CurrentWaypoint.Position;
+    public WaypointData CurrentWaypoint => PatrolingEnemy.Waypoints[currentWaypointIndex];
+    public Vector2 TargetPosition => PatrolingEnemy.InitialPosition + CurrentWaypoint.Position;
 
     public EnemyPatroling(Enemy enemy) : base(enemy)
     {
@@ -37,6 +37,8 @@ public class EnemyPatroling : EnemyState
             Enemy.Animator.SetBool("Moving", true);
         else
             Enemy.Animator.SetBool("Moving", false);
+
+        UpdateWaypointIndex();
     }
 
     public override void PhysicsUpdate()
@@ -47,7 +49,6 @@ public class EnemyPatroling : EnemyState
             return;
 
         MoveTowardsWaypoint();
-        UpdateWaypointIndex();
     }
 
     private void MoveTowardsWaypoint()
@@ -59,22 +60,32 @@ public class EnemyPatroling : EnemyState
 
     private void UpdateWaypointIndex()
     {
-        if (Vector2.Distance(Enemy.transform.position, TargetPosition) < 0.1f)
+        if (Vector2.Distance(Enemy.transform.position, TargetPosition) < PatrolingEnemy.TargetThreshold)
         {
             waitTimer = CurrentWaypoint.WaitTime;
-            currentWaypointIndex += indexDir;
 
-            if (currentWaypointIndex >= PatrolingEnemy.Waypoints.Count || currentWaypointIndex < 0)
+            if (PatrolingEnemy.RandomizeWaypoints)
             {
-                if (PatrolingEnemy.PingPongWaypoints)
-                {
-
-                    indexDir *= -1;
-                    currentWaypointIndex += indexDir;
-                }
-                else
-                    currentWaypointIndex = 0;
+                currentWaypointIndex = Random.Range(0, PatrolingEnemy.Waypoints.Count);
             }
+            else
+            {
+                currentWaypointIndex += indexDir;
+
+                if (currentWaypointIndex >= PatrolingEnemy.Waypoints.Count || currentWaypointIndex < 0)
+                {
+                    if (PatrolingEnemy.PingPongWaypoints)
+                    {
+
+                        indexDir *= -1;
+                        currentWaypointIndex += indexDir;
+                    }
+                    else
+                        currentWaypointIndex = 0;
+                }
+            }
+
+            MoveTowardsWaypoint();
         }
     }
 }

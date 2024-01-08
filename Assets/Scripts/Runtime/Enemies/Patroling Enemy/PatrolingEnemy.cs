@@ -6,7 +6,9 @@ public class PatrolingEnemy : Enemy
 {
     [field: SerializeField] public float Speed { get; protected set; } = 5f;
     [field: SerializeField] public List<WaypointData> Waypoints { get; protected set; } = new List<WaypointData>();
+    [field: SerializeField] public bool RandomizeWaypoints { get; protected set; } = false;
     [field: SerializeField] public bool PingPongWaypoints { get; protected set; } = true;
+    [field: SerializeField] public float TargetThreshold { get; protected set; } = 0.1f;
 
     public new PatrolingEnemyGetHit GetHitState { get; protected set; } = null;
     public EnemyPatroling PatrolingState { get; protected set; } = null;
@@ -40,7 +42,22 @@ public class PatrolingEnemy : Enemy
     protected void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
+
+        Vector2 startPos = transform.position;
+#if UNITY_EDITOR
+        if (UnityEditor.EditorApplication.isPlaying)
+            startPos = InitialPosition;
+#endif
+
         foreach (var waypoint in Waypoints)
-            Gizmos.DrawWireSphere((Vector2)transform.position + waypoint.Position, 0.3f);
+            Gizmos.DrawWireSphere(startPos + waypoint.Position, 0.3f);
+
+#if UNITY_EDITOR
+        if (UnityEditor.EditorApplication.isPlaying)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(PatrolingState.TargetPosition, 0.3f);
+        }
+#endif
     }
 }

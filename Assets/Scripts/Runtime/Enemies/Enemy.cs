@@ -45,8 +45,6 @@ public class Enemy : StateMachine
 
     public virtual void OnGetHit(Damage damage)
     {
-        Debug.Log("Enemy OnGetHit");
-
         GetHitState.Damage = damage;
         ChangeState(GetHitState);
     }

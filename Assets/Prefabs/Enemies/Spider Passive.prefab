@@ -77,6 +77,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2907194970853465546}
     - target: {fileID: 3017155666947131938, guid: 42d3a3bd76e3d64439d490ab96907751, type: 3}
+      propertyPath: <TargetThreshold>k__BackingField
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017155666947131938, guid: 42d3a3bd76e3d64439d490ab96907751, type: 3}
       propertyPath: <Waypoints>k__BackingField.Array.data[0].WaitTime
       value: 1
       objectReference: {fileID: 0}
