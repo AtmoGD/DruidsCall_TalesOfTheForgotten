@@ -8,6 +8,7 @@ public class NiamhGliding : NiamhMoving
 {
     private bool fallThroughPlatform;
     private LayerMask enterLayerMask;
+    public Vector2 airFlowDirection;
     public NiamhGliding(Niamh _niamh) : base(_niamh) { }
 
     public override void Enter()
@@ -28,7 +29,25 @@ public class NiamhGliding : NiamhMoving
     {
         base.FrameUpdate();
 
-        MoveDown();
+        Move();
+    }
+
+    private void UpdateAirFlow()
+    {
+        bool airFlowFound = false;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(niamh.transform.position, 0.5f, niamh.AirflowLayer);
+        foreach (var collider in colliders)
+        {
+            if (collider.TryGetComponent(out AirFlow airFlow))
+            {
+                airFlowDirection = airFlow.Direction;
+                airFlowFound = true;
+                Debug.Log("Air flow found");
+                break;
+            }
+        }
+        if (!airFlowFound)
+            airFlowDirection = Vector2.zero;
     }
 
     public override void PhysicsUpdate()
@@ -93,10 +112,24 @@ public class NiamhGliding : NiamhMoving
         niamh.CooldownComponent.AddCooldown(new Cooldown(niamh.GlideName, niamh.GlideCooldown));
     }
 
-    private void MoveDown()
+    private void Move()
     {
-        float glideSpeed = niamh.FallCurve.Evaluate(timeInState);
-        glideSpeed = Mathf.Lerp(niamh.Rigidbody.velocity.y, niamh.GlideSpeed, niamh.FallLerpSpeed * Time.deltaTime);
-        niamh.Rigidbody.velocity = new Vector2(niamh.Rigidbody.velocity.x, glideSpeed);
+        if (airFlowDirection == Vector2.zero)
+        {
+            float glideSpeed = Mathf.Lerp(niamh.Rigidbody.velocity.y, niamh.GlideSpeed, niamh.FallLerpSpeed * Time.deltaTime);
+            niamh.Rigidbody.velocity = new Vector2(niamh.Rigidbody.velocity.x, glideSpeed);
+        }
+        else
+        {
+            Vector2 dir = niamh.Rigidbody.velocity;
+
+            if (airFlowDirection.x != 0f)
+                dir.x = airFlowDirection.x;
+
+            if (airFlowDirection.y != 0f)
+                dir.y = airFlowDirection.y;
+
+            niamh.Rigidbody.velocity = dir;
+        }
     }
 }

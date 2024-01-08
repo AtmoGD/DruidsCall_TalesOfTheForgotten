@@ -82,6 +82,7 @@ public class Niamh : StateMachine
     public bool CanGlide => GlideActive && !CooldownComponent.HasCooldown(GlideName);
     [field: SerializeField] public float GlideSpeed { get; private set; } = 1f;
     [field: SerializeField] public float GlideCooldown { get; private set; } = 0.2f;
+    [field: SerializeField] public LayerMask AirflowLayer { get; private set; } = 0;
 
     [field: Header("Fall Through Platform")]
     [field: SerializeField] public bool FallThroughPlatformActive { get; private set; } = true;
@@ -160,7 +161,7 @@ public class Niamh : StateMachine
     public NiamhState Jumping { get; private set; }
     public NiamhWallJump WallJump { get; private set; }
     public NiamhState Falling { get; private set; }
-    public NiamhState Gliding { get; private set; }
+    public NiamhGliding Gliding { get; private set; }
     public NiamhGetHit GetHit { get; private set; }
     public NiamhState Dying { get; private set; }
     public NiamhChargingAttack ChargingAttack { get; private set; }
