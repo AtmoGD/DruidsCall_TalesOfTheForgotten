@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GlowingParticle
+  m_Name: GlowingParticleOrange
   m_Shader: {fileID: -6465566751694194690, guid: 5164464fc4ff7a6428c9e15adaa575aa, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,7 +45,7 @@ Material:
     - _QueueOffset: 0
     - _UseColor: 1
     m_Colors:
-    - _Color: {r: 1.705496, g: 16.94838, b: 5.8178506, a: 1}
+    - _Color: {r: 16, g: 2.7368937, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6475247477507170669
 MonoBehaviour:

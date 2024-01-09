@@ -6658,6 +6658,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1211594900}
+    - target: {fileID: 7057380219184011512, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8417423461049824814, guid: 75aceca42bfc1e14f80145a33cc7ff49, type: 3}
       propertyPath: HealthComponent
       value: 

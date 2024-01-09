@@ -491,7 +491,7 @@ Transform:
   m_GameObject: {fileID: 3930006182467453215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -580,7 +580,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1
       minScalar: 0.01
       maxCurve:
         serializedVersion: 2
@@ -5241,8 +5241,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a9a8d85a300f47469fcbb4ba8ff81cf, type: 2}
-  - {fileID: 2100000, guid: 7a9a8d85a300f47469fcbb4ba8ff81cf, type: 2}
+  - {fileID: 2100000, guid: fe8d3d4ebc6548f4fa7da8afcfd52737, type: 2}
+  - {fileID: 2100000, guid: fe8d3d4ebc6548f4fa7da8afcfd52737, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5492,7 +5492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 515044963310434990, guid: ee556ccdeca600e4984dbb1c4120eb35, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.33
+      value: -0.501
       objectReference: {fileID: 0}
     - target: {fileID: 515044963310434990, guid: ee556ccdeca600e4984dbb1c4120eb35, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5530,6 +5530,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireFlys
       objectReference: {fileID: 0}
+    - target: {fileID: 6061379926674994506, guid: ee556ccdeca600e4984dbb1c4120eb35, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe8d3d4ebc6548f4fa7da8afcfd52737, type: 2}
+    - target: {fileID: 6061379926674994506, guid: ee556ccdeca600e4984dbb1c4120eb35, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe8d3d4ebc6548f4fa7da8afcfd52737, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5554,7 +5562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 515044963310434990, guid: 68de41f6bda8c2c4186a946f67a3bf81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 515044963310434990, guid: 68de41f6bda8c2c4186a946f67a3bf81, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5592,6 +5600,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigFireFlys
       objectReference: {fileID: 0}
+    - target: {fileID: 6061379926674994506, guid: 68de41f6bda8c2c4186a946f67a3bf81, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe8d3d4ebc6548f4fa7da8afcfd52737, type: 2}
+    - target: {fileID: 6061379926674994506, guid: 68de41f6bda8c2c4186a946f67a3bf81, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe8d3d4ebc6548f4fa7da8afcfd52737, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
