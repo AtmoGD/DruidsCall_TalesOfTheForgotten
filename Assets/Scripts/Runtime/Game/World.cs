@@ -14,6 +14,8 @@ public class World : MonoBehaviour
             ActivateLevel(CurrentLevelActive);
     }
 
+    public void ReloadActiveLevel() => ActivateLevel(CurrentLevelActive);
+
     public void ActivateLevel(Level _level)
     {
         foreach (Level level in Levels)

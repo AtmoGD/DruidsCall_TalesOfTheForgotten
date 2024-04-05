@@ -12,7 +12,7 @@ public enum GameState
 public class Game : MonoBehaviour
 {
     public static Game Manager { get; private set; }
-    public bool SetDontDestroyOnLoad { get; private set; } = true;
+    [field: SerializeField] public bool SetDontDestroyOnLoad { get; private set; } = true;
 
     [field: SerializeField] public GameState CurrentGameState { get; set; } = GameState.Playing;
 
@@ -46,8 +46,11 @@ public class Game : MonoBehaviour
     {
         SavePoints = new List<SavePoint>(GameObject.FindObjectsOfType<SavePoint>());
 
-        LoadGame(CurrentActiveFileName);
+        LoadCurrentGame();
     }
+
+    public void LoadCurrentGame() => LoadGame(CurrentActiveFileName);
+    public void RelaodLevel() => WorldController.ActiveWorld.ReloadActiveLevel();
 
     public void LoadGame(string _fileName)
     {
@@ -106,6 +109,11 @@ public class Game : MonoBehaviour
     public void DeleteGame()
     {
         SaveSystem.DeleteData(CurrentActiveFileName);
+    }
+
+    public void ReloadScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     public void FindSavePoints()
